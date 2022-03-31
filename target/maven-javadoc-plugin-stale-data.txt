@@ -1,0 +1,50 @@
+@options
+@packages
+-classpath
+'/home/ghi/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'/home/ghi/workspace/dev/smsup-sdk/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/ghi/workspace/dev/smsup-sdk/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'io.nagurea:smsup-sdk 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/ghi/workspace/dev/smsup-sdk/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'io.nagurea:smsup-sdk 1.0-SNAPSHOT API'
+io.nagurea.smsupsdk.sendmessages
+/home/ghi/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar = 1646945389045
+/home/ghi/workspace/dev/smsup-sdk/src/main/java = 1646341149485
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/package-search-index.zip = 1646945396193
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/stylesheet.css = 1646945396253
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/allclasses-index.html = 1646945396217
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/member-search-index.zip = 1646945396197
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/allclasses.html = 1646945396237
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/type-search-index.js = 1646945396197
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/script.js = 1646945396253
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/search.js = 1646945396253
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/index.html = 1646945396241
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/help-doc.html = 1646945396245
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/index-all.html = 1646945396205
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/constant-values.html = 1646945396161
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/deprecated-list.html = 1646945396237
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/element-list = 1646945396145
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/member-search-index.js = 1646945396197
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/allpackages-index.html = 1646945396221
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/type-search-index.zip = 1646945396197
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/package-search-index.js = 1646945396189
+/home/ghi/workspace/dev/smsup-sdk/target/apidocs/overview-tree.html = 1646945396181
