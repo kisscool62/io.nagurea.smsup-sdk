@@ -25,12 +25,16 @@ public class UnitMessageService extends GETSMSUpService {
         super(rootUrl);
     }
 
+    /**
+     * Send a simple message for general purpose (called alert)
+     * @param token SMSUp token
+     * @param text to send
+     * @param to is the recipient to send the message to
+     * @return UnitMessageResponse with detailed @UnitMessageResultResponse
+     * @throws IOException when something got wrong during effective query to SMSUp
+     */
     public UnitMessageResponse sendAlert(String token, String text, String to) throws IOException {
         return sendAlert(token, text, to, NoSender.build());
-    }
-
-    public UnitMessageResponse sendMarketing(String token, String text, String to) throws IOException {
-        return sendMarketing(token, text, to, NoSender.build());
     }
 
     public UnitMessageResponse sendAlert(String token, String text, String to, Sender sender) throws IOException {
@@ -38,6 +42,18 @@ public class UnitMessageService extends GETSMSUpService {
                 .sender(sender)
                 .build();
         return send(token, text, to, alertOptionalArgument);
+    }
+
+    /**
+     * Send a message for commercial purpose (called marketing) with STOP function
+     * @param token SMSUp token
+     * @param text to send
+     * @param to is the recipient to send the message to
+     * @return UnitMessageResponse with detailed @UnitMessageResultResponse
+     * @throws IOException when something got wrong during effective query to SMSUp
+     */
+    public UnitMessageResponse sendMarketing(String token, String text, String to) throws IOException {
+        return sendMarketing(token, text, to, NoSender.build());
     }
 
     public UnitMessageResponse sendMarketing(String token, String text, String to, Sender sender) throws IOException {
@@ -67,11 +83,7 @@ public class UnitMessageService extends GETSMSUpService {
         final boolean toNotEmpty = StringUtils.isNotEmpty(to);
         final boolean hasAtLeastOneArgument = optionalArguments.hasAtLeastOneArgument();
         if(textNotEmpty && toNotEmpty && hasAtLeastOneArgument){
-            url +="?";
-            url += (TEXT + "=" + text);
-            url += "&";
-            url += (TO + "=" + to);
-            url += optionalArguments.toUrl();
+            url = String.format("%s?%s=%s&%s=%s%s", URL, TEXT, text, TO, to, optionalArguments.toUrl());
         }
         return url;
     }

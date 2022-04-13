@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.sendmessages;
+package io.nagurea.smsupsdk.sendmessages.arguments;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

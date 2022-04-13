@@ -6,8 +6,8 @@ import lombok.Builder;
 public class CampaignResponse extends APIResponse<CampaignResultResponse> {
 
     @Builder
-    public CampaignResponse(Integer statusCode, String additionalMessage, CampaignResultResponse effectiveResponse) {
-        super(statusCode, additionalMessage, effectiveResponse);
+    public CampaignResponse(String uid, Integer statusCode, String additionalMessage, CampaignResultResponse effectiveResponse) {
+        super(uid, statusCode, additionalMessage, effectiveResponse);
     }
 
 }
