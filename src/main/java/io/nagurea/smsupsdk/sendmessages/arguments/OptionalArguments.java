@@ -21,6 +21,7 @@ public abstract class OptionalArguments {
     @Getter private final Delay delay;
     @Getter private Sender sender = NoSender.build();
     @Getter private final String gsmsmsid;
+    @Getter private int unicode = 0;
 
     public boolean hasAtLeastOneArgument() {
         return delay != null || sender.whoSent().isPresent() || isNotEmpty(gsmsmsid);

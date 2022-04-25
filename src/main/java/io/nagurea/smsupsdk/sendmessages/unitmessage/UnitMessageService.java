@@ -7,9 +7,9 @@ import io.nagurea.smsupsdk.sendmessages.arguments.AlertOptionalArguments;
 import io.nagurea.smsupsdk.sendmessages.arguments.MarketingOptionalArguments;
 import io.nagurea.smsupsdk.sendmessages.arguments.OptionalArguments;
 import io.nagurea.smsupsdk.sendmessages.sender.NoSender;
-import io.nagurea.smsupsdk.sendmessages.sender.Sender;
 import lombok.NonNull;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -18,7 +18,6 @@ import java.util.UUID;
 public class UnitMessageService extends GETSMSUpService {
 
     private static final String URL = "/SEND";
-    private static final String TEXT = "text";
     private static final String TO = "to";
 
     protected UnitMessageService(String rootUrl) {
@@ -34,14 +33,13 @@ public class UnitMessageService extends GETSMSUpService {
      * @throws IOException when something got wrong during effective query to SMSUp
      */
     public UnitMessageResponse sendAlert(String token, String text, String to) throws IOException {
-        return sendAlert(token, text, to, NoSender.build());
+        return sendAlert(token, text, to, AlertOptionalArguments.builder()
+                .sender( NoSender.build())
+                .build());
     }
 
-    public UnitMessageResponse sendAlert(String token, String text, String to, Sender sender) throws IOException {
-        final AlertOptionalArguments alertOptionalArgument = AlertOptionalArguments.builder()
-                .sender(sender)
-                .build();
-        return send(token, text, to, alertOptionalArgument);
+    public UnitMessageResponse sendAlert(String token, String text, String to, AlertOptionalArguments optionalArguments) throws IOException {
+        return send(token, text, to, optionalArguments);
     }
 
     /**
@@ -53,28 +51,30 @@ public class UnitMessageService extends GETSMSUpService {
      * @throws IOException when something got wrong during effective query to SMSUp
      */
     public UnitMessageResponse sendMarketing(String token, String text, String to) throws IOException {
-        return sendMarketing(token, text, to, NoSender.build());
+        return sendMarketing(token, text, to, MarketingOptionalArguments.builder().sender(NoSender.build()).build());
     }
 
-    public UnitMessageResponse sendMarketing(String token, String text, String to, Sender sender) throws IOException {
-        final MarketingOptionalArguments marketingOptionalArguments = MarketingOptionalArguments.builder()
-                .sender(sender)
-                .build();
+    public UnitMessageResponse sendMarketing(String token, String text, String to, MarketingOptionalArguments marketingOptionalArguments) throws IOException {
         return send(token, text, to, marketingOptionalArguments);
     }
 
-    private UnitMessageResponse send(@NonNull final String token, @NonNull final String text, @NonNull final String to, OptionalArguments optionalArguments) throws IOException {
-
-        final String response = get(buildSendUrl(text, to, optionalArguments), token);
-
-        //TODO catch result from query
-        final UnitMessageResultResponse responseObject = new Gson().fromJson(response, UnitMessageResultResponse.class);
-
+    /**
+     *
+     * @param token SMSUp token
+     * @param text to send
+     * @param to is the recipient to send the message to
+     * @param optionalArguments @{@link MarketingOptionalArguments} or @{@link AlertOptionalArguments}
+     * @return UnitMessageResponse with detailed @UnitMessageResultResponse
+     * @throws IOException when something got wrong during effective query to SMSUp
+     */
+    public UnitMessageResponse send(@NonNull final String token, @NonNull final String text, @NonNull final String to, OptionalArguments optionalArguments) throws IOException {
+        final ImmutablePair<Integer, String> response = get(buildSendUrl(text, to, optionalArguments), token);
+        final UnitMessageResultResponse responseObject = new Gson().fromJson(response.getRight(), UnitMessageResultResponse.class);
         return UnitMessageResponse.builder()
                 .uid(UUID.randomUUID().toString())
+                .statusCode(response.getLeft())
                 .effectiveResponse(responseObject)
                 .build();
-
     }
 
     private String buildSendUrl(String text, String to, OptionalArguments optionalArguments) {

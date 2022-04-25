@@ -6,8 +6,8 @@ import lombok.Builder;
 public class AlertOptionalArguments extends OptionalArguments{
 
     @Builder
-    public AlertOptionalArguments(Delay delay, Sender sender, String gsmsmsid) {
-        super(PushType.ALERT, delay, sender, gsmsmsid);
+    public AlertOptionalArguments(Delay delay, Sender sender, String gsmsmsid, int unicode) {
+        super(PushType.ALERT, delay, sender, gsmsmsid, unicode);
     }
 
 }

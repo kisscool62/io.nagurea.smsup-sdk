@@ -1,6 +1,7 @@
 package io.nagurea.smsupsdk.sendmessages.campaign.body;
 
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
+import io.nagurea.smsupsdk.sendmessages.arguments.Delay;
 import io.nagurea.smsupsdk.sendmessages.sender.Sender;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +30,11 @@ class CampaignTest {
                                                 .text("Message Via API")
                                                 .pushtype(ALERT)
                                                 .sender(Sender.build("Illidan"))
-                                                .delay(LocalDateTime.of(2022, 4, 18, 10, 56, 14))
+                                                .delay(
+                                                        Delay.builder()
+                                                                .value(LocalDateTime.of(2022, 4, 18, 10, 56, 14))
+                                                        .build()
+                                                                .getValue())
                                                 .unicode(0)
                                                 .build()
                                 )

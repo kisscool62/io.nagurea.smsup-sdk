@@ -17,10 +17,11 @@ import static lombok.AccessLevel.PROTECTED;
 
 @AllArgsConstructor(access = PROTECTED)
 public abstract class SMSUpService {
+    protected static final String TEXT = "text";
 
     private final String rootUrl;
 
-    abstract protected HTTPMethod getHttpMethod();
+    protected abstract HTTPMethod getHttpMethod();
 
     protected void sendData(HttpURLConnection con, String data) throws IOException {
         DataOutputStream wr = null;

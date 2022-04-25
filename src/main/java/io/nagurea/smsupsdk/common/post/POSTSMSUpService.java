@@ -2,6 +2,7 @@ package io.nagurea.smsupsdk.common.post;
 
 import io.nagurea.smsupsdk.common.SMSUpService;
 import io.nagurea.smsupsdk.common.http.HTTPMethod;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -17,14 +18,14 @@ public class POSTSMSUpService extends SMSUpService {
         return HTTPMethod.POST;
     }
 
-    public String post(String postUrl, String token, String data) throws IOException {
+    public ImmutablePair<Integer, String> post(String postUrl, String token, String data) throws IOException {
         URL url = new URL(getRootUrl() + postUrl);
 
         HttpURLConnection con = getHttpURLConnectionWithBearer(token, url);
 
         this.sendData(con, data);
 
-        return this.read(con.getInputStream());
+        return new ImmutablePair<>(con.getResponseCode(), this.read(con.getInputStream()));
     }
 
 

@@ -21,7 +21,7 @@ class OptionalArgumentsTest {
         //when
         final MarketingOptionalArguments optionalArguments =
                 builder.delay(
-                    Delay.builder().delay(now).build())
+                    Delay.builder().value(now).build())
                 .build();
 
         //then
