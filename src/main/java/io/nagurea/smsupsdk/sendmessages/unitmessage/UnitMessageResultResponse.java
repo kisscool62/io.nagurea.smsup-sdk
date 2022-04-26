@@ -15,7 +15,4 @@ public class UnitMessageResultResponse extends ResultResponse {
         super(responseStatus, message, ticket, cost, credits, total, sent, blacklisted, duplicated, invalid, npai);
     }
 
-    public static UnitMessageResultResponseBuilder builder(){
-        return new UnitMessageResultResponseBuilder();
-    }
 }

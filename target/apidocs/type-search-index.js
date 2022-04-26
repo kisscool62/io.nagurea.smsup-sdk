@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"io.nagurea.smsupsdk.sendmessages","l":"PushType"},{"p":"io.nagurea.smsupsdk.sendmessages","l":"UnitMessageService"}]
