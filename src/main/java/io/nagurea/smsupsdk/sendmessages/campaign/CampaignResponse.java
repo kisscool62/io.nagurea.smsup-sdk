@@ -2,7 +2,9 @@ package io.nagurea.smsupsdk.sendmessages.campaign;
 
 import io.nagurea.smsupsdk.common.response.APIResponse;
 import lombok.Builder;
+import lombok.ToString;
 
+@ToString
 public class CampaignResponse extends APIResponse<CampaignResultResponse> {
 
     @Builder

@@ -2,11 +2,9 @@ package io.nagurea.smsupsdk.common;
 
 import io.nagurea.smsupsdk.common.http.HTTPMethod;
 import lombok.AllArgsConstructor;
-import org.xml.sax.HandlerBase;
 
 import java.io.BufferedReader;
 import java.io.Closeable;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -22,26 +20,6 @@ public abstract class SMSUpService {
     private final String rootUrl;
 
     protected abstract HTTPMethod getHttpMethod();
-
-    protected void sendData(HttpURLConnection con, String data) throws IOException {
-        DataOutputStream wr = null;
-        try {
-            wr = new DataOutputStream(con.getOutputStream());
-            if(data != null){
-                wr.writeBytes(data);
-            }
-            wr.flush();
-            wr.close();
-        } catch(IOException exception) {
-            throw exception;
-        } finally {
-            this.closeQuietly(wr);
-        }
-    }
-
-    protected void sendData(HttpURLConnection con) throws IOException {
-        sendData(con, null);
-    }
 
     protected String read(InputStream is) throws IOException {
         BufferedReader in = null;
@@ -70,7 +48,7 @@ public abstract class SMSUpService {
             if( closeable != null ) {
                 closeable.close();
             }
-        } catch(IOException ex) {
+        } catch(IOException ignored) {
 
         }
     }
@@ -84,7 +62,6 @@ public abstract class SMSUpService {
         con.setRequestMethod(getHttpMethod().toString());
         con.setRequestProperty("Accept", "application/json");
         con.setRequestProperty("Authorization","Bearer " + token);
-        con.setDoOutput(true);
         return con;
     }
 }

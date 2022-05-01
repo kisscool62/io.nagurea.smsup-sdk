@@ -69,7 +69,8 @@ public class UnitMessageService extends GETSMSUpService {
      */
     public UnitMessageResponse send(@NonNull final String token, @NonNull final String text, @NonNull final String to, OptionalArguments optionalArguments) throws IOException {
         final ImmutablePair<Integer, String> response = get(buildSendUrl(text, to, optionalArguments), token);
-        final UnitMessageResultResponse responseObject = new Gson().fromJson(response.getRight(), UnitMessageResultResponse.class);
+        final String body = response.getRight();
+        final UnitMessageResultResponse responseObject = new Gson().fromJson(body, UnitMessageResultResponse.class);
         return UnitMessageResponse.builder()
                 .uid(UUID.randomUUID().toString())
                 .statusCode(response.getLeft())

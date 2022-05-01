@@ -18,12 +18,10 @@ public class GETSMSUpService extends SMSUpService {
         return HTTPMethod.GET;
     }
 
-    public ImmutablePair<Integer, String> get(String getUrl, String token) throws IOException {
+    protected ImmutablePair<Integer, String> get(String getUrl, String token) throws IOException {
         URL url = new URL(getRootUrl() + getUrl);
 
         HttpURLConnection con = getHttpURLConnectionWithBearer(token, url);
-
-        this.sendData(con);
 
         return new ImmutablePair<>(con.getResponseCode(), this.read(con.getInputStream()));
     }

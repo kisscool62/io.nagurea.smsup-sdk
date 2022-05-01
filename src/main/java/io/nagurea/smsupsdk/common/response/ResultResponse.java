@@ -2,8 +2,10 @@ package io.nagurea.smsupsdk.common.response;
 
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @AllArgsConstructor
+@Data
 public abstract class ResultResponse {
 
     private final ResponseStatus responseStatus;

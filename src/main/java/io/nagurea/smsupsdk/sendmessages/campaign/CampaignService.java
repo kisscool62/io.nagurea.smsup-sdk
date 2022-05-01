@@ -20,7 +20,7 @@ import java.util.UUID;
 public class CampaignService extends POSTSMSUpService {
     private static final String URL = "/SEND";
 
-    protected CampaignService(String rootUrl) {
+    public CampaignService(String rootUrl) {
         super(rootUrl);
     }
 

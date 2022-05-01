@@ -1,8 +1,10 @@
 package io.nagurea.smsupsdk.common.status;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @AllArgsConstructor
+@Getter
 public enum ResponseStatus {
 
     OK(1, "OK"),
