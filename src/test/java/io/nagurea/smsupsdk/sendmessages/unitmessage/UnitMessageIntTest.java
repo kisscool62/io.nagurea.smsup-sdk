@@ -3,21 +3,31 @@ package io.nagurea.smsupsdk.sendmessages.unitmessage;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockserver.integration.ClientAndServer;
 import org.mockserver.model.HttpResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockserver.model.HttpRequest.request;
 
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = SpringConfiguration.class)
 class UnitMessageIntTest {
 
-    private static ClientAndServer mockServer;
+    /**
+     * Useless. Only here to see how services could be used with Spring
+     */
+    @Autowired
+    private UnitMessageService unitMessageService;
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        final ClientAndServer mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
         mockServer.when(
                 request()
                         .withPath("/SEND")
@@ -62,7 +72,7 @@ class UnitMessageIntTest {
          final int expectedStatusCode = 200;
 
          //when
-         final UnitMessageResponse result = new UnitMessageService("http://localhost:4242").sendMarketing("token", "This is a text", "075655655");
+         final UnitMessageResponse result = unitMessageService.sendMarketing("token", "This is a text", "075655655");
          final Integer effectiveStatusCode = result.getStatusCode();
          final UnitMessageResultResponse effectiveResponse = result.getEffectiveResponse();
 
