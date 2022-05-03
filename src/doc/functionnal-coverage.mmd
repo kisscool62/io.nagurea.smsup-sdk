@@ -1,61 +1,61 @@
 flowchart LR
-    sendsms(Send SMS) --- sendsms1(Single message):::done
-    sendsms(Send SMS) --- sendsms2(Campaign):::done
-    sendsms(Send SMS) --- sendsms3(Campaign with list):::todo
-    sendsms(Send SMS) --- sendsms4(Simulate a single message):::todo
-    sendsms(Send SMS) --- sendsms5(Simulate a campaign):::todo
-    sendsms(Send SMS) --- sendsms6(Cancel a campaign):::todo
-    sendsms(Send SMS) --- sendsms7(Short URL):::todo
-    campaigns(Campaigns) --- campaigns1(Get campaigns history):::todo
-    campaigns(Campaigns) --- campaigns2(Get campaign):::todo
-    campaigns(Campaigns) --- campaigns3(Blacklist the NPAI of a campaign):::todo
-    campaigns(Campaigns) --- campaigns4(Get the STOPs of a campaign):::todo
-    campaigns(Campaigns) --- campaigns5(Get the NPAIs of a campaign):::todo
-    campaigns(Campaigns) --- campaigns6(Get the replies of a campaign):::todo
-    lists(Lists) --- lists1(Create list):::todo
-    lists(Lists) --- lists2(Clear list):::todo
-    lists(Lists) --- lists3(Get lists):::todo
-    lists(Lists) --- lists4(Get list):::todo
-    lists(Lists) --- lists5(Delete list):::todo
-    lists(Lists) --- lists6(Blacklist):::todo
-    lists(Lists) --- lists7(NPAI):::todo
-    cont(Contacts) --- cont1(Insert into a list):::todo
-    cont(Contacts) --- cont2(Deduplicate list):::todo
-    cont(Contacts) --- cont3(Remove a contact):::todo
-    cont(Contacts) --- cont4(Update a contact):::todo
-    cont(Contacts) --- cont5(Insert into the blacklist):::todo
-    cont(Contacts) --- cont6(Insert into the NPAI list):::todo
-    accmgmt(Account Managing) --- accmgmt1(Credits):::todo
-    accmgmt(Account Managing) --- accmgmt2(Create an account):::todo
-    accmgmt(Account Managing) --- accmgmt3(Retrieve account):::todo
-    accmgmt(Account Managing) --- accmgmt4(Retrieve sub-accounts):::todo
-    accmgmt(Account Managing) --- accmgmt5(Retrieve a sub-account):::todo
-    accmgmt(Account Managing) --- accmgmt6(Lock sub-account):::todo
-    accmgmt(Account Managing) --- accmgmt7(Unlock sub-account):::todo
-    accmgmt(Account Managing) --- accmgmt8(Transfer credits):::todo
-    accmgmt(Account Managing) --- accmgmt9(Data retention):::todo
-    accmgmt9(Data retention) --- dataretentionget(Get):::todo
-    accmgmt9(Data retention) --- dataretentionupdate(Update):::todo
-    notif(Notifications) --- notif1(Balance):::todo
-    notif1(Balance) --- notifget(Get):::todo
-    notif1(Balance) --- notifupdate(Update):::todo
-    invoices(Invoices) --- invoices1(Get invoices):::todo
-    invoices(Invoices) --- invoices2(Get invoice):::todo
-    invoices(Invoices) --- invoices3(Download invoice):::todo
-    apitoken(API Token) --- apitoken1(Create a token):::todo
-    apitoken(API Token) --- apitoken2(Retrieve tokens):::todo
-    apitoken(API Token) --- apitoken3(Delete a token):::todo
+    sendsms(Send SMS):::todo --- sendsms1(Single message):::done
+    sendsms(Send SMS):::todo --- sendsms2(Campaign):::done
+    sendsms(Send SMS):::todo --- sendsms3(Campaign with list):::todo
+    sendsms(Send SMS):::todo --- sendsms4(Simulate a single message):::todo
+    sendsms(Send SMS):::todo --- sendsms5(Simulate a campaign):::todo
+    sendsms(Send SMS):::todo --- sendsms6(Cancel a campaign):::todo
+    sendsms(Send SMS):::todo --- sendsms7(Short URL):::todo
+    campaigns(Campaigns):::todo --- campaigns1(Get campaigns history):::todo
+    campaigns(Campaigns):::todo --- campaigns2(Get campaign):::todo
+    campaigns(Campaigns):::todo --- campaigns3(Blacklist the NPAI of a campaign):::todo
+    campaigns(Campaigns):::todo --- campaigns4(Get the STOPs of a campaign):::todo
+    campaigns(Campaigns):::todo --- campaigns5(Get the NPAIs of a campaign):::todo
+    campaigns(Campaigns):::todo --- campaigns6(Get the replies of a campaign):::todo
+    lists(Lists):::todo --- lists1(Create list):::todo
+    lists(Lists):::todo --- lists2(Clear list):::todo
+    lists(Lists):::todo --- lists3(Get lists):::todo
+    lists(Lists):::todo --- lists4(Get list):::todo
+    lists(Lists):::todo --- lists5(Delete list):::todo
+    lists(Lists):::todo --- lists6(Blacklist):::todo
+    lists(Lists):::todo --- lists7(NPAI):::todo
+    cont(Contacts):::todo --- cont1(Insert into a list):::todo
+    cont(Contacts):::todo --- cont2(Deduplicate list):::todo
+    cont(Contacts):::todo --- cont3(Remove a contact):::todo
+    cont(Contacts):::todo --- cont4(Update a contact):::todo
+    cont(Contacts):::todo --- cont5(Insert into the blacklist):::todo
+    cont(Contacts):::todo --- cont6(Insert into the NPAI list):::todo
+    accmgmt(Account Managing):::todo --- accmgmt1(Credits):::todo
+    accmgmt(Account Managing):::todo --- accmgmt2(Create an account):::todo
+    accmgmt(Account Managing):::todo --- accmgmt3(Retrieve account):::todo
+    accmgmt(Account Managing):::todo --- accmgmt4(Retrieve sub-accounts):::todo
+    accmgmt(Account Managing):::todo --- accmgmt5(Retrieve a sub-account):::todo
+    accmgmt(Account Managing):::todo --- accmgmt6(Lock sub-account):::todo
+    accmgmt(Account Managing):::todo --- accmgmt7(Unlock sub-account):::todo
+    accmgmt(Account Managing):::todo --- accmgmt8(Transfer credits):::todo
+    accmgmt(Account Managing):::todo --- accmgmt9(Data retention):::todo
+    accmgmt9(Data retention):::todo --- dataretentionget(Get):::todo
+    accmgmt9(Data retention):::todo --- dataretentionupdate(Update):::todo
+    notif(Notifications):::todo --- notif1(Balance):::todo
+    notif1(Balance):::todo --- notifget(Get):::todo
+    notif1(Balance):::todo --- notifupdate(Update):::todo
+    invoices(Invoices):::todo --- invoices1(Get invoices):::todo
+    invoices(Invoices):::todo --- invoices2(Get invoice):::todo
+    invoices(Invoices):::todo --- invoices3(Download invoice):::todo
+    apitoken(API Token):::todo --- apitoken1(Create a token):::todo
+    apitoken(API Token):::todo --- apitoken2(Retrieve tokens):::todo
+    apitoken(API Token):::todo --- apitoken3(Delete a token):::todo
     hlrlookup(HLR Lookup):::todo
     webhooks(Webhooks):::todo
-    webhooks(Webhooks) --- webhooks1(List of webhooks):::todo
-    webhooks1(List of webhooks) --- listofwebhooks1(Delivery reports):::todo
-    webhooks1(List of webhooks) --- listofwebhooks2(Replies):::todo
-    webhooks1(List of webhooks) --- listofwebhooks3(Stops):::todo
-    webhooks1(List of webhooks) --- listofwebhooks4(Clickers):::todo
-    webhooks1(List of webhooks) --- listofwebhooks5(Balance Alert):::todo
-    webhooks(Webhooks) --- webhooks2(Create a webhook):::todo
-    webhooks(Webhooks) --- webhooks3(Retrieve webhooks):::todo
-    webhooks(Webhooks) --- webhooks4(Update a webhook):::todo
-    webhooks(Webhooks) --- webhooks5(Delete a webhook):::todo
+    webhooks(Webhooks):::todo --- webhooks1(List of webhooks):::todo
+    webhooks1(List of webhooks):::todo --- listofwebhooks1(Delivery reports):::todo
+    webhooks1(List of webhooks):::todo --- listofwebhooks2(Replies):::todo
+    webhooks1(List of webhooks):::todo --- listofwebhooks3(Stops):::todo
+    webhooks1(List of webhooks):::todo --- listofwebhooks4(Clickers):::todo
+    webhooks1(List of webhooks):::todo --- listofwebhooks5(Balance Alert):::todo
+    webhooks(Webhooks):::todo --- webhooks2(Create a webhook):::todo
+    webhooks(Webhooks):::todo --- webhooks3(Retrieve webhooks):::todo
+    webhooks(Webhooks):::todo --- webhooks4(Update a webhook):::todo
+    webhooks(Webhooks):::todo --- webhooks5(Delete a webhook):::todo
     classDef done fill:#80CBC4,stroke-opacity:0;
     classDef todo fill:#E3F2FD,stroke-opacity:0;
