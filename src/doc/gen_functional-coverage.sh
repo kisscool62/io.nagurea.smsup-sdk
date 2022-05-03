@@ -1,2 +1,2 @@
 #!/bin/bash
-mmdc -i functionnal-coverage.mmd -o functionnal-coverage.svg
+mmdc -i functional-coverage.mmd -o functional-coverage.svg

@@ -11,4 +11,4 @@ The choice has been made to use the mermaid CLI (https://github.com/mermaid-js/m
 For instance, to generate the functional coverage : `mmdc -i functionnal-coverage.mmd -o functionnal-coverage.svg`
 
 ## SDK Coverage over SMSUp functionalities
-![diagram](src/doc/functionnal-coverage.svg)
+![diagram](src/doc/functional-coverage.svg)
