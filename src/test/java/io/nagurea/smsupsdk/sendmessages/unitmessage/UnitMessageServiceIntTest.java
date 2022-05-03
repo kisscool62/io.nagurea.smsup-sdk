@@ -17,7 +17,7 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class UnitMessageIntTest {
+class UnitMessageServiceIntTest {
 
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -55,7 +55,7 @@ class UnitMessageIntTest {
     }
 
      @Test
-     void okdout() throws IOException {
+     void sendMarketing() throws IOException {
          //given
          final UnitMessageResultResponse expectedResponse = UnitMessageResultResponse.builder()
                  .message(ResponseStatus.OK.getDescription())

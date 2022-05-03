@@ -96,7 +96,7 @@ public class CampaignService extends POSTSMSUpService {
                                 .message(
                                         Message.builder()
                                                 .unicode(optionalArguments.getUnicode())
-                                                .delay(optionalArguments.getDelay().getValue())
+                                                .delay(optionalArguments.getDelay())
                                                 .text(text)
                                                 .pushtype(optionalArguments.getPushType())
                                                 .sender(optionalArguments.getSender())

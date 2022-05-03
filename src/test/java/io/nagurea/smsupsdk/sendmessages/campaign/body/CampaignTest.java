@@ -33,8 +33,7 @@ class CampaignTest {
                                                 .delay(
                                                         Delay.builder()
                                                                 .value(LocalDateTime.of(2022, 4, 18, 10, 56, 14))
-                                                        .build()
-                                                                .getValue())
+                                                        .build())
                                                 .unicode(0)
                                                 .build()
                                 )

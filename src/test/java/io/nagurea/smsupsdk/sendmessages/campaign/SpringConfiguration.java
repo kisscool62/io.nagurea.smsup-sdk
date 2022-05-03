@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.sendmessages.unitmessage;
+package io.nagurea.smsupsdk.sendmessages.campaign;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,8 +12,8 @@ public class SpringConfiguration {
     private static final String ROOT_URL = "http://localhost:4242";
 
     @Bean
-    UnitMessageService unitMessageService(){
-        return new UnitMessageService(ROOT_URL);
+    CampaignService campaignService(){
+        return new CampaignService(ROOT_URL);
     }
 
 }
