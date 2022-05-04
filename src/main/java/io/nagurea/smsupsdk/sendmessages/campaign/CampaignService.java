@@ -18,11 +18,12 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class CampaignService extends POSTSMSUpService {
-    private static final String URL = "/SEND";
+    private static final String URL = "/send";
 
     public CampaignService(String rootUrl) {
         super(rootUrl);
     }
+
 
     /**
      * Send a campaign message for general purpose (called alert)
@@ -71,8 +72,9 @@ public class CampaignService extends POSTSMSUpService {
      * @throws IOException when something got wrong during effective query to SMSUp
      */
     public CampaignResponse sendMarketing(String token, String text, Recipients recipients, @NonNull MarketingOptionalArguments marketingOptionalArguments) throws IOException {
-        return send(token, text, recipients, marketingOptionalArguments);
+        return send( token, text, recipients, marketingOptionalArguments);
     }
+
 
     /**
      *
@@ -92,6 +94,7 @@ public class CampaignService extends POSTSMSUpService {
                 .effectiveResponse(responseObject)
                 .build();
     }
+
 
     private String buildData(String text, Recipients recipients, @NonNull OptionalArguments optionalArguments) {
         return GsonHelper.toJson(Campaign.builder()
