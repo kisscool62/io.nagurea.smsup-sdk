@@ -11,7 +11,7 @@ import io.nagurea.smsupsdk.sendmessages.campaign.body.Message;
 import io.nagurea.smsupsdk.sendmessages.campaign.body.Recipients;
 import io.nagurea.smsupsdk.sendmessages.campaign.body.SMS;
 import io.nagurea.smsupsdk.sendmessages.sender.NoSender;
-import io.nagurea.smsupsdk.sendmessages.sender.Sender;
+import lombok.NonNull;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.io.IOException;
@@ -33,25 +33,20 @@ public class CampaignService extends POSTSMSUpService {
      * @throws IOException when something got wrong during effective query to SMSUp
      */
     public CampaignResponse sendAlert(String token, String text, Recipients recipients) throws IOException {
-        return sendAlert(token, text, recipients, NoSender.build());
+        return send(token, text, recipients, AlertOptionalArguments.builder().sender(NoSender.build()).build());
     }
 
-    public CampaignResponse sendAlert(String token, String text, Recipients recipients, Sender sender) throws IOException {
-        final AlertOptionalArguments alertOptionalArgument = AlertOptionalArguments.builder()
-                .sender(sender)
-                .build();
-        return send(token, text, recipients, alertOptionalArgument);
-    }
-
-    /**
-     * Send a message for commercial purpose (called marketing) with STOP function
+     /**
+     * Send a campaign message for general purpose (called alert)
      * @param token SMSUp token
      * @param text to send
+     * @param recipients is actually the set of couples (gsmId, phone number) represented by @{@link Recipients}
+     * @param alertOptionalArgument is argument wrapper object
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public CampaignResponse sendMarketing(String token, String text, Recipients recipients) throws IOException {
-        return sendMarketing(token, text, recipients, NoSender.build());
+    public CampaignResponse sendAlert(String token, String text, Recipients recipients, @NonNull AlertOptionalArguments alertOptionalArgument) throws IOException {
+        return send(token, text, recipients, alertOptionalArgument);
     }
 
     /**
@@ -59,14 +54,23 @@ public class CampaignService extends POSTSMSUpService {
      * @param token SMSUp token
      * @param text to send
      * @param recipients to send the text to
-     * @param sender who do you want the sms appears to be sent by
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
-     * @throws IOException
+     * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public CampaignResponse sendMarketing(String token, String text, Recipients recipients, Sender sender) throws IOException {
-        final MarketingOptionalArguments marketingOptionalArguments = MarketingOptionalArguments.builder()
-                .sender(sender)
-                .build();
+    public CampaignResponse sendMarketing(String token, String text, Recipients recipients) throws IOException {
+        return send(token, text, recipients, MarketingOptionalArguments.builder().sender(NoSender.build()).build());
+    }
+
+    /**
+     *
+     * @param token SMSUp token
+     * @param text to send
+     * @param recipients to send the text to
+     * @param marketingOptionalArguments who do you want the sms appears to be sent by
+     * @return CampaignResponse with detailed @{@link CampaignResultResponse}
+     * @throws IOException when something got wrong during effective query to SMSUp
+     */
+    public CampaignResponse sendMarketing(String token, String text, Recipients recipients, @NonNull MarketingOptionalArguments marketingOptionalArguments) throws IOException {
         return send(token, text, recipients, marketingOptionalArguments);
     }
 
@@ -79,7 +83,7 @@ public class CampaignService extends POSTSMSUpService {
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException
      */
-    public CampaignResponse send(String token, String text, Recipients recipients, OptionalArguments optionalArguments) throws IOException {
+    private CampaignResponse send(String token, String text, Recipients recipients, @NonNull OptionalArguments optionalArguments) throws IOException {
         final ImmutablePair<Integer, String> response = post(URL, token, buildData(text, recipients, optionalArguments));
         final CampaignResultResponse responseObject = new Gson().fromJson(response.getRight(), CampaignResultResponse.class);
         return CampaignResponse.builder()
@@ -89,7 +93,7 @@ public class CampaignService extends POSTSMSUpService {
                 .build();
     }
 
-    private String buildData(String text, Recipients recipients, OptionalArguments optionalArguments) {
+    private String buildData(String text, Recipients recipients, @NonNull OptionalArguments optionalArguments) {
         return GsonHelper.toJson(Campaign.builder()
                 .sms(
                         SMS.builder()
