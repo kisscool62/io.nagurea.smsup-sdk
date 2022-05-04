@@ -1,13 +1,13 @@
-package io.nagurea.smsupsdk.sendmessages.unitmessage;
+package io.nagurea.smsupsdk.sendmessages.singlemessage;
 
 import io.nagurea.smsupsdk.common.response.ResultResponse;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import lombok.Builder;
 
-public class UnitMessageResultResponse extends ResultResponse {
+public class SingleMessageResultResponse extends ResultResponse {
 
     @Builder
-    public UnitMessageResultResponse(
+    public SingleMessageResultResponse(
             ResponseStatus responseStatus,
             String message, String ticket,
             Integer cost, Integer credits, Integer total,

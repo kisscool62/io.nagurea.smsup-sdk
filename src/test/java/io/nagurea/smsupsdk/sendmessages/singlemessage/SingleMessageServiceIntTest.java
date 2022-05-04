@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.sendmessages.unitmessage;
+package io.nagurea.smsupsdk.sendmessages.singlemessage;
 
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import org.junit.jupiter.api.BeforeAll;
@@ -17,13 +17,13 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class UnitMessageServiceIntTest {
+class SingleMessageServiceIntTest {
 
     /**
      * Useless. Only here to see how services could be used with Spring
      */
     @Autowired
-    private UnitMessageService unitMessageService;
+    private SingleMessageService singleMessageService;
 
     @BeforeAll
     public static void startMockSMSUpServer(){
@@ -57,7 +57,7 @@ class UnitMessageServiceIntTest {
      @Test
      void sendMarketing() throws IOException {
          //given
-         final UnitMessageResultResponse expectedResponse = UnitMessageResultResponse.builder()
+         final SingleMessageResultResponse expectedResponse = SingleMessageResultResponse.builder()
                  .message(ResponseStatus.OK.getDescription())
                  .ticket("14672468")
                  .cost(1)
@@ -72,9 +72,9 @@ class UnitMessageServiceIntTest {
          final int expectedStatusCode = 200;
 
          //when
-         final UnitMessageResponse result = unitMessageService.sendMarketing("token", "This is a text", "075655655");
+         final SingleMessageResponse result = singleMessageService.sendMarketing("token", "This is a text", "075655655");
          final Integer effectiveStatusCode = result.getStatusCode();
-         final UnitMessageResultResponse effectiveResponse = result.getEffectiveResponse();
+         final SingleMessageResultResponse effectiveResponse = result.getEffectiveResponse();
 
          //then
          assertEquals(expectedStatusCode, effectiveStatusCode);

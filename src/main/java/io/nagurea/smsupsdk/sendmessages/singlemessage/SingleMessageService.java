@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.sendmessages.unitmessage;
+package io.nagurea.smsupsdk.sendmessages.singlemessage;
 
 
 import com.google.gson.Gson;
@@ -15,12 +15,12 @@ import java.io.IOException;
 import java.util.UUID;
 
 
-public class UnitMessageService extends GETSMSUpService {
+public class SingleMessageService extends GETSMSUpService {
 
     private static final String URL = "/SEND";
     private static final String TO = "to";
 
-    protected UnitMessageService(String rootUrl) {
+    protected SingleMessageService(String rootUrl) {
         super(rootUrl);
     }
 
@@ -32,7 +32,7 @@ public class UnitMessageService extends GETSMSUpService {
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public UnitMessageResponse sendAlert(String token, String text, String to) throws IOException {
+    public SingleMessageResponse sendAlert(String token, String text, String to) throws IOException {
         return sendAlert(token, text, to, AlertOptionalArguments.builder()
                 .sender( NoSender.build())
                 .build());
@@ -47,7 +47,7 @@ public class UnitMessageService extends GETSMSUpService {
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public UnitMessageResponse sendAlert(String token, String text, String to, @NonNull AlertOptionalArguments alertOptionalArguments) throws IOException {
+    public SingleMessageResponse sendAlert(String token, String text, String to, @NonNull AlertOptionalArguments alertOptionalArguments) throws IOException {
         return send(token, text, to, alertOptionalArguments);
     }
 
@@ -59,11 +59,11 @@ public class UnitMessageService extends GETSMSUpService {
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public UnitMessageResponse sendMarketing(String token, String text, String to) throws IOException {
+    public SingleMessageResponse sendMarketing(String token, String text, String to) throws IOException {
         return sendMarketing(token, text, to, MarketingOptionalArguments.builder().sender(NoSender.build()).build());
     }
 
-    public UnitMessageResponse sendMarketing(String token, String text, String to, @NonNull MarketingOptionalArguments marketingOptionalArguments) throws IOException {
+    public SingleMessageResponse sendMarketing(String token, String text, String to, @NonNull MarketingOptionalArguments marketingOptionalArguments) throws IOException {
         return send(token, text, to, marketingOptionalArguments);
     }
 
@@ -76,11 +76,11 @@ public class UnitMessageService extends GETSMSUpService {
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    private UnitMessageResponse send(@NonNull final String token, @NonNull final String text, @NonNull final String to, @NonNull OptionalArguments optionalArguments) throws IOException {
+    private SingleMessageResponse send(@NonNull final String token, @NonNull final String text, @NonNull final String to, @NonNull OptionalArguments optionalArguments) throws IOException {
         final ImmutablePair<Integer, String> response = get(buildSendUrl(text, to, optionalArguments), token);
         final String body = response.getRight();
-        final UnitMessageResultResponse responseObject = new Gson().fromJson(body, UnitMessageResultResponse.class);
-        return UnitMessageResponse.builder()
+        final SingleMessageResultResponse responseObject = new Gson().fromJson(body, SingleMessageResultResponse.class);
+        return SingleMessageResponse.builder()
                 .uid(UUID.randomUUID().toString())
                 .statusCode(response.getLeft())
                 .effectiveResponse(responseObject)
