@@ -2,7 +2,7 @@
 https://smsup.ch/ is a swiss platform to send professional SMS with a free registration and without subscription.
 This platform can be called through web REST APIs.
 The full documentation is available here: https://doc.smsup.ch/en/api/sms/getting-started
-This SDK proposes a easy way to call the APIs of SMSUp
+This SDK proposes an easy way to call the APIs of SMSUp
 
 ## Modifying the documentation
 To modify the documentation you may need to modify the diagrams. 
