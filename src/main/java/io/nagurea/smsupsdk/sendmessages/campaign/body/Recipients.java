@@ -9,4 +9,8 @@ import java.util.Set;
 @Builder
 public class Recipients {
     private final Set<Gsm> gsm;
+
+    public void check(){
+        gsm.forEach(Gsm::check);
+    }
 }

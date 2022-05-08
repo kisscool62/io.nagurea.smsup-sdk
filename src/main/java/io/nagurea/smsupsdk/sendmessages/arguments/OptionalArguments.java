@@ -5,6 +5,7 @@ import io.nagurea.smsupsdk.sendmessages.sender.Sender;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import static io.nagurea.smsupsdk.common.http.SMSUpURLEncoder.encode;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 /**
@@ -38,7 +39,7 @@ public abstract class OptionalArguments {
 
     private String addArgument(final String parameterName, final String parameterValue) {
         if(isNotEmpty(parameterValue)){
-            return "&" + parameterName + "=" + parameterValue;
+            return "&" + parameterName + "=" + encode(parameterValue);
         }
         return "";
     }

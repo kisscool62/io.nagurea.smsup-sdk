@@ -2,6 +2,9 @@ package io.nagurea.smsupsdk.sendmessages.singlemessage;
 
 
 import com.google.gson.Gson;
+import io.nagurea.smsupsdk.common.e164.E164Helper;
+import io.nagurea.smsupsdk.common.exception.RequiredParameterException;
+import io.nagurea.smsupsdk.common.exception.RequiredParameterException.RequiredParameterExceptionBuilder;
 import io.nagurea.smsupsdk.common.get.GETSMSUpService;
 import io.nagurea.smsupsdk.sendmessages.arguments.AlertOptionalArguments;
 import io.nagurea.smsupsdk.sendmessages.arguments.MarketingOptionalArguments;
@@ -13,6 +16,8 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.io.IOException;
 import java.util.UUID;
+
+import static io.nagurea.smsupsdk.common.http.SMSUpURLEncoder.encode;
 
 
 public class SingleMessageService extends GETSMSUpService {
@@ -31,7 +36,7 @@ public class SingleMessageService extends GETSMSUpService {
      * Send a simple message for general purpose (called alert)
      * @param token SMSUp token
      * @param text to send
-     * @param to is the recipient to send the message to
+     * @param to is the recipient to send the message to with E164 phone numbers
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
      */
@@ -51,7 +56,7 @@ public class SingleMessageService extends GETSMSUpService {
      * Send a simple message for general purpose (called alert)
      * @param token SMSUp token
      * @param text to send
-     * @param to is the recipient to send the message to
+     * @param to is the recipient to send the message to with E164 phone numbers
      * @param alertOptionalArguments is a wrapper of arguments
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
@@ -68,7 +73,7 @@ public class SingleMessageService extends GETSMSUpService {
      * Send a message for commercial purpose (called marketing) with STOP function
      * @param token SMSUp token
      * @param text to send
-     * @param to is the recipient to send the message to
+     * @param to is the recipient to send the message to with E164 phone numbers
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
      */
@@ -92,12 +97,13 @@ public class SingleMessageService extends GETSMSUpService {
      *
      * @param token SMSUp token
      * @param text to send
-     * @param to is the recipient to send the message to
+     * @param to is the recipient to send the message to with E164 phone numbers
      * @param optionalArguments @{@link MarketingOptionalArguments} or @{@link AlertOptionalArguments}
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
      */
     private SingleMessageResponse send(boolean simulate, @NonNull final String token, @NonNull final String text, @NonNull final String to, @NonNull OptionalArguments optionalArguments) throws IOException {
+        E164Helper.check(to);
         final ImmutablePair<Integer, String> response = get(buildSendUrl(simulate, text, to, optionalArguments), token);
         final String body = response.getRight();
         final SingleMessageResultResponse responseObject = new Gson().fromJson(body, SingleMessageResultResponse.class);
@@ -109,13 +115,23 @@ public class SingleMessageService extends GETSMSUpService {
     }
 
     private String buildSendUrl(boolean simulate, @NonNull String text, @NonNull String to, @NonNull OptionalArguments optionalArguments) {
-        final String rootUrl = URL + (simulate ? SIMULATE_URL : "");
-        String url = rootUrl;
-        final boolean textNotEmpty = StringUtils.isNotEmpty(text);
-        final boolean toNotEmpty = StringUtils.isNotEmpty(to);
+        final boolean textEmpty = StringUtils.isEmpty(text);
+        final boolean toEmpty = StringUtils.isEmpty(to);
+        final RequiredParameterExceptionBuilder exception = RequiredParameterException.builder();
+        if(textEmpty){
+            exception.requiredParam(TEXT, text);
+        }
+        if(toEmpty){
+            exception.requiredParam(TO, to);
+        }
+        if(textEmpty || toEmpty) {
+            throw exception.build();
+        }
+        String url = URL + (simulate ? SIMULATE_URL : "");
         final boolean hasAtLeastOneArgument = optionalArguments.hasAtLeastOneArgument();
-        if(textNotEmpty && toNotEmpty && hasAtLeastOneArgument){
-            url = String.format("%s?%s=%s&%s=%s%s", rootUrl , TEXT, text, TO, to, optionalArguments.toUrl());
+        url = String.format("%s?%s=%s&%s=%s", url , TEXT, encode(text), TO, encode(to));
+        if(hasAtLeastOneArgument){
+            url += optionalArguments.toUrl();
         }
         return url;
     }

@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.sendmessages.campaign.body;
 
+import io.nagurea.smsupsdk.common.e164.E164Helper;
 import lombok.Builder;
 import lombok.Getter;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -10,6 +11,10 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class Gsm {
     private final String gsmsmsid;
     private final String value;
+
+    public void check(){
+        E164Helper.check(value);
+    }
 
     @Override
     public boolean equals(Object o) {

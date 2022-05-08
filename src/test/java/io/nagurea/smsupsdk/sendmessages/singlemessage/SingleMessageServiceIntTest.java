@@ -19,6 +19,10 @@ import static org.mockserver.model.HttpRequest.request;
 @ContextConfiguration(classes = SpringConfiguration.class)
 class SingleMessageServiceIntTest {
 
+    private static final String YOUR_TOKEN = "Your Token";
+    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
+    private static final String YOUR_MESSAGE = "This is text";
+    private static final String YOUR_DESTINATION = "41781234567";
     /**
      * Useless. Only here to see how services could be used with Spring
      */
@@ -32,6 +36,9 @@ class SingleMessageServiceIntTest {
                 request()
                         .withPath("/send")
                         .withMethod("GET")
+                        .withHeader("Authorization", EXPECTED_TOKEN)
+                        .withQueryStringParameter("text", YOUR_MESSAGE)
+                        .withQueryStringParameter("to", YOUR_DESTINATION)
         ).respond(
                 HttpResponse.response()
                         .withStatusCode(200)
@@ -55,6 +62,9 @@ class SingleMessageServiceIntTest {
                 request()
                         .withPath("/send/simulate")
                         .withMethod("GET")
+                        .withHeader("Authorization", EXPECTED_TOKEN)
+                        .withQueryStringParameter("text", YOUR_MESSAGE)
+                        .withQueryStringParameter("to", YOUR_DESTINATION)
         ).respond(
                 HttpResponse.response()
                         .withStatusCode(200)
@@ -93,13 +103,41 @@ class SingleMessageServiceIntTest {
          final int expectedStatusCode = 200;
 
          //when
-         final SingleMessageResponse result = singleMessageService.sendMarketing("token", "This is a text", "075655655");
+         final SingleMessageResponse result = singleMessageService.sendMarketing(YOUR_TOKEN, YOUR_MESSAGE, YOUR_DESTINATION);
          final Integer effectiveStatusCode = result.getStatusCode();
          final SingleMessageResultResponse effectiveResponse = result.getEffectiveResponse();
 
          //then
          assertEquals(expectedStatusCode, effectiveStatusCode);
          assertEquals(expectedResponse, effectiveResponse);
+
+    }
+
+    @Test
+    void sendAlert() throws IOException {
+        //given
+        final SingleMessageResultResponse expectedResponse = SingleMessageResultResponse.builder()
+                .message(ResponseStatus.OK.getDescription())
+                .ticket("14672468")
+                .cost(1)
+                .credits(642)
+                .total(1)
+                .sent(1)
+                .blacklisted(0)
+                .duplicated(0)
+                .invalid(0)
+                .npai(0)
+                .build();
+        final int expectedStatusCode = 200;
+
+        //when
+        final SingleMessageResponse result = singleMessageService.sendAlert(YOUR_TOKEN, YOUR_MESSAGE, YOUR_DESTINATION);
+        final Integer effectiveStatusCode = result.getStatusCode();
+        final SingleMessageResultResponse effectiveResponse = result.getEffectiveResponse();
+
+        //then
+        assertEquals(expectedStatusCode, effectiveStatusCode);
+        assertEquals(expectedResponse, effectiveResponse);
 
     }
 
@@ -121,7 +159,7 @@ class SingleMessageServiceIntTest {
         final int expectedStatusCode = 200;
 
         //when
-        final SingleMessageResponse result = singleMessageService.simulateSendMarketing("token", "This is a text", "075655655");
+        final SingleMessageResponse result = singleMessageService.simulateSendMarketing(YOUR_TOKEN, YOUR_MESSAGE, YOUR_DESTINATION);
         final Integer effectiveStatusCode = result.getStatusCode();
         final SingleMessageResultResponse effectiveResponse = result.getEffectiveResponse();
 

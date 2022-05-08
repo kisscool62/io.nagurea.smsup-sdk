@@ -29,7 +29,7 @@ public class CampaignService extends POSTSMSUpService {
      * Send a campaign message for general purpose (called alert)
      * @param token SMSUp token
      * @param text to send
-     * @param recipients is actually the set of couples (gsmId, phone number) represented by @{@link Recipients}
+     * @param recipients is actually the set of couples (gsmId, phone number E164) represented by @{@link Recipients}
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
      */
@@ -41,7 +41,7 @@ public class CampaignService extends POSTSMSUpService {
      * Send a campaign message for general purpose (called alert)
      * @param token SMSUp token
      * @param text to send
-     * @param recipients is actually the set of couples (gsmId, phone number) represented by @{@link Recipients}
+     * @param recipients is actually the set of couples (gsmId, phone number E164) represented by @{@link Recipients}
      * @param alertOptionalArgument is argument wrapper object
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
@@ -54,7 +54,7 @@ public class CampaignService extends POSTSMSUpService {
      *
      * @param token SMSUp token
      * @param text to send
-     * @param recipients to send the text to
+     * @param recipients to send the text to with E164 phone numbers
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
      */
@@ -66,7 +66,7 @@ public class CampaignService extends POSTSMSUpService {
      *
      * @param token SMSUp token
      * @param text to send
-     * @param recipients to send the text to
+     * @param recipients to send the text to with E164 phone numbers
      * @param marketingOptionalArguments who do you want the sms appears to be sent by
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
@@ -80,12 +80,13 @@ public class CampaignService extends POSTSMSUpService {
      *
      * @param token SMSUp token
      * @param text to send
-     * @param recipients to send the text to
+     * @param recipients to send the text to with E164 phone numbers
      * @param optionalArguments @{@link MarketingOptionalArguments} or @{@link AlertOptionalArguments}
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException
      */
     private CampaignResponse send(String token, String text, Recipients recipients, @NonNull OptionalArguments optionalArguments) throws IOException {
+        recipients.check();
         final ImmutablePair<Integer, String> response = post(URL, token, buildData(text, recipients, optionalArguments));
         final CampaignResultResponse responseObject = new Gson().fromJson(response.getRight(), CampaignResultResponse.class);
         return CampaignResponse.builder()
