@@ -200,6 +200,7 @@
                 <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
                     <sourcepath>${delombok.output}</sourcepath>
+                    <doclint>none</doclint>
                 </configuration>
                 <executions>
                     <execution>
