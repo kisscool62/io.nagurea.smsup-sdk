@@ -9,6 +9,7 @@
     <version>0.2.0-SNAPSHOT</version>
     <url>https://github.com/kisscool62/io.nagurea.smsup-sdk</url>
     <name>${project.groupId}:${project.artifactId}</name>
+    <description>SDK for SMSUP a swiss plateform to send SMSs</description>
 
     <properties>
         <java.version>11</java.version>
