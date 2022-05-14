@@ -16,21 +16,26 @@ class E164HelperTest {
     @MethodSource
     void checkPhoneNumbersComplyE164Rules(final String phoneNumberToTest, boolean shouldRaiseException) {
         // given
-        // According to method parameters
+        // According to method parameters phoneNumberToTest & shouldRaiseException
 
         // when
         boolean hasRaisedException = false;
+
         try {
+
             E164Helper.check(phoneNumberToTest);
 
         }catch (E164FormatException e){
+
             hasRaisedException = true;
+
         }
         // then
         assertEquals(shouldRaiseException, hasRaisedException);
 
     }
 
+    // This method is automatically called by Parameterized test. Don't remove it
     private static Stream<Arguments> checkPhoneNumbersComplyE164Rules(){
         return Stream.of(
                 arguments("41781234567", false),
