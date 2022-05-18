@@ -2,8 +2,8 @@ package io.nagurea.smsupsdk.helper.json;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import io.nagurea.smsupsdk.sendmessages.arguments.PushType;
-import io.nagurea.smsupsdk.sendmessages.sender.Sender;
+import io.nagurea.smsupsdk.sendsms.arguments.PushType;
+import io.nagurea.smsupsdk.sendsms.sender.Sender;
 import lombok.NoArgsConstructor;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -15,6 +15,7 @@ public class GsonHelper {
 
     private static GsonBuilder newGsonBuilder() {
         final GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setPrettyPrinting();
         gsonBuilder.registerTypeAdapter(PushType.class, new PushTypeSerializer());
         gsonBuilder.registerTypeAdapter(Sender.class, new SenderSerializer());
         return gsonBuilder;

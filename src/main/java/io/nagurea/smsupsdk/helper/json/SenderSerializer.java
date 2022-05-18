@@ -4,7 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import io.nagurea.smsupsdk.sendmessages.sender.Sender;
+import io.nagurea.smsupsdk.sendsms.sender.Sender;
 
 import java.lang.reflect.Type;
 

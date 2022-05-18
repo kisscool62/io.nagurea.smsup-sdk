@@ -4,10 +4,14 @@ import io.nagurea.smsupsdk.common.SMSUpService;
 import io.nagurea.smsupsdk.common.http.HTTPMethod;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class POSTSMSUpService extends SMSUpService {
     protected POSTSMSUpService(String rootUrl) {
@@ -31,18 +35,9 @@ public class POSTSMSUpService extends SMSUpService {
     }
 
     protected void sendData(HttpURLConnection con, String data) throws IOException {
-        DataOutputStream wr = null;
-        try {
-            wr = new DataOutputStream(con.getOutputStream());
-            if(data != null){
-                wr.writeBytes(data);
-            }
-            wr.flush();
-            wr.close();
-        } catch(IOException exception) {
-            throw exception;
-        } finally {
-            this.closeQuietly(wr);
+        try(OutputStream os = con.getOutputStream()) {
+            byte[] input = data.getBytes(StandardCharsets.UTF_8);
+            os.write(input, 0, input.length);
         }
     }
 
