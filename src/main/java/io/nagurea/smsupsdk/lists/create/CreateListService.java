@@ -5,7 +5,7 @@ import io.nagurea.smsupsdk.common.post.POSTSMSUpService;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.lists.create.arguments.CreateListArguments;
 import io.nagurea.smsupsdk.lists.create.body.CreateListBody;
-import io.nagurea.smsupsdk.lists.create.body.List;
+import io.nagurea.smsupsdk.lists.create.body.ContactList;
 import lombok.NonNull;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
@@ -34,7 +34,7 @@ public class CreateListService extends POSTSMSUpService {
 
         final CreateListBody createListBody = CreateListBody.builder()
                 .list(
-                        List.builder()
+                        ContactList.builder()
                                 .name(createListArguments.getName())
                                 .contacts(createListArguments.getContacts())
                                 .build())

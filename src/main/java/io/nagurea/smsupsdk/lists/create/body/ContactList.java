@@ -7,7 +7,7 @@ import lombok.ToString;
 @Builder
 @Getter
 @ToString
-public class List {
+public class ContactList {
     private final String name;
     private final Contacts contacts;
 }

@@ -2,7 +2,6 @@ package io.nagurea.smsupsdk.sendsms.common;
 
 import io.nagurea.smsupsdk.common.response.ResultResponse;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
