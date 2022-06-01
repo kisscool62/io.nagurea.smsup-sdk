@@ -6,7 +6,7 @@ Initial version with:
 * Send SMS > Simulate a single message
 
 
-## [0.2.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.1.0...v0.2.2) (2022-06-02)
+## [0.2.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.1.0...v0.2.0) (2022-06-02)
 
 * Lists > Create list
 * Lists > Get lists
