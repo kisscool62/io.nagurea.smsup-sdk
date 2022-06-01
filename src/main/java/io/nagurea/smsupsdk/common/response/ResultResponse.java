@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public abstract class ResultResponse {
 
-    private final ResponseStatus responseStatus;
+    private final ResponseStatus status;
 
     private final String message;
 
@@ -16,11 +16,18 @@ public abstract class ResultResponse {
     public class ResultResponseBuilder{
 
         private ResponseStatus status;
+        private String message;
 
         public ResultResponseBuilder status(int status){
             this.status = ResponseStatus.findByCode(status);
             return this;
         }
+
+        public ResultResponseBuilder message(String message){
+            this.message = message;
+            return this;
+        }
+
     }
 
 

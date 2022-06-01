@@ -1,6 +1,5 @@
 package io.nagurea.smsupsdk.sendsms.campaign;
 
-import com.google.gson.Gson;
 import io.nagurea.smsupsdk.common.post.POSTSMSUpService;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.sendsms.arguments.AlertOptionalArguments;
@@ -88,7 +87,7 @@ public class CampaignService extends POSTSMSUpService {
     private CampaignResponse send(String token, String text, Recipients recipients, @NonNull OptionalArguments optionalArguments) throws IOException {
         recipients.check();
         final ImmutablePair<Integer, String> response = post(URL, token, buildData(text, recipients, optionalArguments));
-        final CampaignResultResponse responseObject = new Gson().fromJson(response.getRight(), CampaignResultResponse.class);
+        final CampaignResultResponse responseObject = GsonHelper.fromJson(response.getRight(), CampaignResultResponse.class);
         return CampaignResponse.builder()
                 .uid(UUID.randomUUID().toString())
                 .statusCode(response.getLeft())

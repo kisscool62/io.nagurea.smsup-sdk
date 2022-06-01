@@ -4,6 +4,7 @@ import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.lists.create.arguments.CreateListArguments;
 import io.nagurea.smsupsdk.lists.create.body.Contacts;
 import io.nagurea.smsupsdk.lists.create.body.Gsm;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,6 +34,8 @@ class CreateListServiceTest {
     @Autowired
     private CreateListService createListService;
 
+    private static ClientAndServer mockServer;
+
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
         final Object list = new Object() {
             final String name = "My list";
@@ -60,7 +63,7 @@ class CreateListServiceTest {
     @BeforeAll
     public static void startMockSMSUpServer() {
         ConfigurationProperties.logLevel("DEBUG");
-        final ClientAndServer mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
         mockServer.when(
                 request()
                         .withPath("/list")
@@ -79,6 +82,11 @@ class CreateListServiceTest {
                                         "}"
                         )
         );
+    }
+
+    @AfterAll
+    static void stopMockserver(){
+        mockServer.stop();
     }
 
     @Test

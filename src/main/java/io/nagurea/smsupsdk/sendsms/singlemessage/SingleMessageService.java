@@ -1,11 +1,11 @@
 package io.nagurea.smsupsdk.sendsms.singlemessage;
 
 
-import com.google.gson.Gson;
 import io.nagurea.smsupsdk.common.e164.E164Helper;
 import io.nagurea.smsupsdk.common.exception.RequiredParameterException;
 import io.nagurea.smsupsdk.common.exception.RequiredParameterException.RequiredParameterExceptionBuilder;
 import io.nagurea.smsupsdk.common.get.GETSMSUpService;
+import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.sendsms.arguments.AlertOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.MarketingOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.OptionalArguments;
@@ -106,7 +106,7 @@ public class SingleMessageService extends GETSMSUpService {
         E164Helper.check(to);
         final ImmutablePair<Integer, String> response = get(buildSendUrl(simulate, text, to, optionalArguments), token);
         final String body = response.getRight();
-        final SingleMessageResultResponse responseObject = new Gson().fromJson(body, SingleMessageResultResponse.class);
+        final SingleMessageResultResponse responseObject = GsonHelper.fromJson(body, SingleMessageResultResponse.class);
         return SingleMessageResponse.builder()
                 .uid(UUID.randomUUID().toString())
                 .statusCode(response.getLeft())

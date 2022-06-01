@@ -13,11 +13,15 @@ public class URLHelper {
 
     public static URL add(URL rootUrl, String additionalPath) throws MalformedURLException {
         String spec = rootUrl.toString();
+        return new URL(add(spec, additionalPath));
+    }
+
+    public static String add(String spec, String additionalPath) {
         if(!isTrailedBySlash(spec)) {
             spec += SLASH;
         }
 
-        return new URL(spec + additionalPath);
+        return spec + additionalPath;
     }
 
     private static boolean isTrailedBySlash(String spec) {

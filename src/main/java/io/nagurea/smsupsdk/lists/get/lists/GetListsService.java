@@ -1,14 +1,14 @@
-package io.nagurea.smsupsdk.lists.get;
+package io.nagurea.smsupsdk.lists.get.lists;
 
-import com.google.gson.Gson;
 import io.nagurea.smsupsdk.common.get.GETSMSUpService;
+import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.io.IOException;
 import java.util.UUID;
 
 public class GetListsService extends GETSMSUpService {
-    private static final String URL = "lists";
+    private static final String URL = "/lists";
 
     protected GetListsService(String rootUrl) {
         super(rootUrl);
@@ -17,11 +17,12 @@ public class GetListsService extends GETSMSUpService {
     public GetListsResponse getLists(String token) throws IOException {
         final ImmutablePair<Integer, String> response = get(URL, token);
         final String body = response.getRight();
-        final GetListsResultResponse responseObject = new Gson().fromJson(body, GetListsResultResponse.class);
+        final GetListsResultResponse responseObject = GsonHelper.fromJson(body, GetListsResultResponse.class);
         return GetListsResponse.builder()
                 .uid(UUID.randomUUID().toString())
                 .statusCode(response.getLeft())
                 .effectiveResponse(responseObject)
                 .build();
     }
+
 }

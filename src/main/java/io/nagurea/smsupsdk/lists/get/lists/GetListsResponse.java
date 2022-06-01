@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.lists.get;
+package io.nagurea.smsupsdk.lists.get.lists;
 
 import io.nagurea.smsupsdk.common.response.APIResponse;
 import lombok.Builder;

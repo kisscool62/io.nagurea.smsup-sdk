@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.lists.create;
+package io.nagurea.smsupsdk.lists.get.lists;
 
 import io.nagurea.smsupsdk.common.configuration.LocalHost4242;
 import org.springframework.context.annotation.Bean;
@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 public class SpringConfiguration implements LocalHost4242 {
 
     @Bean
-    CreateListService campaignService(){
-        return new CreateListService(ROOT_URL);
+    GetListsService unitMessageService(){
+        return new GetListsService(ROOT_URL);
     }
 
 }

@@ -3,7 +3,9 @@ package io.nagurea.smsupsdk.sendsms.campaign;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.sendsms.common.SendSMSResponse;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
 public class CampaignResultResponse extends SendSMSResponse {
 
     @Builder

@@ -3,13 +3,11 @@ package io.nagurea.smsupsdk.sendsms.arguments;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Builder
-@ToString
 @Getter
 public class Delay {
     private final String value;
@@ -26,5 +24,10 @@ public class Delay {
             value(LocalDateTime.now());
             return this;
         }
+    }
+
+    @Override
+    public String toString() {
+        return value.toString();
     }
 }

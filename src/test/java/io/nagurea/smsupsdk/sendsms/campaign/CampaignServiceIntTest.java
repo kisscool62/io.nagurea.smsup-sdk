@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.sendsms.campaign.body.Gsm;
 import io.nagurea.smsupsdk.sendsms.campaign.body.Recipients;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,9 +29,11 @@ class CampaignServiceIntTest {
     @Autowired
     private CampaignService campaignService;
 
+    private static ClientAndServer mockServer;
+
     @BeforeAll
     public static void startMockSMSUpServer(){
-        final ClientAndServer mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
         mockServer.when(
                 request()
                         .withPath("/send")
@@ -78,11 +81,17 @@ class CampaignServiceIntTest {
         );
     }
 
+    @AfterAll
+    static void stopMockserver(){
+        mockServer.stop();
+    }
+
      @Test
      void sendMarketing() throws IOException {
          //given
          final CampaignResultResponse expectedResponse = CampaignResultResponse.builder()
                  .message(ResponseStatus.OK.getDescription())
+                 .responseStatus(ResponseStatus.OK)
                  .ticket("14672468")
                  .cost(2)
                  .credits(642)
@@ -111,6 +120,9 @@ class CampaignServiceIntTest {
          //then
          assertEquals(expectedStatusCode, effectiveStatusCode);
          assertEquals(expectedResponse, effectiveResponse);
+         assertEquals(ResponseStatus.OK, effectiveResponse.getStatus());
+         assertEquals("OK", effectiveResponse.getMessage());
 
     }
+
 }

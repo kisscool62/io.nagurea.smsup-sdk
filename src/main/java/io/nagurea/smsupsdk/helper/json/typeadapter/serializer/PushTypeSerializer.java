@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.helper.json;
+package io.nagurea.smsupsdk.helper.json.typeadapter.serializer;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
