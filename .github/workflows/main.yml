@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        java: [ '11', '17' ]
+        java: [ '11' ]
     name: Java ${{ matrix.Java }} sample
     steps:
       - uses: actions/checkout@v3
@@ -28,5 +28,9 @@ jobs:
           java-version: ${{ matrix.java }}
           gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
           cache: 'maven'
+      - name: Check m2 folder
+        run: ls $HOME/.m2
+      - name: Check settings.xml file
+        run: cat $HOME/.m2/settings.xml
       - name: Simple clean install
         run: mvn clean install
