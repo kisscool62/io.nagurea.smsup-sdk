@@ -29,6 +29,8 @@ jobs:
           server-username: MAVEN_USERNAME # env variable for username in deploy
           server-password: MAVEN_CENTRAL_TOKEN # env variable for token in deploy
           cache: 'maven'
+      - name: Show settings.xml
+        run: cat $HOME/.m2/setings.xml
       - name: Deploy on maven central
         run: mvn clean deploy
         env:
