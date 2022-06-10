@@ -25,7 +25,7 @@ Initial version with:
 
 ### New Features
 * Send SMS > Campaign with list
-* Send SMS > Campaign with list
+* Send SMS > Simulate Campaign
 
 ### Bug Fixes
 
