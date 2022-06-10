@@ -57,28 +57,7 @@ class CampaignServiceIntTest {
                                         "}"
                         )
         );
-        mockServer.when(
-                request()
-                        .withPath("/send/lists/simulate")
-                        .withMethod("POST")
-        ).respond(
-                HttpResponse.response()
-                        .withStatusCode(200)
-                        .withBody(
-                                "{\n" +
-                                        "  \"status\": 1,      \n" +
-                                        "  \"message\": \"OK\",\n" +
-                                        "  \"cost\": 2,              \n" +
-                                        "  \"credits\": 642,         \n" +
-                                        "  \"total\": 2,             \n" +
-                                        "  \"sent\": 2,              \n" +
-                                        "  \"blacklisted\": 0,       \n" +
-                                        "  \"duplicated\": 0,        \n" +
-                                        "  \"invalid\": 0,           \n" +
-                                        "  \"npai\": 0               \n" +
-                                        "}"
-                        )
-        );
+
     }
 
     @AfterAll

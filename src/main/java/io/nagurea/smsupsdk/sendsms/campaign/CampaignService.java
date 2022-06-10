@@ -105,6 +105,7 @@ public class CampaignService extends POSTSMSUpService {
                                                 .unicode(optionalArguments.getUnicode())
                                                 .delay(optionalArguments.getDelay())
                                                 .text(text)
+                                                .gsmsmsid(optionalArguments.getGsmsmsid())
                                                 .pushtype(optionalArguments.getPushType())
                                                 .sender(optionalArguments.getSender())
                                         .build()

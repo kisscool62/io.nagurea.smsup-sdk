@@ -12,6 +12,11 @@ Initial version with:
 * Lists > Get lists
 * Lists > Get list
 
+## [0.3.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.2.0...v0.3.0) (2022-06-10)
+
+* Send SMS > Campaign with list
+* Send SMS > Simulate a campaign
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
@@ -19,11 +24,9 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-* Lists > Create list
-* Lists > Get lists
-* Lists > Get list
+* Send SMS > Campaign with list
+* Send SMS > Campaign with list
 
 ### Bug Fixes
-* Message in response status was not filled correctly
-* Status in response status was not filled correctly
+
  
