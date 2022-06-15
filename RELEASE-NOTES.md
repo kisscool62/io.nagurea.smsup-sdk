@@ -17,15 +17,20 @@ Initial version with:
 * Send SMS > Campaign with list
 * Send SMS > Simulate a campaign
 
+## [0.4.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.3.0...v0.4.0) (2022-06-16)
+* Send SMS > Cancel a campaign
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
 ### Breaking Changes
 * [NO BREAKING CHANGE]
+common.post.POSTSMSUpService moved to common.http.post.POSTSMSUpService
+common.post.GETSMSUpService moved to common.http.get.GETSMSUpService
+common.post.DELETESMSUpService moved to common.http.delete.DELETESMSUpService
 
 ### New Features
-* Send SMS > Campaign with list
-* Send SMS > Simulate Campaign
+* Send SMS > Cancel a campaign
 
 ### Bug Fixes
 

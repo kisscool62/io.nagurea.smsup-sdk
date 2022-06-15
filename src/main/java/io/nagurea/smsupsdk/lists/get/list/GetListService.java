@@ -1,6 +1,6 @@
 package io.nagurea.smsupsdk.lists.get.list;
 
-import io.nagurea.smsupsdk.common.get.GETSMSUpService;
+import io.nagurea.smsupsdk.common.http.get.GETSMSUpService;
 import io.nagurea.smsupsdk.helper.URLHelper;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import org.apache.commons.lang3.tuple.ImmutablePair;

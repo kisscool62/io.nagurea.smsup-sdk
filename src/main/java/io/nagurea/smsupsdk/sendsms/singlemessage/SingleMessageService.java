@@ -4,7 +4,7 @@ package io.nagurea.smsupsdk.sendsms.singlemessage;
 import io.nagurea.smsupsdk.common.e164.E164Helper;
 import io.nagurea.smsupsdk.common.exception.RequiredParameterException;
 import io.nagurea.smsupsdk.common.exception.RequiredParameterException.RequiredParameterExceptionBuilder;
-import io.nagurea.smsupsdk.common.get.GETSMSUpService;
+import io.nagurea.smsupsdk.common.http.get.GETSMSUpService;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.sendsms.arguments.AlertOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.MarketingOptionalArguments;

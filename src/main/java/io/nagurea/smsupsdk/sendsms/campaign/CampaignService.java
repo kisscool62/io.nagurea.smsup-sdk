@@ -1,6 +1,6 @@
 package io.nagurea.smsupsdk.sendsms.campaign;
 
-import io.nagurea.smsupsdk.common.post.POSTSMSUpService;
+import io.nagurea.smsupsdk.common.http.post.POSTSMSUpService;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.sendsms.arguments.AlertOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.MarketingOptionalArguments;

@@ -1,12 +1,9 @@
-package io.nagurea.smsupsdk.common.post;
+package io.nagurea.smsupsdk.common.http.post;
 
 import io.nagurea.smsupsdk.common.SMSUpService;
 import io.nagurea.smsupsdk.common.http.HTTPMethod;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
-import java.io.BufferedWriter;
-import java.io.DataOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;

@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.common.get;
+package io.nagurea.smsupsdk.common.http.get;
 
 import io.nagurea.smsupsdk.common.SMSUpService;
 import io.nagurea.smsupsdk.common.http.HTTPMethod;
