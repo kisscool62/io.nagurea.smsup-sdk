@@ -28,6 +28,6 @@ public class Delay {
 
     @Override
     public String toString() {
-        return value.toString();
+        return value;
     }
 }

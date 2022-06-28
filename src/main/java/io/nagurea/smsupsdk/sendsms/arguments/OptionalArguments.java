@@ -4,6 +4,9 @@ import io.nagurea.smsupsdk.sendsms.sender.NoSender;
 import io.nagurea.smsupsdk.sendsms.sender.Sender;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Singular;
+
+import java.util.List;
 
 import static io.nagurea.smsupsdk.common.http.SMSUpURLEncoder.encode;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;

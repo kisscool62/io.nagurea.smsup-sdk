@@ -8,6 +8,6 @@ import java.util.Set;
 @Getter
 @Builder
 public class SMS {
-    private final Message message;
+    private final MessageWithList message;
     private final Set<ListId> lists;
 }

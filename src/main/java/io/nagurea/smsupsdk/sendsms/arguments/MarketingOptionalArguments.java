@@ -13,4 +13,5 @@ public class MarketingOptionalArguments extends OptionalArguments{
     public MarketingOptionalArguments(final Delay delay, final Sender sender, final String gsmsmsid, int unicode) {
         super(MARKETING, delay, sender, gsmsmsid, unicode);
     }
+
 }

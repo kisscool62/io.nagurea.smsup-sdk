@@ -35,7 +35,7 @@ public class SingleMessageService extends GETSMSUpService {
     /**
      * Send a simple message for general purpose (called alert)
      * @param token SMSUp token
-     * @param text to send
+     * @param text Your message
      * @param to is the recipient to send the message to with E164 phone numbers
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
@@ -55,7 +55,7 @@ public class SingleMessageService extends GETSMSUpService {
     /**
      * Send a simple message for general purpose (called alert)
      * @param token SMSUp token
-     * @param text to send
+     * @param text Your message
      * @param to is the recipient to send the message to with E164 phone numbers
      * @param alertOptionalArguments is a wrapper of arguments
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
@@ -72,7 +72,7 @@ public class SingleMessageService extends GETSMSUpService {
     /**
      * Send a message for commercial purpose (called marketing) with STOP function
      * @param token SMSUp token
-     * @param text to send
+     * @param text Your message
      * @param to is the recipient to send the message to with E164 phone numbers
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
@@ -96,7 +96,7 @@ public class SingleMessageService extends GETSMSUpService {
     /**
      *
      * @param token SMSUp token
-     * @param text to send
+     * @param text Your message
      * @param to is the recipient to send the message to with E164 phone numbers
      * @param optionalArguments @{@link MarketingOptionalArguments} or @{@link AlertOptionalArguments}
      * @return UnitMessageResponse with detailed @UnitMessageResultResponse
