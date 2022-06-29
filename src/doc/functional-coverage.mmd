@@ -5,13 +5,13 @@ flowchart BT
     end
     subgraph Status
         direction LR
-        sendsms(Send SMS):::todo --- sendsms1(Single message):::done
-        sendsms(Send SMS):::todo --- sendsms2(Campaign):::done
-        sendsms(Send SMS):::todo --- sendsms3(Campaign with list):::done
-        sendsms(Send SMS):::todo --- sendsms4(Simulate a single message):::done
-        sendsms(Send SMS):::todo --- sendsms5(Simulate a campaign):::done
-        sendsms(Send SMS):::todo --- sendsms6(Cancel a campaign):::done
-        sendsms(Send SMS):::todo --- sendsms7(Short URL):::todo
+        sendsms(Send SMS):::done --- sendsms1(Single message):::done
+        sendsms(Send SMS):::done --- sendsms2(Campaign):::done
+        sendsms(Send SMS):::done --- sendsms3(Campaign with list):::done
+        sendsms(Send SMS):::done --- sendsms4(Simulate a single message):::done
+        sendsms(Send SMS):::done --- sendsms5(Simulate a campaign):::done
+        sendsms(Send SMS):::done --- sendsms6(Cancel a campaign):::done
+        sendsms(Send SMS):::done --- sendsms7(Short URL):::done
         campaigns(Campaigns):::todo --- campaigns1(Get campaigns history):::todo
         campaigns(Campaigns):::todo --- campaigns2(Get campaign):::todo
         campaigns(Campaigns):::todo --- campaigns3(Blacklist the NPAI of a campaign):::todo

@@ -5,10 +5,8 @@ import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.sendsms.arguments.AlertOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.MarketingOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.OptionalArguments;
-import io.nagurea.smsupsdk.sendsms.campaign.body.Campaign;
-import io.nagurea.smsupsdk.sendsms.campaign.body.Message;
+import io.nagurea.smsupsdk.sendsms.campaign.body.CampaignDataBuilder;
 import io.nagurea.smsupsdk.sendsms.campaign.body.Recipients;
-import io.nagurea.smsupsdk.sendsms.campaign.body.SMS;
 import io.nagurea.smsupsdk.sendsms.sender.NoSender;
 import lombok.NonNull;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -86,35 +84,19 @@ public class CampaignService extends POSTSMSUpService {
      */
     private CampaignResponse send(String token, String text, Recipients recipients, @NonNull OptionalArguments optionalArguments) throws IOException {
         recipients.check();
-        final ImmutablePair<Integer, String> response = post(URL, token, buildData(text, recipients, optionalArguments));
+        final ImmutablePair<Integer, String> response =
+                post(URL, token,
+                CampaignDataBuilder.builder()
+                        .text(text)
+                        .optionalArguments(optionalArguments)
+                        .build().buildData()
+        );
         final CampaignResultResponse responseObject = GsonHelper.fromJson(response.getRight(), CampaignResultResponse.class);
         return CampaignResponse.builder()
                 .uid(UUID.randomUUID().toString())
                 .statusCode(response.getLeft())
                 .effectiveResponse(responseObject)
                 .build();
-    }
-
-
-    private String buildData(String text, Recipients recipients, @NonNull OptionalArguments optionalArguments) {
-        return GsonHelper.toJson(Campaign.builder()
-                .sms(
-                        SMS.builder()
-                                .message(
-                                        Message.builder()
-                                                .unicode(optionalArguments.getUnicode())
-                                                .delay(optionalArguments.getDelay())
-                                                .text(text)
-                                                .gsmsmsid(optionalArguments.getGsmsmsid())
-                                                .pushtype(optionalArguments.getPushType())
-                                                .sender(optionalArguments.getSender())
-                                        .build()
-                                )
-                                .recipients(recipients)
-                                .build()
-                )
-                .build()
-        );
     }
 
 }

@@ -11,8 +11,13 @@ import org.springframework.context.annotation.Configuration;
 public class SpringConfiguration implements LocalHost4242 {
 
     @Bean
-    CampaignWithListAndShortURLService campaignService(){
+    CampaignWithListAndShortURLService campaignWithListService(){
         return new CampaignWithListAndShortURLService(ROOT_URL);
+    }
+
+    @Bean
+    CampaignWithShortURLService campaignService(){
+        return new CampaignWithShortURLService(ROOT_URL);
     }
 
 }

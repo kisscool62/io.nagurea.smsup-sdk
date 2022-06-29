@@ -13,20 +13,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MessageWithListWithLinks extends MessageWithList {
+public class MessageWithListAndLinks extends MessageWithList {
 
     @Getter @Singular private final List<String> links = new ArrayList<>();
 
     @Builder
-    private MessageWithListWithLinks(String text, PushType pushtype, Sender sender, String delay, Integer unicode, @NonNull List<String> links) {
+    private MessageWithListAndLinks(String text, PushType pushtype, Sender sender, String delay, Integer unicode, @NonNull List<String> links) {
         super(text, pushtype, sender, delay, unicode);
         this.links.addAll(links);
     }
 
-    public static class MessageWithListWithLinksBuilder extends MessageWithListBuilder {
+    public static class MessageWithListAndLinksBuilder extends MessageWithListBuilder {
         private String delay;
 
-        public MessageWithListWithLinksBuilder delay(Delay delay){
+        public MessageWithListAndLinksBuilder delay(Delay delay){
             if(delay != null){
                 this.delay = delay.getValue();
             }

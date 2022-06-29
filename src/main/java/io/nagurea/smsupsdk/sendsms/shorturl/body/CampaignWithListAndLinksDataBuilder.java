@@ -9,7 +9,7 @@ import lombok.NonNull;
 import java.util.List;
 import java.util.Set;
 
-public class CampaignWithListAndLinksDataBuilder extends AbstractCampaignWithListDataBuilder<MessageWithListWithLinks.MessageWithListWithLinksBuilder> {
+public class CampaignWithListAndLinksDataBuilder extends AbstractCampaignWithListDataBuilder<MessageWithListAndLinks.MessageWithListAndLinksBuilder> {
 
     @Getter private final List<String> links;
 
@@ -18,15 +18,15 @@ public class CampaignWithListAndLinksDataBuilder extends AbstractCampaignWithLis
         this.links = links;
     }
 
-    protected MessageWithListWithLinks.MessageWithListWithLinksBuilder buildMessageBuilder(){
-        final MessageWithListWithLinks.MessageWithListWithLinksBuilder messageWithLinksBuilder = initMessage(getText(), getOptionalArguments());
+    protected MessageWithListAndLinks.MessageWithListAndLinksBuilder buildMessageBuilder(){
+        final MessageWithListAndLinks.MessageWithListAndLinksBuilder messageWithLinksBuilder = initMessage(getText(), getOptionalArguments());
         messageWithLinksBuilder.links(this.links);
 
         return messageWithLinksBuilder;
     }
 
-    private MessageWithListWithLinks.MessageWithListWithLinksBuilder initMessage(String text, OptionalArguments optionalArguments) {
-        return MessageWithListWithLinks.builder()
+    private MessageWithListAndLinks.MessageWithListAndLinksBuilder initMessage(String text, OptionalArguments optionalArguments) {
+        return MessageWithListAndLinks.builder()
                 .unicode(optionalArguments.getUnicode())
                 .delay(optionalArguments.getDelay())
                 .text(text)

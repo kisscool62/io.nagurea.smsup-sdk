@@ -2,7 +2,6 @@ package io.nagurea.smsupsdk.sendsms.shorturl.body;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.sendsms.arguments.MarketingOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.OptionalArguments;
 import io.nagurea.smsupsdk.sendsms.campaignwithlist.body.Campaign;
@@ -30,8 +29,8 @@ class CampaignWithListAndLinksDataBuilderTest {
         final Campaign campaign = campaignBuilder.buildCampaign();
 
         // then
-        assertEquals(links.size(), ((MessageWithListWithLinks)(campaign.getSms().getMessage())).getLinks().size());
-        assertEquals(links, ((MessageWithListWithLinks)(campaign.getSms().getMessage())).getLinks());
+        assertEquals(links.size(), ((MessageWithListAndLinks)(campaign.getSms().getMessage())).getLinks().size());
+        assertEquals(links, ((MessageWithListAndLinks)(campaign.getSms().getMessage())).getLinks());
 
     }
 
