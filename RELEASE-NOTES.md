@@ -20,7 +20,10 @@ Initial version with:
 * Send SMS > Cancel a campaign
 
 ## [0.5.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.4.0...v0.5.0) (2022-06-29)
-* Send SMS > Cancel a campaign
+* Send SMS > Short URLs for campaign and campaign lists
+
+## [0.6.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.5.0...v0.6.0) (2022-07-01)
+* Lists > Delete list
 
 
 ### Upgrade Steps
@@ -30,7 +33,7 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-* Send SMS > Short URLs for campaign and campaign lists
+* Lists > Delete list
 
 ### Bug Fixes
 
