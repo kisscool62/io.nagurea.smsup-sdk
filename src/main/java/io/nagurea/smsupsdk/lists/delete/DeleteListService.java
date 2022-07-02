@@ -23,9 +23,9 @@ public class DeleteListService extends DELETESMSUpService {
     }
 
     /**
-     * Send a simple message for general purpose (called alert)
+     * This method allows you to delete a list of contacts.
      * @param token SMSUp token
-     * @param id id of list of contacts to delete
+     * @param id The list id
      * @return DeleteListResponse with detailed @DeleteListResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
      */
