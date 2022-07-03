@@ -1,13 +1,13 @@
 package io.nagurea.smsupsdk.lists.get.list;
 
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @ToString
-@Builder
+@SuperBuilder
 @EqualsAndHashCode
 public class Contact {
 

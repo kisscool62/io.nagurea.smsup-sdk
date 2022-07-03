@@ -25,6 +25,7 @@ Initial version with:
 ## [0.6.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.5.0...v0.6.0) (2022-07-01)
 * Lists > Delete list
 * Lists > Clear list
+* Lists > blacklist
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -35,6 +36,7 @@ Initial version with:
 ### New Features
 * Lists > Delete list
 * Lists > Clear list
+* Lists > blacklist
 
 ### Bug Fixes
 
