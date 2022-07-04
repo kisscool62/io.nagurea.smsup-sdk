@@ -28,6 +28,8 @@ Initial version with:
 * Lists > blacklist
 * Lists > npai
 
+## [0.7.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.6.0...v0.7.0) (2022-07-04)
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
@@ -35,10 +37,7 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-* Lists > Delete list
-* Lists > Clear list
-* Lists > blacklist
-* Lists > npai
+
 
 ### Bug Fixes
 
