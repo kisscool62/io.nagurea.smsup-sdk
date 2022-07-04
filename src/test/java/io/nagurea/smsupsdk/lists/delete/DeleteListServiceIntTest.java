@@ -1,9 +1,6 @@
 package io.nagurea.smsupsdk.lists.delete;
 
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
-import io.nagurea.smsupsdk.sendsms.cancelcampaign.CancelCampaignResponse;
-import io.nagurea.smsupsdk.sendsms.cancelcampaign.CancelCampaignResultResponse;
-import io.nagurea.smsupsdk.sendsms.cancelcampaign.CancelCampaignService;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

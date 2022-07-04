@@ -7,10 +7,8 @@ import io.nagurea.smsupsdk.sendsms.arguments.AlertOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.Delay;
 import io.nagurea.smsupsdk.sendsms.campaignwithlist.CampaignWithListResponse;
 import io.nagurea.smsupsdk.sendsms.campaignwithlist.CampaignWithListResultResponse;
-import io.nagurea.smsupsdk.sendsms.campaignwithlist.CampaignWithListService;
 import io.nagurea.smsupsdk.sendsms.campaignwithlist.body.ListId;
 import io.nagurea.smsupsdk.sendsms.sender.Sender;
-import lombok.NonNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -23,7 +21,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 

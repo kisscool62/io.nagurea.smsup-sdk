@@ -4,8 +4,8 @@ import com.google.gson.Gson;
 import io.nagurea.smsupsdk.common.http.post.POSTSMSUpService;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.lists.create.arguments.CreateListArguments;
-import io.nagurea.smsupsdk.lists.create.body.CreateListBody;
 import io.nagurea.smsupsdk.lists.create.body.ContactList;
+import io.nagurea.smsupsdk.lists.create.body.CreateListBody;
 import lombok.NonNull;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 

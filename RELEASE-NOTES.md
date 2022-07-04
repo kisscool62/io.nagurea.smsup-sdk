@@ -26,6 +26,7 @@ Initial version with:
 * Lists > Delete list
 * Lists > Clear list
 * Lists > blacklist
+* Lists > npai
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -37,6 +38,7 @@ Initial version with:
 * Lists > Delete list
 * Lists > Clear list
 * Lists > blacklist
+* Lists > npai
 
 ### Bug Fixes
 

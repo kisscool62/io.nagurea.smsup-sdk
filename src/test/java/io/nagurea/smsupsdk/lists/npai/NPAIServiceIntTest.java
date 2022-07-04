@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.lists.blacklist;
+package io.nagurea.smsupsdk.lists.npai;
 
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import org.junit.jupiter.api.AfterAll;
@@ -19,7 +19,7 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class BlacklistServiceIntTest {
+class NPAIServiceIntTest {
 
     private static final String YOUR_TOKEN = "Your Token";
     private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
@@ -28,7 +28,7 @@ class BlacklistServiceIntTest {
      * Useless. Only here to see how services could be used with Spring
      */
     @Autowired
-    private BlacklistService blacklistService;
+    private NPAIService npaiService;
 
     private static ClientAndServer mockServer;
 
@@ -38,38 +38,38 @@ class BlacklistServiceIntTest {
         mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
         mockServer.when(
                 request()
-                        .withPath("/blacklist")
+                        .withPath("/npai")
                         .withMethod("GET")
                         .withHeader("Authorization", EXPECTED_TOKEN)
         ).respond(
                 HttpResponse.response()
                         .withStatusCode(200)
                         .withBody(
-                            "{ \n" +
-                                    "    \"status\": 1,\n" +
-                                    "    \"message\": \"OK\",\n" +
-                                    "    \"list\": [\n" +
+                            "{\n" +
+                                    "  \"status\": 1,\n" +
+                                    "  \"message\": \"OK\",\n" +
+                                    "  \"list\": [\n" +
                                     "      {\n" +
                                     "          \"id\": \"5a4e49d9fc5886067c13f533\",\n" +
                                     "          \"destination\": \"41781234567\",\n" +
-                                    "          \"info1\": \"Isaac\",\n" +
-                                    "          \"info2\": \"Asimov\",\n" +
-                                    "          \"info3\": \"1919\",\n" +
-                                    "          \"info4\": \"Petrovichi\",\n" +
+                                    "          \"info1\": \"Douglas\",\n" +
+                                    "          \"info2\": \"Adams\",\n" +
+                                    "          \"info3\": \"1952\",\n" +
+                                    "          \"info4\": \"Cambridge\",\n" +
                                     "          \"campaign_id\": 47856851\n" +
                                     "      },\n" +
                                     "      {\n" +
                                     "          \"id\": \"5a4e4a00fc5886067c13f534\",\n" +
                                     "          \"destination\": \"41781234566\",\n" +
-                                    "          \"info1\": \"Howard\",\n" +
-                                    "          \"info2\": \"Phillips\",\n" +
-                                    "          \"info3\": \"Lovecraft\",\n" +
-                                    "          \"info4\": \"\",\n" +
+                                    "          \"info1\": \"Frank\",\n" +
+                                    "          \"info2\": \"Herbert\",\n" +
+                                    "          \"info3\": \"1920\",\n" +
+                                    "          \"info4\": \"Tacoma\",\n" +
                                     "          \"campaign_id\": 47858459\n" +
                                     "      }\n" +
-                                    "    ],\n" +
-                                    "    \"totalRecords\": 2,\n" +
-                                    "    \"totalDisplayRecords\": 2\n" +
+                                    "  ],\n" +
+                                    "  \"totalRecords\": 2,\n" +
+                                    "  \"totalDisplayRecords\": 2\n" +
                                     "}"
                         )
         );
@@ -84,28 +84,28 @@ class BlacklistServiceIntTest {
     @Test
     void getBlacklist() throws IOException {
         // given
-        BlackistResultResponse expectedGetListResponse = BlackistResultResponse.builder()
+        NPAIResultResponse expectedGetListResponse = NPAIResultResponse.builder()
                 .message("OK")
                 .responseStatus(ResponseStatus.OK)
                 .totalRecords(2)
                 .totalDisplayRecords(2)
                 .list(Arrays.asList(
-                        BlacklistedContact.builder()
+                        NPAIContact.builder()
                                 .id("5a4e49d9fc5886067c13f533")
                                 .destination("41781234567")
-                                .info1("Isaac")
-                                .info2("Asimov")
-                                .info3("1919")
-                                .info4("Petrovichi")
+                                .info1("Douglas")
+                                .info2("Adams")
+                                .info3("1952")
+                                .info4("Cambridge")
                                 .campaignId(47856851)
                                 .build(),
-                        BlacklistedContact.builder()
+                        NPAIContact.builder()
                                 .id("5a4e4a00fc5886067c13f534")
                                 .destination("41781234566")
-                                .info1("Howard")
-                                .info2("Phillips")
-                                .info3("Lovecraft")
-                                .info4("")
+                                .info1("Frank")
+                                .info2("Herbert")
+                                .info3("1920")
+                                .info4("Tacoma")
                                 .campaignId(47858459)
                                 .build()
                 ))
@@ -113,7 +113,7 @@ class BlacklistServiceIntTest {
 
 
         // when
-        final BlackistResultResponse actualGetListResponse = blacklistService.getBlacklist(YOUR_TOKEN).getEffectiveResponse();
+        final NPAIResultResponse actualGetListResponse = npaiService.getNPAIList(YOUR_TOKEN).getEffectiveResponse();
 
         // then
         assertEquals(ResponseStatus.OK, actualGetListResponse.getStatus());

@@ -1,9 +1,6 @@
 package io.nagurea.smsupsdk.lists.get.list;
 
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
-import io.nagurea.smsupsdk.lists.get.lists.ContactList;
-import io.nagurea.smsupsdk.lists.get.lists.GetListsResultResponse;
-import io.nagurea.smsupsdk.lists.get.lists.GetListsService;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -15,7 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

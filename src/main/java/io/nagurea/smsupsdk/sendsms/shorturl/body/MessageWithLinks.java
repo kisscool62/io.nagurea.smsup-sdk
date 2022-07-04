@@ -3,7 +3,6 @@ package io.nagurea.smsupsdk.sendsms.shorturl.body;
 import io.nagurea.smsupsdk.sendsms.arguments.Delay;
 import io.nagurea.smsupsdk.sendsms.arguments.PushType;
 import io.nagurea.smsupsdk.sendsms.campaign.body.Message;
-import io.nagurea.smsupsdk.sendsms.campaignwithlist.body.MessageWithList;
 import io.nagurea.smsupsdk.sendsms.sender.Sender;
 import lombok.Builder;
 import lombok.Getter;

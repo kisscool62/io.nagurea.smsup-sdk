@@ -8,8 +8,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ShortLinkHelperTest {
 
     private static final String TESTED_TEXT = "Message via API with a first link : <-short-> and a second one : <-short->";
