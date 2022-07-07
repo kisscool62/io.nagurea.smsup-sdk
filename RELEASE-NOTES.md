@@ -29,6 +29,7 @@ Initial version with:
 * Lists > npai
 
 ## [0.7.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.6.0...v0.7.0) (2022-07-04)
+* Campaigns > Get campaign
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -37,7 +38,7 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-
+* Campaigns > Get campaign
 
 ### Bug Fixes
 
