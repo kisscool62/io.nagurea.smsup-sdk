@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.campaigns.get.stops;
+package io.nagurea.smsupsdk.campaigns.get.npais;
 
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import org.junit.jupiter.api.AfterAll;
@@ -20,16 +20,16 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class GetCampaignStopsServiceIntTest {
+class GetCampaignNPAIsServiceIntTest {
 
     private static final String YOUR_TOKEN = "Your Token";
     private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
-    private static final String CAMPAIGN_ID = "41781234567";
+    private static final String CAMPAIGN_ID = "18969398";
     /**
      * Useless. Only here to see how services could be used with Spring
      */
     @Autowired
-    private GetCampaignStopsService getCampaignStopsService;
+    private GetCampaignNPAIsService getCampaignNPAIsService;
 
     private static ClientAndServer mockServer;
 
@@ -38,7 +38,7 @@ class GetCampaignStopsServiceIntTest {
         mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
         mockServer.when(
                 request()
-                        .withPath("/campaign/" + CAMPAIGN_ID + "/blacklist")
+                        .withPath("/campaign/" + CAMPAIGN_ID + "/npai")
                         .withMethod("GET")
                         .withHeader("Authorization", EXPECTED_TOKEN)
         ).respond(
@@ -48,14 +48,14 @@ class GetCampaignStopsServiceIntTest {
                                 "{ \n" +
                                         "    \"status\": 1,\n" +
                                         "    \"message\": \"OK\",\n" +
-                                        "    \"stops\": [\n" +
+                                        "    \"npais\": [\n" +
                                         "        {\n" +
                                         "            \"destination\": \"41781234567\",\n" +
                                         "            \"info1\": \"Ricky\",\n" +
                                         "            \"info2\": \"Gervais\",\n" +
                                         "            \"info3\": null,\n" +
                                         "            \"info4\": null,\n" +
-                                        "            \"date\": \"2022-07-08 19:06:21\"\n" +
+                                        "            \"date\": \"2022-07-08 19:27:41\"\n" +
                                         "        },\n" +
                                         "        {\n" +
                                         "            \"destination\": \"41781234566\",\n" +
@@ -63,7 +63,7 @@ class GetCampaignStopsServiceIntTest {
                                         "            \"info2\": \"Dawkins\",\n" +
                                         "            \"info3\": null,\n" +
                                         "            \"info4\": null,\n" +
-                                        "            \"date\": \"2022-07-08 19:06:21\"\n" +
+                                        "            \"date\": \"2022-07-08 19:27:41\"\n" +
                                         "        }\n" +
                                         "    ]\n" +
                                         "}"
@@ -77,28 +77,28 @@ class GetCampaignStopsServiceIntTest {
     }
 
      @Test
-     void getCampaignStops() throws IOException {
+     void getCampaignNPAIs() throws IOException {
          //given
-         final GetCampaignStopsResultResponse expectedResponse = GetCampaignStopsResultResponse.builder()
+         final GetCampaignNPAIsResultResponse expectedResponse = GetCampaignNPAIsResultResponse.builder()
                  .message(ResponseStatus.OK.getDescription())
                  .responseStatus(ResponseStatus.OK)
-                 .stops(
+                 .npais(
                          Arrays.asList(
-                                 Stop.builder()
+                                 NPAI.builder()
                                          .destination("41781234567")
                                          .info1("Ricky")
                                          .info2("Gervais")
                                          .info3(null)
                                          .info4(null)
-                                         .date(LocalDateTime.of(2022, 7, 8, 19, 6, 21))
+                                         .date(LocalDateTime.of(2022, 7, 8, 19, 27, 41))
                                          .build(),
-                                 Stop.builder()
+                                 NPAI.builder()
                                          .destination("41781234566")
                                          .info1("Richard")
                                          .info2("Dawkins")
                                          .info3(null)
                                          .info4(null)
-                                         .date(LocalDateTime.of(2022, 7, 8, 19, 6, 21))
+                                         .date(LocalDateTime.of(2022, 7, 8, 19, 27, 41))
                                          .build()
                          )
                  )
@@ -106,9 +106,9 @@ class GetCampaignStopsServiceIntTest {
          final int expectedStatusCode = 200;
 
          //when
-         final GetCampaignStopsResponse result = getCampaignStopsService.getCampaignStops(YOUR_TOKEN, CAMPAIGN_ID);
+         final GetCampaignNPAIsResponse result = getCampaignNPAIsService.getCampaignNPAIs(YOUR_TOKEN, CAMPAIGN_ID);
          final Integer effectiveStatusCode = result.getStatusCode();
-         final GetCampaignStopsResultResponse effectiveResponse = result.getEffectiveResponse();
+         final GetCampaignNPAIsResultResponse effectiveResponse = result.getEffectiveResponse();
 
          //then
          assertEquals(expectedStatusCode, effectiveStatusCode);

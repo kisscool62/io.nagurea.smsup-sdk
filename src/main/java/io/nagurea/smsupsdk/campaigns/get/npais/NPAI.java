@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.campaigns.get.stops;
+package io.nagurea.smsupsdk.campaigns.get.npais;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class Stops {
+public class NPAI {
     private final String destination;
     private final String info1;
     private final String info2;

@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.campaigns.get.stops;
+package io.nagurea.smsupsdk.campaigns.get.npais;
 
 import io.nagurea.smsupsdk.common.response.ResultResponse;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
@@ -12,16 +12,16 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Getter
 @ToString(callSuper = true)
-public class GetCampaignStopsResultResponse extends ResultResponse {
+public class GetCampaignNPAIsResultResponse extends ResultResponse {
 
-    private final List<Stop> stops;
+    private final List<NPAI> npais;
 
     @Builder
-    public GetCampaignStopsResultResponse(
+    public GetCampaignNPAIsResultResponse(
             ResponseStatus responseStatus,
-            String message, List<Stop> stops) {
+            String message, List<NPAI> npais) {
         super(responseStatus, message);
-        this.stops = stops;
+        this.npais = npais;
     }
 
 }
