@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.campaigns.get.npais;
+package io.nagurea.smsupsdk.campaigns.get.replies;
 
 
 import io.nagurea.smsupsdk.common.exception.RequiredParameterException;
@@ -13,27 +13,27 @@ import java.io.IOException;
 import java.util.UUID;
 
 
-public class GetCampaignNPAIsService extends GETSMSUpService {
+public class GetCampaignRepliesService extends GETSMSUpService {
 
-    private static final String URL = "/campaign/%s/npai";
+    private static final String URL = "/campaign/%s/mo";
     private static final String ID = "campaign id";
 
-    protected GetCampaignNPAIsService(String rootUrl) {
+    protected GetCampaignRepliesService(String rootUrl) {
         super(rootUrl);
     }
 
     /**
-     * This method allows you to retrieve the NPAIs of a campaign.
+     * This method allows you to retrieve the replies of a campaign.
      * @param token SMSUp token
-     * @param id id of the campaign to get NPAIs from
-     * @return GetCampaignNPAIsResponse with detailed @GetCampaignNPAIsResponse
+     * @param id id of the campaign to get replies from
+     * @return GetCampaignRepliesResponse with detailed @GetCampaignRepliesResponse
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public GetCampaignNPAIsResponse getCampaignNPAIs(String token, String id) throws IOException {
+    public GetCampaignRepliesResponse getCampaignReplies(String token, String id) throws IOException {
         final ImmutablePair<Integer, String> response = get(buildSendUrl(id), token);
         final String body = response.getRight();
-        final GetCampaignNPAIsResultResponse responseObject = GsonHelper.fromJson(body, GetCampaignNPAIsResultResponse.class);
-        return GetCampaignNPAIsResponse.builder()
+        final GetCampaignRepliesResultResponse responseObject = GsonHelper.fromJson(body, GetCampaignRepliesResultResponse.class);
+        return GetCampaignRepliesResponse.builder()
                 .uid(UUID.randomUUID().toString())
                 .statusCode(response.getLeft())
                 .effectiveResponse(responseObject)
@@ -49,7 +49,7 @@ public class GetCampaignNPAIsService extends GETSMSUpService {
             throw exception.build();
         }
 
-        return String.format(GetCampaignNPAIsService.URL, id);
+        return String.format(GetCampaignRepliesService.URL, id);
     }
 
 }

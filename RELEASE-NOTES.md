@@ -32,6 +32,7 @@ Initial version with:
 * Campaigns > Get campaign
 * Campaigns > Get campaign stops
 * Campaigns > Get campaign npais
+* Campaigns > Get campaign replies
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -43,6 +44,7 @@ Initial version with:
 * Campaigns > Get campaign
 * Campaigns > Get campaign stops
 * Campaigns > Get campaign npais
+* Campaigns > Get campaign replies
 
 ### Bug Fixes
 

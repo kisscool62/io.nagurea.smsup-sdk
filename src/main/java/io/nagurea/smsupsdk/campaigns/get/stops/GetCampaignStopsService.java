@@ -26,7 +26,7 @@ public class GetCampaignStopsService extends GETSMSUpService {
      * This method allows you to retrieve the STOPs of a campaign.
      * @param token SMSUp token
      * @param id id of the campaign to get stops from
-     * @return GetCampaignResponse with detailed @GetCampaignResponse
+     * @return GetCampaignStopsResponse with detailed @GetCampaignStopsResponse
      * @throws IOException when something got wrong during effective query to SMSUp
      */
     public GetCampaignStopsResponse getCampaignStops(String token, String id) throws IOException {
