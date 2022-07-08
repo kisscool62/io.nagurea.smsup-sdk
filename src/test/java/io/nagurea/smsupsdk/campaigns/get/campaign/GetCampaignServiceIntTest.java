@@ -82,52 +82,52 @@ class GetCampaignServiceIntTest {
         mockServer.stop();
     }
 
-     @Test
-     void sendMarketing() throws IOException {
-         //given
-         final GetCampaignResultResponse expectedResponse = GetCampaignResultResponse.builder()
-                 .message(ResponseStatus.OK.getDescription())
-                 .responseStatus(ResponseStatus.OK)
-                 .campaign(
-                         Collections.singletonList(
-                                 Campaign.builder()
-                                         .id("18969398")
-                                         .sender("BESTSHOES")
-                                         .text("Special offer : Buy one shoe and get the second one for free")
-                                         .date(LocalDateTime.of(2018, 7, 4, 11, 37, 16))
-                                         .cost("2128")
-                                         .lists(
-                                                 Arrays.asList(
-                                                         ListId.builder()
-                                                                 .id("12345")
-                                                                 .build(),
-                                                         ListId.builder()
-                                                                 .id("45742")
-                                                                 .build()
-                                                 )
-                                         )
-                                         .delivered("1958")
-                                         .error("0")
-                                         .expired("0")
-                                         .networkError("0")
-                                         .stop("0")
-                                         .npai("0")
-                                         .build()
-                         )
-                 )
-                 .build();
-         final int expectedStatusCode = 200;
+    @Test
+    void getCampaign() throws IOException {
+        //given
+        final GetCampaignResultResponse expectedResponse = GetCampaignResultResponse.builder()
+                .message(ResponseStatus.OK.getDescription())
+                .responseStatus(ResponseStatus.OK)
+                .campaign(
+                        Collections.singletonList(
+                                Campaign.builder()
+                                        .id("18969398")
+                                        .sender("BESTSHOES")
+                                        .text("Special offer : Buy one shoe and get the second one for free")
+                                        .date(LocalDateTime.of(2018, 7, 4, 11, 37, 16))
+                                        .cost("2128")
+                                        .lists(
+                                                Arrays.asList(
+                                                        ListId.builder()
+                                                                .id("12345")
+                                                                .build(),
+                                                        ListId.builder()
+                                                                .id("45742")
+                                                                .build()
+                                                )
+                                        )
+                                        .delivered("1958")
+                                        .error("0")
+                                        .expired("0")
+                                        .networkError("0")
+                                        .stop("0")
+                                        .npai("0")
+                                        .build()
+                        )
+                )
+                .build();
+        final int expectedStatusCode = 200;
 
-         //when
-         final GetCampaignResponse result = getCampaignService.getCampaign(YOUR_TOKEN, CAMPAIGN_ID);
-         final Integer effectiveStatusCode = result.getStatusCode();
-         final GetCampaignResultResponse effectiveResponse = result.getEffectiveResponse();
+        //when
+        final GetCampaignResponse result = getCampaignService.getCampaign(YOUR_TOKEN, CAMPAIGN_ID);
+        final Integer effectiveStatusCode = result.getStatusCode();
+        final GetCampaignResultResponse effectiveResponse = result.getEffectiveResponse();
 
-         //then
-         assertEquals(expectedStatusCode, effectiveStatusCode);
-         assertEquals(expectedResponse, effectiveResponse);
-         assertEquals(expectedResponse.getMessage(), effectiveResponse.getMessage());
-         assertEquals(expectedResponse.getStatus(), effectiveResponse.getStatus());
+        //then
+        assertEquals(expectedStatusCode, effectiveStatusCode);
+        assertEquals(expectedResponse, effectiveResponse);
+        assertEquals(expectedResponse.getMessage(), effectiveResponse.getMessage());
+        assertEquals(expectedResponse.getStatus(), effectiveResponse.getStatus());
 
     }
 
