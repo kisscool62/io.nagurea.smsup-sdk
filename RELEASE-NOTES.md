@@ -33,6 +33,7 @@ Initial version with:
 * Campaigns > Get campaign stops
 * Campaigns > Get campaign npais
 * Campaigns > Get campaign replies
+* Campaigns > Blacklist the NPAI of a campaign
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -45,6 +46,7 @@ Initial version with:
 * Campaigns > Get campaign stops
 * Campaigns > Get campaign npais
 * Campaigns > Get campaign replies
+* Campaigns > Blacklist the NPAI of a campaign
 
 ### Bug Fixes
 
