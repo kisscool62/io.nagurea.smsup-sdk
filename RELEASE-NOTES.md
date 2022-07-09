@@ -29,11 +29,12 @@ Initial version with:
 * Lists > npai
 
 ## [0.7.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.6.0...v0.7.0) (2022-07-04)
+* Campaigns > Get campaigns history
 * Campaigns > Get campaign
+* Campaigns > Blacklist the NPAI of a campaign
 * Campaigns > Get campaign stops
 * Campaigns > Get campaign npais
 * Campaigns > Get campaign replies
-* Campaigns > Blacklist the NPAI of a campaign
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -42,11 +43,12 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
+* Campaigns > Get campaigns history
 * Campaigns > Get campaign
+* Campaigns > Blacklist the NPAI of a campaign
 * Campaigns > Get campaign stops
 * Campaigns > Get campaign npais
 * Campaigns > Get campaign replies
-* Campaigns > Blacklist the NPAI of a campaign
 
 ### Bug Fixes
 

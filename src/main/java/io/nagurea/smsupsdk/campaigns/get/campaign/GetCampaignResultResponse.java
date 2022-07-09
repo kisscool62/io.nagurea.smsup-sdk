@@ -15,13 +15,17 @@ import java.util.List;
 public class GetCampaignResultResponse extends ResultResponse {
 
     private final List<Campaign> campaign;
+    private final Integer totalRecords;
+    private final Integer totalDisplayRecords;
 
     @Builder
     public GetCampaignResultResponse(
             ResponseStatus responseStatus,
-            String message, List<Campaign> campaign) {
+            String message, List<Campaign> campaign, Integer totalRecords, Integer totalDisplayRecords) {
         super(responseStatus, message);
         this.campaign = campaign;
+        this.totalRecords = totalRecords;
+        this.totalDisplayRecords = totalDisplayRecords;
     }
 
 }
