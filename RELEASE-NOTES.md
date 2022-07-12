@@ -39,6 +39,7 @@ Initial version with:
 ## [0.8.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.7.0...v0.8.0) (2022-07-12)
 * Contacts > Insert into a list
 * Contacts > Deduplicate list
+* Contacts > Remove contact
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -49,6 +50,7 @@ Initial version with:
 ### New Features
 * Contacts > Insert into a list
 * Contacts > Deduplicate list
+* Contacts > Remove contact
 
 ### Bug Fixes
 
