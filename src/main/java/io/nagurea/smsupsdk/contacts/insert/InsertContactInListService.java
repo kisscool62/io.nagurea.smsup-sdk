@@ -20,7 +20,7 @@ public class InsertContactInListService extends POSTSMSUpService {
     }
 
     /**
-     * This method allows you to add the NPAI of your campaign into your NPAI list.
+     * This method allows you to add some contacts to one of your list.
      * @param token SMSUp token
      * @param contactListBody @ContactListBody of the campaign to blacklist the npai
      * @return InsertContactInListResponse with detailed @{@link InsertContactInListResultResponse}
