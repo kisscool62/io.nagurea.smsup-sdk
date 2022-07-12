@@ -36,6 +36,9 @@ Initial version with:
 * Campaigns > Get campaign npais
 * Campaigns > Get campaign replies
 
+## [0.8.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.7.0...v0.8.0) (2022-07-12)
+* Contacts > Insert into a list
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
@@ -43,12 +46,7 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-* Campaigns > Get campaigns history
-* Campaigns > Get campaign
-* Campaigns > Blacklist the NPAI of a campaign
-* Campaigns > Get campaign stops
-* Campaigns > Get campaign npais
-* Campaigns > Get campaign replies
+* Contacts > Insert into a list
 
 ### Bug Fixes
 
