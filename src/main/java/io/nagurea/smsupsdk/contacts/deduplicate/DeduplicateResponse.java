@@ -5,10 +5,10 @@ import lombok.Builder;
 import lombok.ToString;
 
 @ToString
-public class ClearListResponse extends APIResponse<ClearListResultResponse> {
+public class DeduplicateResponse extends APIResponse<DeduplicateResultResponse> {
 
     @Builder
-    public ClearListResponse(String uid, Integer statusCode, String additionalMessage, ClearListResultResponse effectiveResponse) {
+    public DeduplicateResponse(String uid, Integer statusCode, String additionalMessage, DeduplicateResultResponse effectiveResponse) {
         super(uid, statusCode, additionalMessage, effectiveResponse);
     }
 }

@@ -10,25 +10,25 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import java.io.IOException;
 import java.util.UUID;
 
-public class ClearListService extends PUTSMSUpService {
-    private static final String URL = "/list/%s/npai/clear";
+public class DeduplicateService extends PUTSMSUpService {
+    private static final String URL = "/list/deduplicate/%s";
     private static final String ID = "list id";
 
-    protected ClearListService(String rootUrl) {
+    protected DeduplicateService(String rootUrl) {
         super(rootUrl);
     }
 
     /**
-     * This method allows you to add the NPAI of your list into your NPAI list and delete NPAI in this list.
+     * Deduplicate list
      * @param token
      * @param id The list id
      * @return the status and number of removed items
      * @throws IOException
      */
-    public ClearListResponse clear(@NonNull String token, @NonNull String id) throws IOException {
+    public DeduplicateResponse deduplicate(@NonNull String token, @NonNull String id) throws IOException {
         final ImmutablePair<Integer, String> response = put(buildUrl(id), token);
-        final ClearListResultResponse responseObject = new Gson().fromJson(response.getRight(), ClearListResultResponse.class);
-        return ClearListResponse.builder()
+        final DeduplicateResultResponse responseObject = new Gson().fromJson(response.getRight(), DeduplicateResultResponse.class);
+        return DeduplicateResponse.builder()
                 .uid(UUID.randomUUID().toString())
                 .statusCode(response.getLeft())
                 .effectiveResponse(responseObject)

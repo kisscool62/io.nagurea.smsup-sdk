@@ -10,12 +10,12 @@ import lombok.ToString;
 @ToString
 @Getter
 @EqualsAndHashCode(callSuper = true)
-public class ClearListResultResponse extends ResultResponse {
+public class DeduplicateResultResponse extends ResultResponse {
 
     private final Integer removed;
 
     @Builder
-    public ClearListResultResponse(ResponseStatus responseStatus, String message, Integer removed) {
+    public DeduplicateResultResponse(ResponseStatus responseStatus, String message, Integer removed) {
         super(responseStatus, message);
         this.removed = removed;
     }
