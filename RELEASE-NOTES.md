@@ -42,6 +42,7 @@ Initial version with:
 * Contacts > Remove contact
 * Contacts > Update a contact
 * Contacts > Add contacts to the blacklist
+* Contacts > Add contacts to the NPAI list
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -55,6 +56,7 @@ Initial version with:
 * Contacts > Remove contact
 * Contacts > Update a contact
 * Contacts > Add contacts to the blacklist
+* Contacts > Add contacts to the NPAI list
 
 ### Bug Fixes
 
