@@ -41,6 +41,7 @@ Initial version with:
 * Contacts > Deduplicate list
 * Contacts > Remove contact
 * Contacts > Update a contact
+* Contacts > Add contacts to the blacklist
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -53,6 +54,7 @@ Initial version with:
 * Contacts > Deduplicate list
 * Contacts > Remove contact
 * Contacts > Update a contact
+* Contacts > Add contacts to the blacklist
 
 ### Bug Fixes
 
