@@ -40,6 +40,7 @@ Initial version with:
 * Contacts > Insert into a list
 * Contacts > Deduplicate list
 * Contacts > Remove contact
+* Contacts > Update a contact
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -51,6 +52,7 @@ Initial version with:
 * Contacts > Insert into a list
 * Contacts > Deduplicate list
 * Contacts > Remove contact
+* Contacts > Update a contact
 
 ### Bug Fixes
 
