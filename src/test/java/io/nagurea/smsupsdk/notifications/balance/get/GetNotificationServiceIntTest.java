@@ -65,7 +65,7 @@ class GetNotificationServiceIntTest {
     }
 
     @Test
-    void getCampaign() throws IOException {
+    void getNotificationBalance() throws IOException {
         //given
         final GetNotificationResultResponse expectedResponse = GetNotificationResultResponse.builder()
                 .message(ResponseStatus.OK.getDescription())

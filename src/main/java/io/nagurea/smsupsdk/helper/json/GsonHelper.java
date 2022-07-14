@@ -6,13 +6,16 @@ import com.google.gson.TypeAdapterFactory;
 import io.nagurea.smsupsdk.common.response.ResultResponse;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.helper.json.typeadapter.RuntimeTypeAdapterFactory;
+import io.nagurea.smsupsdk.helper.json.typeadapter.deserializer.ActivationStatusDeserializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.deserializer.LocalDateTimeDeserializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.deserializer.ResponseStatusDeserializer;
+import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.ActivationStatusSerializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.PushTypeSerializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.SenderSerializer;
 import io.nagurea.smsupsdk.lists.create.CreateListResultResponse;
 import io.nagurea.smsupsdk.lists.get.list.GetListResultResponse;
 import io.nagurea.smsupsdk.lists.get.lists.GetListsResultResponse;
+import io.nagurea.smsupsdk.notifications.balance.update.body.ActivationStatus;
 import io.nagurea.smsupsdk.sendsms.arguments.PushType;
 import io.nagurea.smsupsdk.sendsms.sender.Sender;
 import io.nagurea.smsupsdk.sendsms.singlemessage.SingleMessageResultResponse;
@@ -40,6 +43,7 @@ public class GsonHelper {
         return new GsonBuilder()
                 .registerTypeAdapterFactory(resultResponseFactory)
                 .registerTypeAdapter(ResponseStatus.class, new ResponseStatusDeserializer())
+                .registerTypeAdapter(ActivationStatus.class, new ActivationStatusDeserializer())
                 .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer());
     }
 
@@ -47,6 +51,7 @@ public class GsonHelper {
         final GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setPrettyPrinting();
         gsonBuilder.registerTypeAdapter(PushType.class, new PushTypeSerializer());
+        gsonBuilder.registerTypeAdapter(ActivationStatus.class, new ActivationStatusSerializer());
         gsonBuilder.registerTypeAdapter(Sender.class, new SenderSerializer());
         return gsonBuilder;
     }

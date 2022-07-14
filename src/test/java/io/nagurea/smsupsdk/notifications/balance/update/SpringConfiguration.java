@@ -1,7 +1,6 @@
-package io.nagurea.smsupsdk.contacts.update;
+package io.nagurea.smsupsdk.notifications.balance.update;
 
 import io.nagurea.smsupsdk.common.configuration.LocalHost4242;
-import io.nagurea.smsupsdk.contacts.insert.InsertContactInListService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 public class SpringConfiguration implements LocalHost4242 {
 
     @Bean
-    UpdateContactService contactService(){
-        return new UpdateContactService(ROOT_URL);
+    UpdateBalanceService balanceService(){
+        return new UpdateBalanceService(ROOT_URL);
     }
 
 }

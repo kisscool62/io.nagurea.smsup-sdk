@@ -56,6 +56,7 @@ Initial version with:
 
 ### New Features
 * Notifications > Balance > Get
+* Notifications > Balance > Update
 
 ### Bug Fixes
 

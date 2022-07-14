@@ -42,9 +42,9 @@ flowchart BT
         accmgmt(Account Managing):::todo --- accmgmt9(Data retention):::todo
         accmgmt9(Data retention):::todo --- dataretentionget(Get):::todo
         accmgmt9(Data retention):::todo --- dataretentionupdate(Update):::todo
-        notif(Notifications):::todo --- notif1(Balance):::todo
-        notif1(Balance):::todo --- notifget(Get):::done
-        notif1(Balance):::todo --- notifupdate(Update):::todo
+        notif(Notifications):::done --- notif1(Balance):::done
+        notif1(Balance):::done --- notifget(Get):::done
+        notif1(Balance):::done --- notifupdate(Update):::done
         invoices(Invoices):::todo --- invoices1(Get invoices):::todo
         invoices(Invoices):::todo --- invoices2(Get invoice):::todo
         invoices(Invoices):::todo --- invoices3(Download invoice):::todo
