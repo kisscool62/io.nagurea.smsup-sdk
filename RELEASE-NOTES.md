@@ -44,6 +44,10 @@ Initial version with:
 * Contacts > Add contacts to the blacklist
 * Contacts > Add contacts to the NPAI list
 
+## [0.9.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.8.0...v0.9.0) (2022-07-14)
+* Notifications > Balance > Get
+* Notifications > Balance > Update
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
@@ -51,12 +55,7 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-* Contacts > Insert into a list
-* Contacts > Deduplicate list
-* Contacts > Remove contact
-* Contacts > Update a contact
-* Contacts > Add contacts to the blacklist
-* Contacts > Add contacts to the NPAI list
+* Notifications > Balance > Get
 
 ### Bug Fixes
 
