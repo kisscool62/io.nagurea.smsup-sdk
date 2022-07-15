@@ -50,6 +50,7 @@ Initial version with:
 
 ## [0.10.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.9.0...v0.10.0) (2022-07-15)
 * Invoices > Get invoices
+* Invoices > Get invoice
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -59,6 +60,7 @@ Initial version with:
 
 ### New Features
 * Invoices > Get invoices
+* Invoices > Get invoice
 
 ### Bug Fixes
 
