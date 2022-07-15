@@ -48,6 +48,9 @@ Initial version with:
 * Notifications > Balance > Get
 * Notifications > Balance > Update
 
+## [0.10.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.9.0...v0.10.0) (2022-07-15)
+* Invoices > Get invoices
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
@@ -55,8 +58,7 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-* Notifications > Balance > Get
-* Notifications > Balance > Update
+* Invoices > Get invoices
 
 ### Bug Fixes
 
