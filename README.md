@@ -15,7 +15,7 @@ For instance, to send an Alert SMS to some recipient
 import io.nagurea.smsupsdk.sendsms.singlemessage.SingleMessageService;
 
 public class SingleMessageMain {
-    public static void main() {
+    public static void main(String[] args) {
         //initiate the service with root url
         final SingleMessageService singleMessageService = new SingleMessageService("https://api.smsup.ch/");
         

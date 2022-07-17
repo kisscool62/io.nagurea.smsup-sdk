@@ -18,7 +18,7 @@ public class BlacklistNPAIService extends PUTSMSUpService {
     private static final String URL = "/campaign/%s/npai";
     private static final String ID = "campaign id";
 
-    protected BlacklistNPAIService(String rootUrl) {
+    public BlacklistNPAIService(String rootUrl) {
         super(rootUrl);
     }
 

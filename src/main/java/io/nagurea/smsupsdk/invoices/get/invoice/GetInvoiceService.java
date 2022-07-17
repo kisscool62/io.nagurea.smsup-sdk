@@ -14,7 +14,7 @@ public class GetInvoiceService extends GETSMSUpService {
 
     private static final String URL = "/account/invoice";
 
-    protected GetInvoiceService(String rootUrl) {
+    public GetInvoiceService(String rootUrl) {
         super(rootUrl);
     }
 

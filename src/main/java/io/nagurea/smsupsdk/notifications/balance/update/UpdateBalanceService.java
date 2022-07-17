@@ -12,7 +12,7 @@ import java.util.UUID;
 public class UpdateBalanceService extends PUTSMSUpService {
     private static final String URL = "/notification/balance";
 
-    protected UpdateBalanceService(String rootUrl) {
+    public UpdateBalanceService(String rootUrl) {
         super(rootUrl);
     }
 

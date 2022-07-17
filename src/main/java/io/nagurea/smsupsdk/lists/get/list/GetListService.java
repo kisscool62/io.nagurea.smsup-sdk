@@ -11,7 +11,7 @@ import java.util.UUID;
 public class GetListService extends GETSMSUpService {
     private static final String URL = "/list";
 
-    protected GetListService(String rootUrl) {
+    public GetListService(String rootUrl) {
         super(rootUrl);
     }
 

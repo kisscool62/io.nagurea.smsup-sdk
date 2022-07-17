@@ -15,7 +15,7 @@ public class InsertContactInListService extends POSTSMSUpService {
 
     private static final String URL = "/list";
 
-    protected InsertContactInListService(String rootUrl) {
+    public InsertContactInListService(String rootUrl) {
         super(rootUrl);
     }
 

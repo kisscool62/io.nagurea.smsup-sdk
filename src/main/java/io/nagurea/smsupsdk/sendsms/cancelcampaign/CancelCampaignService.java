@@ -18,7 +18,7 @@ public class CancelCampaignService extends DELETESMSUpService {
     private static final String URL = "/send";
     private static final String ID = "campaign id";
 
-    protected CancelCampaignService(String rootUrl) {
+    public CancelCampaignService(String rootUrl) {
         super(rootUrl);
     }
 

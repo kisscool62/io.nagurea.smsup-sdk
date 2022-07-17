@@ -15,7 +15,7 @@ public class UpdateContactService extends PUTSMSUpService {
     private static final String URL = "/list/contact/%s";
     private static final String ID = "contact id";
 
-    protected UpdateContactService(String rootUrl) {
+    public UpdateContactService(String rootUrl) {
         super(rootUrl);
     }
 

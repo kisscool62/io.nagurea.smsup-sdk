@@ -13,7 +13,7 @@ public class GetNotificationService extends GETSMSUpService {
 
     private static final String URL = "/notification/balance";
 
-    protected GetNotificationService(String rootUrl) {
+    public GetNotificationService(String rootUrl) {
         super(rootUrl);
     }
 

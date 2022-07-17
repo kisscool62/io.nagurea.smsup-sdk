@@ -14,7 +14,7 @@ public class ClearListService extends PUTSMSUpService {
     private static final String URL = "/list/%s/npai/clear";
     private static final String ID = "list id";
 
-    protected ClearListService(String rootUrl) {
+    public ClearListService(String rootUrl) {
         super(rootUrl);
     }
 

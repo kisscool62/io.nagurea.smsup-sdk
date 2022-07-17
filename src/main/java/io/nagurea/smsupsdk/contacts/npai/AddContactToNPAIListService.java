@@ -15,7 +15,7 @@ public class AddContactToNPAIListService extends POSTSMSUpService {
 
     private static final String URL = "/npai";
 
-    protected AddContactToNPAIListService(String rootUrl) {
+    public AddContactToNPAIListService(String rootUrl) {
         super(rootUrl);
     }
 

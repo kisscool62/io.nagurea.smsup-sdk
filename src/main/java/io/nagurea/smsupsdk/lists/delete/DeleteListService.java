@@ -18,7 +18,7 @@ public class DeleteListService extends DELETESMSUpService {
     private static final String URL = "/list";
     private static final String ID = "list id";
 
-    protected DeleteListService(String rootUrl) {
+    public DeleteListService(String rootUrl) {
         super(rootUrl);
     }
 

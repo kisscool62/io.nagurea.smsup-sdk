@@ -18,7 +18,7 @@ public class GetCampaignNPAIsService extends GETSMSUpService {
     private static final String URL = "/campaign/%s/npai";
     private static final String ID = "campaign id";
 
-    protected GetCampaignNPAIsService(String rootUrl) {
+    public GetCampaignNPAIsService(String rootUrl) {
         super(rootUrl);
     }
 

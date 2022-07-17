@@ -14,7 +14,7 @@ public class GetHistoryService extends GETSMSUpService {
 
     private static final String URL = "/campaigns";
 
-    protected GetHistoryService(String rootUrl) {
+    public GetHistoryService(String rootUrl) {
         super(rootUrl);
     }
 

@@ -14,7 +14,7 @@ public class DeduplicateService extends PUTSMSUpService {
     private static final String URL = "/list/deduplicate/%s";
     private static final String ID = "list id";
 
-    protected DeduplicateService(String rootUrl) {
+    public DeduplicateService(String rootUrl) {
         super(rootUrl);
     }
 

@@ -18,7 +18,7 @@ public class GetCampaignStopsService extends GETSMSUpService {
     private static final String URL = "/campaign/%s/blacklist";
     private static final String ID = "campaign id";
 
-    protected GetCampaignStopsService(String rootUrl) {
+    public GetCampaignStopsService(String rootUrl) {
         super(rootUrl);
     }
 

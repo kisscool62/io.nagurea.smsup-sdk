@@ -28,7 +28,7 @@ public class SingleMessageService extends GETSMSUpService {
     private static final boolean SIMULATE = true;
     private static final boolean DO_NOT_SIMULATE = false;
 
-    protected SingleMessageService(String rootUrl) {
+    public SingleMessageService(String rootUrl) {
         super(rootUrl);
     }
 

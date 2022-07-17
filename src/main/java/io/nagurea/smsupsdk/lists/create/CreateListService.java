@@ -15,7 +15,7 @@ import java.util.UUID;
 public class CreateListService extends POSTSMSUpService {
     private static final String URL = "/list";
 
-    protected CreateListService(String rootUrl) {
+    public CreateListService(String rootUrl) {
         super(rootUrl);
     }
 

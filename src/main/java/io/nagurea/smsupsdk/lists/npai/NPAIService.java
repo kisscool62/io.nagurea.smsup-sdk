@@ -10,7 +10,7 @@ import java.util.UUID;
 public class NPAIService extends GETSMSUpService {
     private static final String URL = "/npai";
 
-    protected NPAIService(String rootUrl) {
+    public NPAIService(String rootUrl) {
         super(rootUrl);
     }
 

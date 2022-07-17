@@ -18,7 +18,7 @@ public class RemoveContactService extends DELETESMSUpService {
     private static final String URL = "/list/contact";
     private static final String ID = "contact id";
 
-    protected RemoveContactService(String rootUrl) {
+    public RemoveContactService(String rootUrl) {
         super(rootUrl);
     }
 

@@ -15,7 +15,7 @@ public class AddContactToBlacklistService extends POSTSMSUpService {
 
     private static final String URL = "/blacklist";
 
-    protected AddContactToBlacklistService(String rootUrl) {
+    public AddContactToBlacklistService(String rootUrl) {
         super(rootUrl);
     }
 

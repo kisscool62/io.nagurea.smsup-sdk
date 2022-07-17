@@ -18,7 +18,7 @@ public class GetCampaignRepliesService extends GETSMSUpService {
     private static final String URL = "/campaign/%s/mo";
     private static final String ID = "campaign id";
 
-    protected GetCampaignRepliesService(String rootUrl) {
+    public GetCampaignRepliesService(String rootUrl) {
         super(rootUrl);
     }
 

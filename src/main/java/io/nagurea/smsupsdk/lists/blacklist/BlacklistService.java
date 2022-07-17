@@ -10,7 +10,7 @@ import java.util.UUID;
 public class BlacklistService extends GETSMSUpService {
     private static final String URL = "/blacklist";
 
-    protected BlacklistService(String rootUrl) {
+    public BlacklistService(String rootUrl) {
         super(rootUrl);
     }
 
