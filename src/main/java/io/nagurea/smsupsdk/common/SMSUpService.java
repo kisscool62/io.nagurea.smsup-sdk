@@ -4,13 +4,16 @@ import io.nagurea.smsupsdk.common.http.HTTPMethod;
 import lombok.AllArgsConstructor;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import static io.nagurea.smsupsdk.common.exception.ContentLengthException.newContentLengthException;
 import static lombok.AccessLevel.PROTECTED;
 
 @AllArgsConstructor(access = PROTECTED)
@@ -43,6 +46,19 @@ public abstract class SMSUpService {
         }
     }
 
+    protected OutputStream readPDF(InputStream is, int contentLength, String fileName) throws IOException {
+
+        try (OutputStream out = new ByteArrayOutputStream()) {
+            final byte[] bytes = is.readAllBytes();
+            if(contentLength != bytes.length){
+                throw newContentLengthException(contentLength, bytes.length);
+            }
+            out.write(bytes);
+            return out;
+        }
+
+    }
+
     protected void closeQuietly(Closeable closeable) {
         try {
             if( closeable != null ) {
@@ -58,10 +74,21 @@ public abstract class SMSUpService {
     }
 
     protected HttpURLConnection getHttpURLConnectionWithBearer(String token, URL url) throws IOException {
+        HttpURLConnection con = initiateConnection(token, url);
+        con.setRequestProperty("Accept", "application/json");
+        return con;
+    }
+
+    protected HttpURLConnection getPDFFileConnectionWithBearer(String token, URL url) throws IOException {
+        HttpURLConnection con = initiateConnection(token, url);
+        con.setRequestProperty("Accept", "application/pdf");
+        return con;
+    }
+
+    private HttpURLConnection initiateConnection(String token, URL url) throws IOException {
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod(getHttpMethod().toString());
-        con.setRequestProperty("Accept", "application/json");
-        con.setRequestProperty("Authorization","Bearer " + token);
+        con.setRequestProperty("Authorization", "Bearer " + token);
         return con;
     }
 }
