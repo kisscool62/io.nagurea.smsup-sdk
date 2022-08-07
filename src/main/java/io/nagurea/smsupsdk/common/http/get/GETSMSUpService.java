@@ -2,18 +2,15 @@ package io.nagurea.smsupsdk.common.http.get;
 
 import io.nagurea.smsupsdk.common.SMSUpService;
 import io.nagurea.smsupsdk.common.http.HTTPMethod;
+import io.nagurea.smsupsdk.common.response.PDFDocument;
 import org.apache.commons.lang3.NotImplementedException;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
-import java.util.Random;
 
 public class GETSMSUpService extends SMSUpService {
     protected GETSMSUpService(String rootUrl) {
@@ -33,7 +30,7 @@ public class GETSMSUpService extends SMSUpService {
         return new ImmutablePair<>(con.getResponseCode(), this.read(con.getInputStream()));
     }
 
-    protected ImmutablePair<Integer, OutputStream> getPDF(String getUrl, String token) throws IOException {
+    protected ImmutablePair<Integer, PDFDocument> getPDF(String getUrl, String token) throws IOException {
         URL url = new URL(getRootUrl() + getUrl);
 
         HttpURLConnection con = getHttpURLConnectionWithBearer(token, url);
@@ -52,7 +49,7 @@ public class GETSMSUpService extends SMSUpService {
             if (disposition != null) {
                 // extracts file name from header field
                 int index = disposition.indexOf("filename=");
-                if (index > 0) {
+                if (index > -1) {//-1 means not found
                     fileName = disposition.substring(index + 10, disposition.length() - 1);
                 }
             } else {

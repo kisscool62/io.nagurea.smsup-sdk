@@ -55,6 +55,9 @@ Initial version with:
 ## [0.10.1](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.10.0...v0.10.1) (2022-07-17)
 * Fixed document Main exemple + set public accessor on *Service constructors for easier build without spring or dedicated factory
 
+## [0.10.2](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.10.1...v0.10.2) (2022-07-17)
+* Invoices > Download invoice
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
@@ -62,8 +65,8 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-
+* Invoices > Download invoice
 
 ### Bug Fixes
-* Fixed document Main exemple + set public accessor on *Service constructors for easier build without spring or dedicated factory
+
  

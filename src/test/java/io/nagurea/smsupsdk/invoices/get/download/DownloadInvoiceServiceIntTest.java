@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.invoices.get.download;
 
+import io.nagurea.smsupsdk.common.response.PDFDocument;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -10,10 +11,8 @@ import org.mockserver.model.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import shaded_package.org.apache.commons.io.FileUtils;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,6 +25,7 @@ class DownloadInvoiceServiceIntTest {
     private static final String YOUR_TOKEN = "Your Token";
     private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
     private static final String INVOICE_ID = "778";
+    private static final String PDF_FILENAME = "invoice-document.pdf";
 
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -46,6 +46,7 @@ class DownloadInvoiceServiceIntTest {
         ).respond(
                 HttpResponse.response()
                         .withStatusCode(200).withContentType(MediaType.PDF)
+                        .withHeader("Content-Disposition", "attachment", "filename=\"" + PDF_FILENAME + "\"")
                         .withBody(getPdfFileAsBytes())
         );
     }
@@ -67,7 +68,12 @@ class DownloadInvoiceServiceIntTest {
         byteArrayOutputStream.write(bytes);
 
         final DownloadInvoiceResponse expectedResponse = DownloadInvoiceResponse.builder()
-                .effectiveResponse(byteArrayOutputStream).build();
+                .effectiveResponse(
+                        PDFDocument.builder()
+                                .filename(PDF_FILENAME)
+                                .documentOutputStream(byteArrayOutputStream)
+                                .build()
+                        ).build();
         final int expectedStatusCode = 200;
 
         //when
@@ -76,9 +82,11 @@ class DownloadInvoiceServiceIntTest {
 
         //then
         assertEquals(expectedStatusCode, effectiveStatusCode);
-        assertEquals(expectedResponse.getEffectiveResponse(), result.getEffectiveResponse());
+        final PDFDocument expectedPDFDocument = expectedResponse.getEffectiveResponse();
+        final PDFDocument actualPDFDocument = result.getEffectiveResponse();
+
+        assertEquals(expectedPDFDocument, actualPDFDocument);
 
     }
-
 
 }

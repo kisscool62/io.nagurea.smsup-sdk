@@ -1,6 +1,7 @@
 package io.nagurea.smsupsdk.common;
 
 import io.nagurea.smsupsdk.common.http.HTTPMethod;
+import io.nagurea.smsupsdk.common.response.PDFDocument;
 import lombok.AllArgsConstructor;
 
 import java.io.BufferedReader;
@@ -9,7 +10,6 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -46,15 +46,19 @@ public abstract class SMSUpService {
         }
     }
 
-    protected OutputStream readPDF(InputStream is, int contentLength, String fileName) throws IOException {
+    protected PDFDocument readPDF(InputStream is, int contentLength, String fileName) throws IOException {
 
-        try (OutputStream out = new ByteArrayOutputStream()) {
+        try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
             final byte[] bytes = is.readAllBytes();
             if(contentLength != bytes.length){
                 throw newContentLengthException(contentLength, bytes.length);
             }
             out.write(bytes);
-            return out;
+
+            return PDFDocument.builder()
+                    .filename(fileName)
+                    .documentOutputStream(out)
+                    .build();
         }
 
     }
