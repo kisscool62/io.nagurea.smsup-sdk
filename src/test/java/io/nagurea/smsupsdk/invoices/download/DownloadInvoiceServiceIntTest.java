@@ -52,7 +52,7 @@ class DownloadInvoiceServiceIntTest {
     }
 
     private static byte[] getPdfFileAsBytes() throws IOException {
-        return DownloadInvoiceServiceIntTest.class.getClassLoader().getResourceAsStream("io/nagurea/smsupsdk/invoices/get/download/test_download.pdf").readAllBytes();
+        return DownloadInvoiceServiceIntTest.class.getClassLoader().getResourceAsStream("io/nagurea/smsupsdk/invoices/download/test_download.pdf").readAllBytes();
     }
 
     @AfterAll
