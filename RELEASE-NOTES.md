@@ -53,7 +53,7 @@ Initial version with:
 * Invoices > Get invoice
 
 ## [0.10.1](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.10.0...v0.10.1) (2022-07-17)
-* Fixed document Main exemple + set public accessor on *Service constructors for easier build without spring or dedicated factory
+* Fixed document Main example + set public accessor on *Service constructors for easier build without spring or dedicated factory
 
 ## [0.10.2](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.10.1...v0.10.2) (2022-08-08)
 * Invoices > Download invoice

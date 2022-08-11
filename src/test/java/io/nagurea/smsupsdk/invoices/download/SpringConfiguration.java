@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.invoices.get.download;
+package io.nagurea.smsupsdk.invoices.download;
 
 import io.nagurea.smsupsdk.common.configuration.LocalHost4242;
 import org.springframework.context.annotation.Bean;

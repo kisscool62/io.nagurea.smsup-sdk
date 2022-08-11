@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.invoices.get.download;
+package io.nagurea.smsupsdk.invoices.download;
 
 import io.nagurea.smsupsdk.common.response.APIOutputStreamResponse;
 import io.nagurea.smsupsdk.common.response.PDFDocument;
