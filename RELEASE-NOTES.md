@@ -58,8 +58,11 @@ Initial version with:
 ## [0.10.2](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.10.1...v0.10.2) (2022-08-08)
 * Invoices > Download invoice
 
-## [0.11.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.11.0...v0.11.0) (2022-08-09)
+## [0.11.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.10.2...v0.11.0) (2022-08-09)
 * API Token > Create a token (directly or from subaccount)
+
+## [0.11.1](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.11.0...v0.11.1) (2022-08-11)
+* API Token > Retrieve tokens
 
 
 ### Upgrade Steps
@@ -69,7 +72,7 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-* API Token > Create a token (directly or from subaccount)
+* API Token > Retrieve tokens
 
 ### Bug Fixes
 
