@@ -25,7 +25,7 @@ public class CancelCampaignService extends DELETESMSUpService {
     /**
      * Send a simple message for general purpose (called alert)
      * @param token SMSUp token
-     * @param id id of the campaign which can be retrieved with SendSMS > Campaign with List > ticket response
+     * @param id id of the campaign which can be retrieved with SendSMS {@literal >} Campaign with List {@literal >} ticket response
      * @return CancelCampaignResponse with detailed @CancelCampaignResultResponse
      * @throws IOException when something got wrong during effective query to SMSUp
      */
