@@ -14,6 +14,12 @@ public class RetrieveTokensService extends GETSMSUpService {
         super(rootUrl);
     }
 
+    /**
+     * Retrieve every tokens available for the given token
+     * @param token
+     * @return @{@link RetrieveTokensResponse} with List of tokens (@{@link TokenInfo})
+     * @throws IOException
+     */
     public RetrieveTokensResponse retrieveTokens(String token) throws IOException {
         final ImmutablePair<Integer, String> response = get(URL, token);
         final String body = response.getRight();

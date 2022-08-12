@@ -14,6 +14,12 @@ public class GetListsService extends GETSMSUpService {
         super(rootUrl);
     }
 
+    /**
+     * This method allows you to retrieve your lists.
+     * @param token
+     * @return your lists of contacts
+     * @throws IOException
+     */
     public GetListsResponse getLists(String token) throws IOException {
         final ImmutablePair<Integer, String> response = get(URL, token);
         final String body = response.getRight();

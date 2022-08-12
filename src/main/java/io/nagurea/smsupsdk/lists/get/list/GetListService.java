@@ -15,6 +15,13 @@ public class GetListService extends GETSMSUpService {
         super(rootUrl);
     }
 
+    /**
+     * This method allows you to retrieve the contacts of a list.
+     * @param token
+     * @param id The id of the contact list
+     * @return the contact list identified by id
+     * @throws IOException
+     */
     public GetListResponse getListById(String token, String id) throws IOException {
         final ImmutablePair<Integer, String> response = get(buildUrlById(id), token);
         final String body = response.getRight();
