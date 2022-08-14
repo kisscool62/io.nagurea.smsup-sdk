@@ -1,7 +1,6 @@
 package io.nagurea.smsupsdk.campaigns.get.history;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 

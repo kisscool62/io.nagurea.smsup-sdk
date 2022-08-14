@@ -67,6 +67,8 @@ Initial version with:
 ## [0.11.2](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.11.1...v0.11.2) (2022-08-12)
 * API Token > Delete a token
 
+## [0.12.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.11.2...v0.12.0) (2022-08-14)
+* HLR Lookup
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -75,7 +77,7 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-* API Token > Delete a token
+* HLR Lookup
 
 ### Bug Fixes
 
