@@ -70,6 +70,9 @@ Initial version with:
 ## [0.12.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.11.2...v0.12.0) (2022-08-14)
 * HLR Lookup
 
+## [0.13.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.12.0...v0.13.0) (2022-08-15)
+* Webhooks > Create a webhook
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
@@ -77,7 +80,7 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-* HLR Lookup
+* Webhooks > Create a webhook
 
 ### Bug Fixes
 

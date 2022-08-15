@@ -7,6 +7,12 @@ This SDK proposes an easy way to call the APIs of SMSUp
 ## SDK Coverage over SMSUp functionalities
 ![diagram](src/doc/functional-coverage.svg)
 
+## Global picture of naming and structure conventions
+- The package structure follows the official SMSUp documentation: https://doc.smsup.ch/
+- For a given API:
+    - body package contains every entity needed as input
+    - response package contains every entity needed as output when response has complex entity
+
 ## Using SDK
 
 For instance, to send an Alert SMS to some recipient 
