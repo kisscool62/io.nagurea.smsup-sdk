@@ -126,7 +126,7 @@ public class CampaignWithShortURLService extends POSTSMSUpService {
      * @param optionalArguments @{@link MarketingOptionalArguments} or @{@link AlertOptionalArguments}
      * @param links The URLs to shorten
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
-     * @throws IOException
+     * @throws IOException when something got wrong during effective query to SMSUp
      */
     private CampaignResponse send(
             boolean simulate,

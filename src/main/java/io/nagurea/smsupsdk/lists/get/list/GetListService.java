@@ -20,7 +20,7 @@ public class GetListService extends GETSMSUpService {
      * @param token
      * @param id The id of the contact list
      * @return the contact list identified by id
-     * @throws IOException
+     * @throws IOException when something got wrong during effective query to SMSUp
      */
     public GetListResponse getListById(String token, String id) throws IOException {
         final ImmutablePair<Integer, String> response = get(buildUrlById(id), token);

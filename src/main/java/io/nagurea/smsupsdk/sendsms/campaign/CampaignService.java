@@ -80,7 +80,7 @@ public class CampaignService extends POSTSMSUpService {
      * @param recipients to send the text to with E164 phone numbers
      * @param optionalArguments @{@link MarketingOptionalArguments} or @{@link AlertOptionalArguments}
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
-     * @throws IOException
+     * @throws IOException when something got wrong during effective query to SMSUp
      */
     private CampaignResponse send(String token, String text, Recipients recipients, @NonNull OptionalArguments optionalArguments) throws IOException {
         recipients.check();

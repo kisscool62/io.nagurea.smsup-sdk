@@ -52,15 +52,8 @@ flowchart BT
         apitoken(API Token):::done --- apitoken2(Retrieve tokens):::done
         apitoken(API Token):::done --- apitoken3(Delete a token):::done
         hlrlookup(HLR Lookup):::done
-        webhooks(Webhooks):::todo
-        webhooks(Webhooks):::todo --- webhooks1(List of webhooks):::todo
-        webhooks1(List of webhooks):::todo --- listofwebhooks1(Delivery reports):::todo
-        webhooks1(List of webhooks):::todo --- listofwebhooks2(Replies):::todo
-        webhooks1(List of webhooks):::todo --- listofwebhooks3(Stops):::todo
-        webhooks1(List of webhooks):::todo --- listofwebhooks4(Clickers):::todo
-        webhooks1(List of webhooks):::todo --- listofwebhooks5(Balance Alert):::todo
         webhooks(Webhooks):::todo --- webhooks2(Create a webhook):::done
-        webhooks(Webhooks):::todo --- webhooks3(Retrieve webhooks):::todo
+        webhooks(Webhooks):::todo --- webhooks3(Retrieve webhooks):::done
         webhooks(Webhooks):::todo --- webhooks4(Update a webhook):::todo
         webhooks(Webhooks):::todo --- webhooks5(Delete a webhook):::todo
     end

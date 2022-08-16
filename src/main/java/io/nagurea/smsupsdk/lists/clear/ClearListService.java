@@ -23,7 +23,7 @@ public class ClearListService extends PUTSMSUpService {
      * @param token
      * @param id The list id
      * @return the status and number of removed items
-     * @throws IOException
+     * @throws IOException when something got wrong during effective query to SMSUp
      */
     public ClearListResponse clear(@NonNull String token, @NonNull String id) throws IOException {
         final ImmutablePair<Integer, String> response = put(buildUrl(id), token);

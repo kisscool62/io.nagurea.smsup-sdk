@@ -27,7 +27,7 @@ public class HLRLookupService extends POSTSMSUpService {
      * @param token
      * @param to the List of numbers to apply the HLR lookup. String array of numbers
      * @return The HLR info
-     * @throws IOException
+     * @throws IOException when something got wrong during effective query to SMSUp
      */
     public HLRLookupResponse hlrLookup(@NonNull String token, List<String> to) throws IOException {
         if(to == null){

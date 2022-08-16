@@ -18,7 +18,7 @@ public class RetrieveTokensService extends GETSMSUpService {
      * Retrieve every tokens available for the given token
      * @param token
      * @return @{@link RetrieveTokensResponse} with List of tokens (@{@link TokenInfo})
-     * @throws IOException
+     * @throws IOException when something got wrong during effective query to SMSUp
      */
     public RetrieveTokensResponse retrieveTokens(String token) throws IOException {
         final ImmutablePair<Integer, String> response = get(URL, token);

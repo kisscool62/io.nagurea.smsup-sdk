@@ -26,7 +26,7 @@ public class UpdateContactService extends PUTSMSUpService {
      * @param token
      * @param id The contact id
      * @return the status and message
-     * @throws IOException
+     * @throws IOException when something got wrong during effective query to SMSUp
      */
     public UpdateContactResponse updateContact(@NonNull String token, @NonNull String id, @NonNull ContactBody contactBody) throws IOException {
         final ImmutablePair<Integer, String> response = put(buildUrl(id), token, GsonHelper.toJson(contactBody));

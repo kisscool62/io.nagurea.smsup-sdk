@@ -18,7 +18,7 @@ public class GetListsService extends GETSMSUpService {
      * This method allows you to retrieve your lists.
      * @param token
      * @return your lists of contacts
-     * @throws IOException
+     * @throws IOException when something got wrong during effective query to SMSUp
      */
     public GetListsResponse getLists(String token) throws IOException {
         final ImmutablePair<Integer, String> response = get(URL, token);

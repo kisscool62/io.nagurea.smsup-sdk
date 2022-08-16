@@ -20,7 +20,7 @@ public class UpdateBalanceService extends PUTSMSUpService {
      * Update balance notification settings
      * @param token
      * @return the status and message
-     * @throws IOException
+     * @throws IOException when something got wrong during effective query to SMSUp
      */
     public UpdateBalanceResponse updateBalance(@NonNull String token, @NonNull Notification notification) throws IOException {
         final ImmutablePair<Integer, String> response = put(URL, token, GsonHelper.toJson(notification));

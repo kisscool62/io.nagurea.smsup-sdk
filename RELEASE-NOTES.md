@@ -73,6 +73,9 @@ Initial version with:
 ## [0.13.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.12.0...v0.13.0) (2022-08-15)
 * Webhooks > Create a webhook
 
+## [0.13.1](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.13.0...v0.13.1) (2022-08-16)
+* Webhooks > Retrieve a webhook
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
@@ -80,7 +83,7 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-* Webhooks > Create a webhook
+* Webhooks > Retrieve a webhook
 
 ### Bug Fixes
 

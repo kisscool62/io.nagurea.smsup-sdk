@@ -23,7 +23,7 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class GetListsServiceIntTest {
+class RetrieveTokensServiceIntTest {
 
     private static final String YOUR_TOKEN = "Your Token";
     private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;

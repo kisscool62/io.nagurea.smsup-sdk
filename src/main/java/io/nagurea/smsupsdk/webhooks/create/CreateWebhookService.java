@@ -22,7 +22,7 @@ public class CreateWebhookService extends POSTSMSUpService {
     }
 
     /**
-     * API Tokens are a great way to authenticate to our API while being separate from your username and password. We strongly recommend you to use them. You'll find here how to manage your API tokens. You can create a token with our API or on our platform in the Developer menu.
+     * Webhooks are an easy way to receive information about the delivery of your campaign or the replies to your message. To create a webhook, you just have to log into our platform and go to the Developer menu or simply use the API.
      * @param token SMSUp token
      * @param webhookInfo @{@link WebhookInfo} represents token info to create the webhook (type, url)
      * @return CreateWebhookResponse with detailed @{@link CreateWebhookResultResponse}

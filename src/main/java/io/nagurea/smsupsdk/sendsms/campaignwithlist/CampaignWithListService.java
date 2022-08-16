@@ -124,7 +124,7 @@ public class CampaignWithListService extends POSTSMSUpService {
      * @param lists to send the id of lists existing in smsUp configuration
      * @param optionalArguments @{@link MarketingOptionalArguments} or @{@link AlertOptionalArguments}
      * @return CampaignResponse with detailed @{@link CampaignWithListResultResponse}
-     * @throws IOException
+     * @throws IOException when something got wrong during effective query to SMSUp
      */
     private CampaignWithListResponse send(boolean simulate, String token, String text, Set<ListId> lists, @NonNull OptionalArguments optionalArguments) throws IOException {
         final ImmutablePair<Integer, String> response =
