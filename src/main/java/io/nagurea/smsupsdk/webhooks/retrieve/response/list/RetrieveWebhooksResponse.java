@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.webhooks.retrieve;
+package io.nagurea.smsupsdk.webhooks.retrieve.response.list;
 
 import io.nagurea.smsupsdk.common.response.APIResponse;
 import lombok.Builder;

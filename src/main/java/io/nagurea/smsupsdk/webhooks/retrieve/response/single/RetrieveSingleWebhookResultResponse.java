@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.webhooks.retrieve;
+package io.nagurea.smsupsdk.webhooks.retrieve.response.single;
 
 import io.nagurea.smsupsdk.common.response.ResultResponse;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
@@ -8,19 +8,16 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.util.List;
-
 @ToString
 @Getter
 @EqualsAndHashCode(callSuper = true)
-public class RetrieveWebhooksResultResponse extends ResultResponse {
-    private final List<Webhook> webhooks;
+public class RetrieveSingleWebhookResultResponse extends ResultResponse {
+    private final Webhook webhook;
 
     @Builder
-    public RetrieveWebhooksResultResponse(ResponseStatus responseStatus, String message, List<Webhook> webhooks) {
+    public RetrieveSingleWebhookResultResponse(ResponseStatus responseStatus, String message, Webhook webhook) {
         super(responseStatus, message);
-        this.webhooks = webhooks;
+        this.webhook = webhook;
     }
-
 
 }
