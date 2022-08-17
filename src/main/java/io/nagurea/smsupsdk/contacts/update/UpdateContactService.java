@@ -22,6 +22,7 @@ public class UpdateContactService extends PUTSMSUpService {
     /**
      * Based on https://doc.smsup.ch/en/api/sms/contact/update
      * Be careful. Spec says PUT /list/contact/:id but example says PUT /list
+     * Test with curl says /list/contact is ok but list/ is 405
      * This method allows you to update some contacts of one of your list.
      * @param token
      * @param id The contact id
