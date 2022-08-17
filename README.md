@@ -14,6 +14,16 @@ This SDK proposes an easy way to call the APIs of SMSUp
     - response package contains every entity needed as output when response has complex entity
 
 ## Using SDK
+The SDK is available on Maven Central Repository: https://search.maven.org/artifact/io.nagurea/smsup-sdk/
+For Maven, you can add it in your pom.xml. 
+For instance, for version 0.13.0
+```xml
+<dependency>
+<groupId>io.nagurea</groupId>
+<artifactId>smsup-sdk</artifactId>
+<version>0.13.0</version>
+</dependency>
+```
 
 For instance, to send an Alert SMS to some recipient 
 
