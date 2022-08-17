@@ -6,7 +6,7 @@
 
     <groupId>io.nagurea</groupId>
     <artifactId>smsup-sdk</artifactId>
-    <version>0.13.0</version>
+    <version>0.13.1</version>
     <url>https://github.com/kisscool62/io.nagurea.smsup-sdk</url>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>SDK for SMSUP a swiss plateform to send SMSs</description>
