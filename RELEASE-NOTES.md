@@ -79,6 +79,10 @@ Initial version with:
 * Webhooks > Delete a webhook
 * Webhooks > Update a webhook
 
+## [0.14.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.13.1...v0.14.0) (2022-09-08)
+* Account Managing > Credits
+
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
@@ -86,10 +90,7 @@ Initial version with:
 * [NO BREAKING CHANGE]
 
 ### New Features
-* Webhooks > Retrieve a webhook
-* Webhooks > Retrieve a single webhook
-* Webhooks > Delete a webhook
-* Webhooks > Update a webhook
+* Account Managing > Credits
 
 ### Bug Fixes
 
