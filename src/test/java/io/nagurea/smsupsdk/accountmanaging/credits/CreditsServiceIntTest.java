@@ -1,7 +1,5 @@
-package io.nagurea.smsupsdk.accountmanagement.credits;
+package io.nagurea.smsupsdk.accountmanaging.credits;
 
-import io.nagurea.smsupsdk.apitoken.retrieve.RetrieveTokensResultResponse;
-import io.nagurea.smsupsdk.apitoken.retrieve.TokenInfo;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,8 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockserver.model.HttpRequest.request;

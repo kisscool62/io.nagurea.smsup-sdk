@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.accountmanagement.credits;
+package io.nagurea.smsupsdk.accountmanaging.credits;
 
 import io.nagurea.smsupsdk.common.http.get.GETSMSUpService;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;

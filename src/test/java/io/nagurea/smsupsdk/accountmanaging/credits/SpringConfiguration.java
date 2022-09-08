@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.accountmanagement.credits;
+package io.nagurea.smsupsdk.accountmanaging.credits;
 
 import io.nagurea.smsupsdk.common.configuration.LocalHost4242;
 import org.springframework.context.annotation.Bean;
