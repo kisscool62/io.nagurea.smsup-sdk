@@ -35,25 +35,25 @@ class AddContactToBlacklistServiceIntTest {
     private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
-        final Object blacklist = new Object() {
-            final Object contacts = new Object(){
-                final Object[] gsm = {
+        public final Object blacklist = new Object() {
+            public final Object contacts = new Object(){
+                public final Object[] gsm = {
                         new Object(){
-                            final String value = "41781234567";
-                            final String info1 = "Hiroo";
-                            final String info2 = "Onoda";
+                            public final String value = "41781234567";
+                            public final String info1 = "Hiroo";
+                            public final String info2 = "Onoda";
                         },
                         new Object(){
-                            final String value = "41781234566";
-                            final String info1 = "Grace";
-                            final String info2 = "Hopper";
+                            public final String value = "41781234566";
+                            public final String info1 = "Grace";
+                            public final String info2 = "Hopper";
                         },
                         new Object(){
-                            final String value = "41781234565";
-                            final String info1 = "Hedy";
-                            final String info2 = "Lamarr";
-                            final String info3 = "Extase";
-                            final String info4 = "1933";
+                            public final String value = "41781234565";
+                            public final String info1 = "Hedy";
+                            public final String info2 = "Lamarr";
+                            public final String info3 = "Extase";
+                            public final String info4 = "1933";
                         }
                 };
            };

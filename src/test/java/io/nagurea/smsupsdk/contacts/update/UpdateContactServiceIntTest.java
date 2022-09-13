@@ -35,11 +35,11 @@ class UpdateContactServiceIntTest {
     private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
-            final String destination = "41781234567";
-            final String info1 = "Martin";
-            final String info2 = "T";
-            final String info3 = "T Corp";
-            final String info4 = "";
+            public final String destination = "41781234567";
+            public final String info1 = "Martin";
+            public final String info2 = "T";
+            public final String info3 = "T Corp";
+            public final String info4 = "";
     };
 
 
@@ -79,6 +79,11 @@ class UpdateContactServiceIntTest {
                 .build();
 
         final ContactBody contactBody = ContactBody.builder()
+                .destination("41781234567")
+                .info1("Martin")
+                .info2("T")
+                .info3("T Corp")
+                .info4("")
                 .build();
 
         // when

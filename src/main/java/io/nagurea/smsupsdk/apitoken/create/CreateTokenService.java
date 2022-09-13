@@ -1,6 +1,7 @@
 package io.nagurea.smsupsdk.apitoken.create;
 
 
+import io.nagurea.smsupsdk.apitoken.create.body.TokenBody;
 import io.nagurea.smsupsdk.apitoken.create.body.TokenInfo;
 import io.nagurea.smsupsdk.common.http.post.POSTSMSUpService;
 import io.nagurea.smsupsdk.helper.URLHelper;
@@ -29,7 +30,7 @@ public class CreateTokenService extends POSTSMSUpService {
      * @throws IOException when something got wrong during effective query to SMSUp
      */
     public CreateTokenResponse createToken(String token, @NonNull TokenInfo tokenInfo) throws IOException {
-        final ImmutablePair<Integer, String> response = post(URL_TOKEN, token, GsonHelper.toJson(tokenInfo));
+        final ImmutablePair<Integer, String> response = post(URL_TOKEN, token, GsonHelper.toJson(TokenBody.builder().token(tokenInfo)));
         final String body = response.getRight();
         final CreateTokenResultResponse responseObject = GsonHelper.fromJson(body, CreateTokenResultResponse.class);
         return CreateTokenResponse.builder()
@@ -48,7 +49,7 @@ public class CreateTokenService extends POSTSMSUpService {
      * @throws IOException when something got wrong during effective query to SMSUp
      */
     public CreateTokenResponse createTokenForASubaccount(String token, @NonNull String accountId, @NonNull TokenInfo tokenInfo) throws IOException {
-        final ImmutablePair<Integer, String> response = post(buildUrl(URL_TOKEN_SUB_ACCOUNT, accountId), token, GsonHelper.toJson(tokenInfo));
+        final ImmutablePair<Integer, String> response = post(buildUrl(URL_TOKEN_SUB_ACCOUNT, accountId), token, GsonHelper.toJson(TokenBody.builder().token(tokenInfo)));
         final String body = response.getRight();
         final CreateTokenResultResponse responseObject = GsonHelper.fromJson(body, CreateTokenResultResponse.class);
         return CreateTokenResponse.builder()

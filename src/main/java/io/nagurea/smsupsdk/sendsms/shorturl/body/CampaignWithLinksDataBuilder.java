@@ -2,6 +2,7 @@ package io.nagurea.smsupsdk.sendsms.shorturl.body;
 
 import io.nagurea.smsupsdk.sendsms.arguments.OptionalArguments;
 import io.nagurea.smsupsdk.sendsms.campaign.body.AbstractCampaignDataBuilder;
+import io.nagurea.smsupsdk.sendsms.common.Recipients;
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -11,8 +12,8 @@ public class CampaignWithLinksDataBuilder extends AbstractCampaignDataBuilder<Me
 
     @Getter private final List<String> links;
 
-    public CampaignWithLinksDataBuilder(String text, @NonNull OptionalArguments optionalArguments, List<String> links) {
-        super(text, optionalArguments);
+    public CampaignWithLinksDataBuilder(String text, @NonNull Recipients recipients, @NonNull OptionalArguments optionalArguments, List<String> links) {
+        super(text, recipients, optionalArguments);
         this.links = links;
     }
 

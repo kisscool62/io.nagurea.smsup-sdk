@@ -40,39 +40,39 @@ class CampaignWithListsServiceIntTest {
     private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
-        final Object sms = new Object() {
-           final Object message = new Object(){
-               final String text = "Message via API";
-               final String pushtype = "alert";
-               final String sender = "Ganondorf";
-               final String delay = "2022-06-19 10:21:33";
-               final Integer unicode = 0;
+        public final Object sms = new Object() {
+            public final Object message = new Object(){
+               public final String text = "Message via API";
+               public final String pushtype = "alert";
+               public final String sender = "Ganondorf";
+               public final String delay = "2022-06-19 10:21:33";
+               public final Integer unicode = 0;
            };
-           final Object[] lists = {
+            public final Object[] lists = {
                    new Object(){
-                       final Integer value = 45190;
+                       public final Integer value = 45190;
                    },
                    new Object(){
-                       final Integer value = 47854;
+                       public final Integer value = 47854;
                    }
            };
         };
     };
 
     private static final Object EXPECTED_JSON_OBJECT_SIMULATE = new Object() {
-        final Object sms = new Object() {
-            final Object message = new Object(){
-                final String text = "Message via API";
-                final String pushtype = "alert";
-                final String sender = "Sephiroth";
-                final String delay = "2022-06-20 10:02:07";
+        public final Object sms = new Object() {
+            public final Object message = new Object(){
+                public final String text = "Message via API";
+                public final String pushtype = "alert";
+                public final String sender = "Sephiroth";
+                public final String delay = "2022-06-20 10:02:07";
             };
-            final Object[] lists = {
+            public final Object[] lists = {
                     new Object(){
-                        final Integer value = 45190;
+                        public final Integer value = 45190;
                     },
                     new Object(){
-                        final Integer value = 47854;
+                        public final Integer value = 47854;
                     }
             };
         };
@@ -111,7 +111,7 @@ class CampaignWithListsServiceIntTest {
                 request()
                         .withPath("/send/lists/simulate")
                         .withMethod("POST")
-                        .withBody(json(EXPECTED_JSON_OBJECT))
+                        .withBody(json(EXPECTED_JSON_OBJECT_SIMULATE))
         ).respond(
                 HttpResponse.response()
                         .withStatusCode(200)

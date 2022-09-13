@@ -24,6 +24,7 @@ public class POSTSMSUpService extends SMSUpService {
         URL url = new URL(getRootUrl() + postUrl);
 
         HttpURLConnection con = getHttpURLConnectionWithBearer(token, url);
+        con.setRequestProperty("Content-Type", "application/json");
         con.setDoOutput(true);
 
         this.sendData(con, data);

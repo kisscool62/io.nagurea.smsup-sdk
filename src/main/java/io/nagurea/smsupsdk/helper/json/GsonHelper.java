@@ -3,13 +3,19 @@ package io.nagurea.smsupsdk.helper.json;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapterFactory;
+import com.neovisionaries.i18n.CountryCode;
+import io.nagurea.smsupsdk.accountmanaging.account.create.body.AccountType;
+import io.nagurea.smsupsdk.accountmanaging.account.create.body.Childness;
 import io.nagurea.smsupsdk.common.response.ResultResponse;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.helper.json.typeadapter.RuntimeTypeAdapterFactory;
 import io.nagurea.smsupsdk.helper.json.typeadapter.deserializer.ActivationStatusDeserializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.deserializer.LocalDateTimeDeserializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.deserializer.ResponseStatusDeserializer;
+import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.AccountTypeSerializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.ActivationStatusSerializer;
+import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.ChildnessSerializer;
+import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.CountryCodeSerializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.PushTypeSerializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.SenderSerializer;
 import io.nagurea.smsupsdk.lists.create.CreateListResultResponse;
@@ -53,6 +59,9 @@ public class GsonHelper {
         gsonBuilder.registerTypeAdapter(PushType.class, new PushTypeSerializer());
         gsonBuilder.registerTypeAdapter(ActivationStatus.class, new ActivationStatusSerializer());
         gsonBuilder.registerTypeAdapter(Sender.class, new SenderSerializer());
+        gsonBuilder.registerTypeAdapter(AccountType.class, new AccountTypeSerializer());
+        gsonBuilder.registerTypeAdapter(Childness.class, new ChildnessSerializer());
+        gsonBuilder.registerTypeAdapter(CountryCode.class, new CountryCodeSerializer());
         return gsonBuilder;
     }
 

@@ -5,6 +5,7 @@ import io.nagurea.smsupsdk.common.exception.NotEmptyParameterException;
 import io.nagurea.smsupsdk.common.http.post.POSTSMSUpService;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.hlrlookup.body.LookupBody;
+import io.nagurea.smsupsdk.hlrlookup.body.LookupInfo;
 import lombok.NonNull;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
@@ -47,10 +48,13 @@ public class HLRLookupService extends POSTSMSUpService {
 
     private String buildData(List<String> to) {
         final LookupBody.LookupBodyBuilder lookupBodyBuilder = LookupBody.builder();
+        final LookupInfo.LookupInfoBuilder lookupInfoBuilder = LookupInfo.builder();
 
         for (String phoneNumber : to) {
-            lookupBodyBuilder.to(phoneNumber);
+            lookupInfoBuilder.to(phoneNumber);
         }
+
+        lookupBodyBuilder.lookup(lookupInfoBuilder.build());
 
         return GsonHelper.toJson(lookupBodyBuilder.build());
     }

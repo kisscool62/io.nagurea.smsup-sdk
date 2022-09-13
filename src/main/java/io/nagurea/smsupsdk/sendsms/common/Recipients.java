@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.sendsms.campaign.body;
+package io.nagurea.smsupsdk.sendsms.common;
 
 import lombok.Builder;
 import lombok.Getter;

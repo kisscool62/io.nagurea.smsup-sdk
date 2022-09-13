@@ -2,8 +2,11 @@ package io.nagurea.smsupsdk.sendsms.campaign;
 
 import com.google.common.collect.Sets;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
-import io.nagurea.smsupsdk.sendsms.campaign.body.Gsm;
-import io.nagurea.smsupsdk.sendsms.campaign.body.Recipients;
+import io.nagurea.smsupsdk.sendsms.arguments.AlertOptionalArguments;
+import io.nagurea.smsupsdk.sendsms.arguments.Delay;
+import io.nagurea.smsupsdk.sendsms.common.Gsm;
+import io.nagurea.smsupsdk.sendsms.common.Recipients;
+import io.nagurea.smsupsdk.sendsms.sender.Sender;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -15,9 +18,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockserver.model.HttpRequest.request;
+import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
@@ -31,6 +36,31 @@ class CampaignServiceIntTest {
 
     private static ClientAndServer mockServer;
 
+    private static final Object EXPECTED_JSON_OBJECT = new Object() {
+        public final Object sms = new Object() {
+            public final Object message = new Object() {
+                public final String text = "Message via API";
+                public final String pushtype = "alert";
+                public final String sender = "Illidan";
+                public final String delay = "2022-09-23 10:58:35";
+                public final Integer unicode = 0;
+            };
+            public final Object recipients = new Object(){
+                public final Object[] gsm = {
+                        new Object(){
+                            public final String gsmsmsid = "100";
+                            public final String value = "41781234567";
+                        },
+                        new Object(){
+                            public final String gsmsmsid = "101";
+                            public final String value = "41781234566";
+                        }
+                };
+            };
+
+        };
+    };
+
     @BeforeAll
     public static void startMockSMSUpServer(){
         mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
@@ -38,6 +68,7 @@ class CampaignServiceIntTest {
                 request()
                         .withPath("/send")
                         .withMethod("POST")
+                        .withBody(json(EXPECTED_JSON_OBJECT))
         ).respond(
                 HttpResponse.response()
                         .withStatusCode(200)
@@ -66,7 +97,7 @@ class CampaignServiceIntTest {
     }
 
      @Test
-     void sendMarketing() throws IOException {
+     void sendAlert() throws IOException {
          //given
          final CampaignResultResponse expectedResponse = CampaignResultResponse.builder()
                  .message(ResponseStatus.OK.getDescription())
@@ -91,8 +122,16 @@ class CampaignServiceIntTest {
                  )
          ).build();
 
+         final AlertOptionalArguments alertOptionalArgument = AlertOptionalArguments.builder()
+                 .sender(Sender.build("Illidan"))
+                 .delay(Delay.builder()
+                         .value(LocalDateTime.of(2022, 9, 23, 10, 58, 35))
+                         .build())
+                 .unicode(0)
+                 .build();
+
          //when
-         final CampaignResponse result = campaignService.sendMarketing("token", "This is a text", recipients);
+         final CampaignResponse result = campaignService.sendAlert("token", "Message via API", recipients, alertOptionalArgument);
          final Integer effectiveStatusCode = result.getStatusCode();
          final CampaignResultResponse effectiveResponse = result.getEffectiveResponse();
 

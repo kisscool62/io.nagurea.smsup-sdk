@@ -4,6 +4,7 @@ package io.nagurea.smsupsdk.webhooks.create;
 import io.nagurea.smsupsdk.common.exception.RequiredParameterException;
 import io.nagurea.smsupsdk.common.http.post.POSTSMSUpService;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
+import io.nagurea.smsupsdk.webhooks.create.body.WebhookBody;
 import io.nagurea.smsupsdk.webhooks.create.body.WebhookInfo;
 import lombok.NonNull;
 import org.apache.commons.lang3.StringUtils;
@@ -35,7 +36,7 @@ public class CreateWebhookService extends POSTSMSUpService {
         if(StringUtils.isBlank(webhookInfo.getUrl())){
             throw RequiredParameterException.builder().requiredParam("WebhookInfo.url", webhookInfo.getUrl()).build();
         }
-        final ImmutablePair<Integer, String> response = post(URL, token, GsonHelper.toJson(webhookInfo));
+        final ImmutablePair<Integer, String> response = post(URL, token, GsonHelper.toJson(WebhookBody.builder().webhook(webhookInfo).build()));
         final String body = response.getRight();
         final CreateWebhookResultResponse responseObject = GsonHelper.fromJson(body, CreateWebhookResultResponse.class);
         return CreateWebhookResponse.builder()

@@ -1,14 +1,15 @@
 package io.nagurea.smsupsdk.sendsms.campaign.body;
 
 import io.nagurea.smsupsdk.sendsms.arguments.OptionalArguments;
+import io.nagurea.smsupsdk.sendsms.common.Recipients;
 import lombok.Builder;
 import lombok.NonNull;
 
 public class CampaignDataBuilder extends AbstractCampaignDataBuilder<Message.MessageBuilder> {
 
     @Builder
-    protected CampaignDataBuilder(String text, @NonNull OptionalArguments optionalArguments) {
-        super(text, optionalArguments);
+    protected CampaignDataBuilder(String text, @NonNull Recipients recipients, @NonNull OptionalArguments optionalArguments) {
+        super(text, recipients, optionalArguments);
     }
 
     protected Message.MessageBuilder buildMessageBuilder(){

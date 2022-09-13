@@ -1,6 +1,7 @@
 package io.nagurea.smsupsdk.hlrlookup;
 
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
+import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.hlrlookup.response.HLRLookup;
 import io.nagurea.smsupsdk.hlrlookup.response.Lookup;
 import io.nagurea.smsupsdk.hlrlookup.response.LookupError;
@@ -41,8 +42,8 @@ class HLRLookupServiceTest {
     private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
-        final Object lookup = new Object() {
-            final Object[] to = {"41781234567","41781234566"};
+        final public Object lookup = new Object() {
+            final public Object[] to = {"41781234567","41781234566"};
         };
     };
 

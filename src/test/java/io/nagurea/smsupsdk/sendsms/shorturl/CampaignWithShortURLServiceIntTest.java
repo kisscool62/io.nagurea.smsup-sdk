@@ -1,11 +1,14 @@
 package io.nagurea.smsupsdk.sendsms.shorturl;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.sendsms.arguments.AlertOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.Delay;
 import io.nagurea.smsupsdk.sendsms.campaign.CampaignResponse;
 import io.nagurea.smsupsdk.sendsms.campaign.CampaignResultResponse;
+import io.nagurea.smsupsdk.sendsms.common.Gsm;
+import io.nagurea.smsupsdk.sendsms.common.Recipients;
 import io.nagurea.smsupsdk.sendsms.sender.Sender;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -38,32 +41,25 @@ class CampaignWithShortURLServiceIntTest {
     private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
-        final Object sms = new Object() {
-            final Object message = new Object() {
-                final String text = "Message via API with a first link : <-short-> and a second one : <-short->";
-                final String pushtype = "alert";
-                final String sender = "GLaDOS";
-                final String delay = "2022-07-08 10:44:03";
-                final Integer unicode = 0;
-                final Object[] links = {
-                        new Object() {
-                            final String value = "https://youtu.be/dQw4w9WgXcQ";
-                        },
-                        new Object() {
-                            final String value = "https://youtu.be/X61BVv6pLtw";
-                        }
-                };
-                final Object recipients = new Object(){
-                    final Object[] gsm = {
+        public final Object sms = new Object() {
+            public final Object message = new Object() {
+                public final String text = "Message via API with a first link : <-short-> and a second one : <-short->";
+                public final String pushtype = "alert";
+                public final String sender = "GLaDOS";
+                public final String delay = "2022-07-08 10:44:03";
+                public final Integer unicode = 0;
+                public final String[] links = {"https://youtu.be/dQw4w9WgXcQ", "https://youtu.be/X61BVv6pLtw"};
+            };
+            public final Object recipients = new Object(){
+                    public final Object[] gsm = {
                             new Object(){
-                                final String gsmsmsid = "100";
-                                final String value = "41781234567";
+                                public final String gsmsmsid = "100";
+                                public final String value = "41781234567";
                             },
                             new Object(){
-                                final String gsmsmsid = "101";
-                                final String value = "41781234566";
+                                public final String gsmsmsid = "101";
+                                public final String value = "41781234566";
                             }
-                    };
                 };
             };
 
@@ -125,6 +121,15 @@ class CampaignWithShortURLServiceIntTest {
                 .build();
         final int expectedStatusCode = 200;
 
+        final Recipients recipients = Recipients.builder().gsm(
+                Sets.newHashSet(
+                        Gsm.builder()
+                                .gsmsmsid("100").value("41781234567").build(),
+                        Gsm.builder()
+                                .gsmsmsid("101").value("41781234566").build()
+                )
+        ).build();
+
         final AlertOptionalArguments alertOptionalArgument = AlertOptionalArguments.builder()
                 .unicode(0)
                 .delay(Delay.builder().value(LocalDateTime.of(2022, 7, 8, 10, 44, 3)).build())
@@ -134,7 +139,7 @@ class CampaignWithShortURLServiceIntTest {
         final List<String> links = Lists.newArrayList("https://youtu.be/dQw4w9WgXcQ", "https://youtu.be/X61BVv6pLtw");
 
         //when
-        final CampaignResponse result = campaignWithShortURLService.sendAlert("token", "Message via API with a first link : <-short-> and a second one : <-short->", alertOptionalArgument, links);
+        final CampaignResponse result = campaignWithShortURLService.sendAlert("token", "Message via API with a first link : <-short-> and a second one : <-short->", recipients, alertOptionalArgument, links);
         final Integer effectiveStatusCode = result.getStatusCode();
         final CampaignResultResponse effectiveResponse = result.getEffectiveResponse();
 

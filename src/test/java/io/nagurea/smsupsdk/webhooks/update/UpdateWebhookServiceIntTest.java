@@ -2,6 +2,7 @@ package io.nagurea.smsupsdk.webhooks.update;
 
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.webhooks.create.common.WebhookType;
+import io.nagurea.smsupsdk.webhooks.update.body.WebhookBody;
 import io.nagurea.smsupsdk.webhooks.update.body.WebhookInfo;
 import io.nagurea.smsupsdk.webhooks.update.response.UpdateWebhookResultResponse;
 import io.nagurea.smsupsdk.webhooks.update.response.Webhook;
@@ -38,9 +39,9 @@ class UpdateWebhookServiceIntTest {
     private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
-            final Object webhook = new Object() {
-                final String type = "STOP";
-                final String url = "https://mywebhook.com/stop";
+        public final Object webhook = new Object() {
+            public final String type = "STOP";
+            public final String url = "https://mywebhook.com/stop";
         };
     };
 

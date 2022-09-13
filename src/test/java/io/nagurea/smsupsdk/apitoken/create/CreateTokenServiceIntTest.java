@@ -39,16 +39,16 @@ class CreateTokenServiceIntTest {
     private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
-        final Object token = new Object() {
-            final String name = "Best token ever";
-            final Integer ttl = 2678400;
+        public final Object token = new Object() {
+            public final String name = "Best token ever";
+            public final Integer ttl = 2678400;
 
         };
     };
 
     private static final Object EXPECTED_JSON_OBJECT_FOR_SUBACCOUNT = new Object() {
-        final Object token = new Object() {
-            final String name = "Best token ever";
+        public final Object token = new Object() {
+            public final String name = "Best token ever";
         };
     };
 
@@ -79,7 +79,7 @@ class CreateTokenServiceIntTest {
                 request()
                         .withPath("/token/account/12542")
                         .withMethod("POST")
-                        .withBody(json(EXPECTED_JSON_OBJECT))
+                        .withBody(json(EXPECTED_JSON_OBJECT_FOR_SUBACCOUNT))
         ).respond(
                 HttpResponse.response()
                         .withStatusCode(200)

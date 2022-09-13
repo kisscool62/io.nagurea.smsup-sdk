@@ -33,19 +33,11 @@ class UpdateBalanceServiceIntTest {
     private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
-        @SerializedName("alert_trigger")
-        final String alertTrigger = "500";
-
-        @SerializedName("alert_email")
-        final String alertEmail = "1";
-
-        @SerializedName("alert_gsm")
-        final String alertGsm = "1";
-
-        final String email = "ano@nyme.com";
-
-        @SerializedName("phone_number")
-        final String phoneNumber = "41781234567";
+        public final String alert_trigger = "500";
+        public final String alert_email = "1";
+        public final String alert_gsm = "1";
+        public final String email = "ano@nyme.com";
+        public final String phone_number = "41781234567";
     };
 
 

@@ -81,16 +81,23 @@ Initial version with:
 
 ## [0.14.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.13.1...v0.14.0) (2022-09-08)
 * Account Managing > Credits
+* Account Managing > Create an account
+* Added Recipients on Short URL campaigns (Send SMS > Short URL)
+* Fixed recipients bugs on campaigns, create tokens, create webhook, HLR lookup, update webhook
+* Fixed content type for every POST service (set to application/json instead of form url encoded)
 
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
 ### Breaking Changes
-* [NO BREAKING CHANGE]
+* Added Recipients on Short URL campaigns (Send SMS > Short URL)
+* Fixed recipients bugs on campaigns, create tokens, create webhook, HLR lookup, update webhook
+* Fixed content type for every POST service (set to application/json instead of form url encoded)
 
 ### New Features
 * Account Managing > Credits
+* Account Managing > Create an account
 
 ### Bug Fixes
 

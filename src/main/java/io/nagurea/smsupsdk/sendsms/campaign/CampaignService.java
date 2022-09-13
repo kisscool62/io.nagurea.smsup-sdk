@@ -6,7 +6,7 @@ import io.nagurea.smsupsdk.sendsms.arguments.AlertOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.MarketingOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.OptionalArguments;
 import io.nagurea.smsupsdk.sendsms.campaign.body.CampaignDataBuilder;
-import io.nagurea.smsupsdk.sendsms.campaign.body.Recipients;
+import io.nagurea.smsupsdk.sendsms.common.Recipients;
 import io.nagurea.smsupsdk.sendsms.sender.NoSender;
 import lombok.NonNull;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -88,6 +88,7 @@ public class CampaignService extends POSTSMSUpService {
                 post(URL, token,
                 CampaignDataBuilder.builder()
                         .text(text)
+                        .recipients(recipients)
                         .optionalArguments(optionalArguments)
                         .build().buildData()
         );

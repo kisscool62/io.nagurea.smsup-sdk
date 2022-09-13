@@ -3,10 +3,10 @@ package io.nagurea.smsupsdk.sendsms.campaignlists.body;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.sendsms.arguments.Delay;
 import io.nagurea.smsupsdk.sendsms.campaign.body.Campaign;
-import io.nagurea.smsupsdk.sendsms.campaign.body.Gsm;
+import io.nagurea.smsupsdk.sendsms.common.Gsm;
 import io.nagurea.smsupsdk.sendsms.campaign.body.Message;
-import io.nagurea.smsupsdk.sendsms.campaign.body.Recipients;
 import io.nagurea.smsupsdk.sendsms.campaign.body.SMS;
+import io.nagurea.smsupsdk.sendsms.common.Recipients;
 import io.nagurea.smsupsdk.sendsms.sender.Sender;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.sendsms.campaign.body;
+package io.nagurea.smsupsdk.sendsms.common;
 
 import io.nagurea.smsupsdk.common.e164.E164Helper;
 import io.nagurea.smsupsdk.common.exception.RequiredParameterException;

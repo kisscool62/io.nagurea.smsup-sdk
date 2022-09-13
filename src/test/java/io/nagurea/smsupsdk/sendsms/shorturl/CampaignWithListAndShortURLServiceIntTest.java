@@ -41,28 +41,21 @@ class CampaignWithListAndShortURLServiceIntTest {
     private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
-        final Object sms = new Object() {
-            final Object message = new Object(){
-                final String text = "Message via API with a first link : <-short-> and a second one : <-short->";
-                final String pushtype = "alert";
-                final String sender = "GLaDOS";
-                final String delay = "2022-07-08 10:44:03";
-                final Integer unicode = 0;
-                final Object[] links = {
-                        new Object(){
-                            final String value = "https://youtu.be/dQw4w9WgXcQ";
-                        },
-                        new Object(){
-                            final String value = "https://youtu.be/X61BVv6pLtw";
-                        }
-                };
+        public final Object sms = new Object() {
+            public final Object message = new Object(){
+                public final String text = "Message via API with a first link : <-short-> and a second one : <-short->";
+                public final String pushtype = "alert";
+                public final String sender = "GLaDOS";
+                public final String delay = "2022-07-08 10:44:03";
+                public final Integer unicode = 0;
+                public final Object[] links = { "https://youtu.be/dQw4w9WgXcQ", "https://youtu.be/X61BVv6pLtw"};
             };
-            final Object[] lists = {
+            public final Object[] lists = {
                     new Object(){
-                        final Integer value = 45190;
+                        public final Integer value = 45190;
                     },
                     new Object(){
-                        final Integer value = 47854;
+                        public final Integer value = 47854;
                     }
             };
         };

@@ -37,23 +37,23 @@ class CreateListServiceTest {
     private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
-        final Object list = new Object() {
-            final String name = "My list";
-            final Object contacts = new Object() {
-                final Object[] gsm = {
+        public final Object list = new Object() {
+            public final String name = "My list";
+            public final Object contacts = new Object() {
+                public final Object[] gsm = {
                   new Object(){
-                        final String value = "41781234567";
-                        final String info1 = "Louis";
-                        final String info2 = "de Broglie";
-                        final String info3 = "1892";
-                        final String info4 = "Dieppe";
+                        public final String value = "41781234567";
+                        public final String info1 = "Louis";
+                        public final String info2 = "de Broglie";
+                        public final String info3 = "1892";
+                        public final String info4 = "Dieppe";
                   },
                     new Object(){
-                        final String value = "41781234566";
-                        final String info1 = "Richard";
-                        final String info2 = "Feynman";
-                        final String info3 = "1918";
-                        final String info4 = "New-York";
+                        public final String value = "41781234566";
+                        public final String info1 = "Richard";
+                        public final String info2 = "Feynman";
+                        public final String info3 = "1918";
+                        public final String info4 = "New-York";
                   }
                 };
             };

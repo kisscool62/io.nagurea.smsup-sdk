@@ -10,6 +10,7 @@ import io.nagurea.smsupsdk.sendsms.campaign.CampaignResponse;
 import io.nagurea.smsupsdk.sendsms.campaign.CampaignResultResponse;
 import io.nagurea.smsupsdk.sendsms.sender.NoSender;
 import io.nagurea.smsupsdk.sendsms.shorturl.body.CampaignWithLinksDataBuilder;
+import io.nagurea.smsupsdk.sendsms.common.Recipients;
 import lombok.NonNull;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
@@ -34,12 +35,12 @@ public class CampaignWithShortURLService extends POSTSMSUpService {
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public CampaignResponse sendAlert(@NonNull String token, @NonNull String text, @NonNull List<String> links) throws IOException {
-        return send(false, token, text, AlertOptionalArguments.builder().sender(NoSender.build()).build(), links);
+    public CampaignResponse sendAlert(@NonNull String token, @NonNull String text, @NonNull Recipients recipients, @NonNull List<String> links) throws IOException {
+        return send(false, token, text, recipients, AlertOptionalArguments.builder().sender(NoSender.build()).build(), links);
     }
 
-    public CampaignResponse simulateSendAlert(@NonNull String token, @NonNull String text, @NonNull List<String> links) throws IOException {
-        return send(true, token, text, AlertOptionalArguments.builder().sender(NoSender.build()).build(), links);
+    public CampaignResponse simulateSendAlert(@NonNull String token, @NonNull String text, @NonNull Recipients recipients, @NonNull List<String> links) throws IOException {
+        return send(true, token, text, recipients, AlertOptionalArguments.builder().sender(NoSender.build()).build(), links);
     }
 
      /**
@@ -51,8 +52,8 @@ public class CampaignWithShortURLService extends POSTSMSUpService {
       * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public CampaignResponse sendAlert(@NonNull String token, @NonNull String text, @NonNull AlertOptionalArguments alertOptionalArgument, @NonNull List<String> links) throws IOException {
-        return send(false, token, text, alertOptionalArgument, links);
+    public CampaignResponse sendAlert(@NonNull String token, @NonNull String text, @NonNull Recipients recipients, @NonNull AlertOptionalArguments alertOptionalArgument, @NonNull List<String> links) throws IOException {
+        return send(false, token, text, recipients, alertOptionalArgument, links);
     }
 
     /**
@@ -64,8 +65,8 @@ public class CampaignWithShortURLService extends POSTSMSUpService {
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public CampaignResponse simulateSendAlert(@NonNull String token, @NonNull String text, @NonNull AlertOptionalArguments alertOptionalArgument, @NonNull List<String> links) throws IOException {
-        return send(true, token, text, alertOptionalArgument, links);
+    public CampaignResponse simulateSendAlert(@NonNull String token, @NonNull String text, @NonNull Recipients recipients, @NonNull AlertOptionalArguments alertOptionalArgument, @NonNull List<String> links) throws IOException {
+        return send(true, token, text, recipients, alertOptionalArgument, links);
     }
 
     /**
@@ -76,8 +77,8 @@ public class CampaignWithShortURLService extends POSTSMSUpService {
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public CampaignResponse sendMarketing(@NonNull String token, @NonNull String text, @NonNull List<String> links) throws IOException {
-        return send(false, token, text, MarketingOptionalArguments.builder().sender(NoSender.build()).build(), links);
+    public CampaignResponse sendMarketing(@NonNull String token, @NonNull String text, @NonNull Recipients recipients, @NonNull List<String> links) throws IOException {
+        return send(false, token, text, recipients, MarketingOptionalArguments.builder().sender(NoSender.build()).build(), links);
     }
 
     /**
@@ -88,8 +89,8 @@ public class CampaignWithShortURLService extends POSTSMSUpService {
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public CampaignResponse simulateSendMarketing(@NonNull String token, @NonNull String text, @NonNull List<String> links)throws IOException {
-        return send(true, token, text, MarketingOptionalArguments.builder().sender(NoSender.build()).build(), links);
+    public CampaignResponse simulateSendMarketing(@NonNull String token, @NonNull String text, @NonNull Recipients recipients, @NonNull List<String> links)throws IOException {
+        return send(true, token, text, recipients, MarketingOptionalArguments.builder().sender(NoSender.build()).build(), links);
     }
 
     /**
@@ -101,8 +102,8 @@ public class CampaignWithShortURLService extends POSTSMSUpService {
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public CampaignResponse sendMarketing(@NonNull String token, @NonNull String text, @NonNull MarketingOptionalArguments marketingOptionalArguments, @NonNull List<String> links) throws IOException {
-        return send(false, token, text, marketingOptionalArguments, links);
+    public CampaignResponse sendMarketing(@NonNull String token, @NonNull String text, @NonNull Recipients recipients, @NonNull MarketingOptionalArguments marketingOptionalArguments, @NonNull List<String> links) throws IOException {
+        return send(false, token, text, recipients, marketingOptionalArguments, links);
     }
 
     /**
@@ -114,8 +115,8 @@ public class CampaignWithShortURLService extends POSTSMSUpService {
      * @return CampaignResponse with detailed @{@link CampaignResultResponse}
      * @throws IOException when something got wrong during effective query to SMSUp
      */
-    public CampaignResponse simulateSendMarketing(@NonNull String token, @NonNull String text, @NonNull MarketingOptionalArguments marketingOptionalArguments, @NonNull List<String> links) throws IOException {
-        return send(true, token, text, marketingOptionalArguments, links);
+    public CampaignResponse simulateSendMarketing(@NonNull String token, @NonNull String text, @NonNull Recipients recipients, @NonNull MarketingOptionalArguments marketingOptionalArguments, @NonNull List<String> links) throws IOException {
+        return send(true, token, text, recipients, marketingOptionalArguments, links);
     }
 
 
@@ -132,12 +133,13 @@ public class CampaignWithShortURLService extends POSTSMSUpService {
             boolean simulate,
             @NonNull String token,
             @NonNull String text,
+            @NonNull Recipients recipients,
             @NonNull OptionalArguments optionalArguments,
             @NonNull List<String> links) throws IOException {
 
         ShortLinkHelper.checkLinkListAndTextConsistent(links, text);
 
-        final String data = new CampaignWithLinksDataBuilder(text, optionalArguments, links).buildData();
+        final String data = new CampaignWithLinksDataBuilder(text, recipients, optionalArguments, links).buildData();
 
         final ImmutablePair<Integer, String> response = post(buildUrl(simulate), token, data);
         final CampaignResultResponse responseObject = GsonHelper.fromJson(response.getRight(), CampaignResultResponse.class);

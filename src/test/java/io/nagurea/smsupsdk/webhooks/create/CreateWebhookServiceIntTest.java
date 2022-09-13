@@ -33,9 +33,9 @@ class CreateWebhookServiceIntTest {
     private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
-        final Object webhook = new Object() {
-            final String type = "DLR";
-            final String url = "https://yourserverurl.com";
+        public final Object webhook = new Object() {
+            public final String type = "DLR";
+            public final String url = "https://yourserverurl.com";
 
         };
     };
