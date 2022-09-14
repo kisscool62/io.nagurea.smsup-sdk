@@ -85,20 +85,20 @@ Initial version with:
 * Added Recipients on Short URL campaigns (Send SMS > Short URL)
 * Fixed recipients bugs on campaigns, create tokens, create webhook, HLR lookup, update webhook
 * Fixed content type for every POST service (set to application/json instead of form url encoded)
-
+* Account Managing > Retrieve an account
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
 ### Breaking Changes
 * Added Recipients on Short URL campaigns (Send SMS > Short URL)
-* Fixed recipients bugs on campaigns, create tokens, create webhook, HLR lookup, update webhook
 * Fixed content type for every POST service (set to application/json instead of form url encoded)
 
 ### New Features
 * Account Managing > Credits
 * Account Managing > Create an account
+* Account Managing > Retrieve an account
 
 ### Bug Fixes
-
+* Fixed recipients bugs on campaigns, create tokens, create webhook, HLR lookup, update webhook
  
