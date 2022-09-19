@@ -86,6 +86,7 @@ Initial version with:
 * Fixed recipients bugs on campaigns, create tokens, create webhook, HLR lookup, update webhook
 * Fixed content type for every POST service (set to application/json instead of form url encoded)
 * Account Managing > Retrieve an account
+* Account Managing > Retrieve a sub-account
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -98,6 +99,7 @@ Initial version with:
 * Account Managing > Credits
 * Account Managing > Create an account
 * Account Managing > Retrieve an account
+* Account Managing > Retrieve a sub-account
 
 ### Bug Fixes
 * Fixed recipients bugs on campaigns, create tokens, create webhook, HLR lookup, update webhook

@@ -1,24 +1,22 @@
-package io.nagurea.smsupsdk.accountmanaging.account.retrieve.response;
+package io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.common;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
 @ToString
-@Builder
+@AllArgsConstructor
 @EqualsAndHashCode
-public class AccountInfo {
+public abstract class AbstractAccountInfo {
      @SerializedName("client_id")
      private final String clientId;
      private final String email;
      private final String firstname;
      private final String lastname;
      private final String city;
-     private final String type;
-     private final String company;
      private final String phone;
      private final String address1;
      private final String address2;

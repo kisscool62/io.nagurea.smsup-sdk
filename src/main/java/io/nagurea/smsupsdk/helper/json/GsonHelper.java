@@ -6,6 +6,11 @@ import com.google.gson.TypeAdapterFactory;
 import com.neovisionaries.i18n.CountryCode;
 import io.nagurea.smsupsdk.accountmanaging.account.create.body.AccountType;
 import io.nagurea.smsupsdk.accountmanaging.account.create.body.Childness;
+import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.account.AccountInfo;
+import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.account.RetrieveAccountResultResponse;
+import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.common.AbstractAccountInfo;
+import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.subaccount.RetrieveSubaccountResultResponse;
+import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.subaccount.SubaccountInfo;
 import io.nagurea.smsupsdk.common.response.ResultResponse;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.helper.json.typeadapter.RuntimeTypeAdapterFactory;
@@ -44,10 +49,17 @@ public class GsonHelper {
                 .registerSubtype(GetListsResultResponse.class)
                 .registerSubtype(CreateListResultResponse.class)
                 .registerSubtype(SingleMessageResultResponse.class)
-                .registerSubtype(GetListResultResponse.class);
+                .registerSubtype(GetListResultResponse.class)
+                .registerSubtype(RetrieveSubaccountResultResponse.class)
+                .registerSubtype(RetrieveAccountResultResponse.class);
+
+        final TypeAdapterFactory accountInfoFactory = RuntimeTypeAdapterFactory.of(AbstractAccountInfo.class)
+                .registerSubtype(SubaccountInfo.class)
+                .registerSubtype(AccountInfo.class);
 
         return new GsonBuilder()
                 .registerTypeAdapterFactory(resultResponseFactory)
+                .registerTypeAdapterFactory(accountInfoFactory)
                 .registerTypeAdapter(ResponseStatus.class, new ResponseStatusDeserializer())
                 .registerTypeAdapter(ActivationStatus.class, new ActivationStatusDeserializer())
                 .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer());
