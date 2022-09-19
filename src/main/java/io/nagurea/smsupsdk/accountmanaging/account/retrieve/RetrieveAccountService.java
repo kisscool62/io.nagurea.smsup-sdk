@@ -5,6 +5,9 @@ import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.account.Ret
 import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.account.RetrieveAccountResultResponse;
 import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.subaccount.RetrieveSubaccountResponse;
 import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.subaccount.RetrieveSubaccountResultResponse;
+import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.subaccount.RetrieveSubaccountsResponse;
+import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.subaccount.RetrieveSubaccountsResultResponse;
+import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.subaccount.SubaccountInfo;
 import io.nagurea.smsupsdk.common.exception.RequiredParameterException;
 import io.nagurea.smsupsdk.common.http.get.GETSMSUpService;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
@@ -47,7 +50,7 @@ public class RetrieveAccountService extends GETSMSUpService {
      * Retrieve sub-account linked to the given token and to the id
      * @param token
      * @param id of the sub-account to retrieve
-     * @return @{@link RetrieveAccountResponse} with account (@{@link AccountInfo})
+     * @return @{@link RetrieveSubaccountResponse} with sub-account (@{@link SubaccountInfo})
      * @throws IOException when something got wrong during effective query to SMSUp
      */
     public RetrieveSubaccountResponse retrieveSubaccount(String token, @NonNull String id) throws IOException {
@@ -55,6 +58,23 @@ public class RetrieveAccountService extends GETSMSUpService {
         final String body = response.getRight();
         final RetrieveSubaccountResultResponse responseObject = GsonHelper.fromJson(body, RetrieveSubaccountResultResponse.class);
         return RetrieveSubaccountResponse.builder()
+                .uid(UUID.randomUUID().toString())
+                .statusCode(response.getLeft())
+                .effectiveResponse(responseObject)
+                .build();
+    }
+
+    /**
+     * Retrieve sub-accounts linked to the given token
+     * @param token
+     * @return @{@link RetrieveSubaccountsResponse} with sub-account (@{@link SubaccountInfo})
+     * @throws IOException when something got wrong during effective query to SMSUp
+     */
+    public RetrieveSubaccountsResponse retrieveSubaccounts(String token) throws IOException {
+        final ImmutablePair<Integer, String> response = get(URL_SUBACCOUNTS, token);
+        final String body = response.getRight();
+        final RetrieveSubaccountsResultResponse responseObject = GsonHelper.fromJson(body, RetrieveSubaccountsResultResponse.class);
+        return RetrieveSubaccountsResponse.builder()
                 .uid(UUID.randomUUID().toString())
                 .statusCode(response.getLeft())
                 .effectiveResponse(responseObject)
