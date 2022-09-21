@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.account;
+package io.nagurea.smsupsdk.accountmanaging.account.retrieve.response;
 
 import io.nagurea.smsupsdk.common.response.ResultResponse;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;

@@ -1,8 +1,8 @@
 package io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve;
 
-import io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.subaccount.RetrieveSubaccountResultResponse;
-import io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.subaccount.RetrieveSubaccountsResultResponse;
-import io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.subaccount.SubaccountInfo;
+import io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.response.RetrieveSubaccountResultResponse;
+import io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.response.RetrieveSubaccountsResultResponse;
+import io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.response.SubaccountInfo;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

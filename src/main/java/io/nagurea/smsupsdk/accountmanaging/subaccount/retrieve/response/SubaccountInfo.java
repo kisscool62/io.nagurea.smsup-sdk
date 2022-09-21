@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.subaccount;
+package io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.response;
 
 import io.nagurea.smsupsdk.accountmanaging.common.AbstractAccountInfo;
 import lombok.Builder;

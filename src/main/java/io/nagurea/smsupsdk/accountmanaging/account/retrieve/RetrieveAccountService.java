@@ -1,8 +1,8 @@
 package io.nagurea.smsupsdk.accountmanaging.account.retrieve;
 
-import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.account.AccountInfo;
-import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.account.RetrieveAccountResponse;
-import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.account.RetrieveAccountResultResponse;
+import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.AccountInfo;
+import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.RetrieveAccountResponse;
+import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.RetrieveAccountResultResponse;
 import io.nagurea.smsupsdk.common.http.get.GETSMSUpService;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import org.apache.commons.lang3.tuple.ImmutablePair;
