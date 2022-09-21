@@ -79,7 +79,7 @@ Initial version with:
 * Webhooks > Delete a webhook
 * Webhooks > Update a webhook
 
-## [0.14.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.13.1...v0.14.0) (2022-09-08)
+## [0.14.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.13.1...v0.14.0) (2022-09-22)
 * Account Managing > Credits
 * Account Managing > Create an account
 * Added Recipients on Short URL campaigns (Send SMS > Short URL)
@@ -88,6 +88,8 @@ Initial version with:
 * Account Managing > Retrieve an account
 * Account Managing > Retrieve a sub-account
 * Account Managing > Retrieve sub-accounts
+* Account Managing > Lock a sub-account
+* Account Managing > Unlock a sub-account
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -102,6 +104,8 @@ Initial version with:
 * Account Managing > Retrieve an account
 * Account Managing > Retrieve a sub-account
 * Account Managing > Retrieve sub-accounts
+* Account Managing > Lock a sub-account
+* Account Managing > Unlock a sub-account
 
 ### Bug Fixes
 * Fixed recipients bugs on campaigns, create tokens, create webhook, HLR lookup, update webhook

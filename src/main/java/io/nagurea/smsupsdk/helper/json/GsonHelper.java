@@ -9,6 +9,7 @@ import io.nagurea.smsupsdk.accountmanaging.account.create.body.Childness;
 import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.AccountInfo;
 import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.RetrieveAccountResultResponse;
 import io.nagurea.smsupsdk.accountmanaging.common.AbstractAccountInfo;
+import io.nagurea.smsupsdk.accountmanaging.subaccount.lock.LockState;
 import io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.response.RetrieveSubaccountResultResponse;
 import io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.response.SubaccountInfo;
 import io.nagurea.smsupsdk.common.response.ResultResponse;
@@ -16,6 +17,7 @@ import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.helper.json.typeadapter.RuntimeTypeAdapterFactory;
 import io.nagurea.smsupsdk.helper.json.typeadapter.deserializer.ActivationStatusDeserializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.deserializer.LocalDateTimeDeserializer;
+import io.nagurea.smsupsdk.helper.json.typeadapter.deserializer.LockStateDeserializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.deserializer.ResponseStatusDeserializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.AccountTypeSerializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.ActivationStatusSerializer;
@@ -62,6 +64,7 @@ public class GsonHelper {
                 .registerTypeAdapterFactory(accountInfoFactory)
                 .registerTypeAdapter(ResponseStatus.class, new ResponseStatusDeserializer())
                 .registerTypeAdapter(ActivationStatus.class, new ActivationStatusDeserializer())
+                .registerTypeAdapter(LockState.class, new LockStateDeserializer())
                 .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer());
     }
 
