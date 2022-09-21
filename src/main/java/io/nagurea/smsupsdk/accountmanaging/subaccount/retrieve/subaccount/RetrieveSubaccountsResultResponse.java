@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.subaccount;
+package io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.subaccount;
 
 import com.google.gson.annotations.SerializedName;
 import io.nagurea.smsupsdk.common.response.ResultResponse;

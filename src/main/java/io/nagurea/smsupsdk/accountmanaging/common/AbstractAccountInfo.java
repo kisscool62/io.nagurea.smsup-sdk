@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.common;
+package io.nagurea.smsupsdk.accountmanaging.common;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
