@@ -90,6 +90,7 @@ Initial version with:
 * Account Managing > Retrieve sub-accounts
 * Account Managing > Lock a sub-account
 * Account Managing > Unlock a sub-account
+* Account Managing > Transfer credits
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -106,6 +107,7 @@ Initial version with:
 * Account Managing > Retrieve sub-accounts
 * Account Managing > Lock a sub-account
 * Account Managing > Unlock a sub-account
+* Account Managing > Transfer credits
 
 ### Bug Fixes
 * Fixed recipients bugs on campaigns, create tokens, create webhook, HLR lookup, update webhook
