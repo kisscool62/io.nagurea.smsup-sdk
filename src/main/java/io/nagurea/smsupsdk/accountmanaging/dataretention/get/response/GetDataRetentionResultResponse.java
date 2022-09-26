@@ -1,6 +1,7 @@
 package io.nagurea.smsupsdk.accountmanaging.dataretention.get.response;
 
 import com.google.gson.annotations.SerializedName;
+import io.nagurea.smsupsdk.accountmanaging.dataretention.DataRetentionResult;
 import io.nagurea.smsupsdk.common.response.ResultResponse;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import lombok.Builder;
@@ -14,10 +15,10 @@ import lombok.ToString;
 public class GetDataRetentionResultResponse extends ResultResponse {
 
     @SerializedName("data_retention")
-    private final DataRetention dataRetention;
+    private final DataRetentionResult dataRetention;
 
     @Builder
-    public GetDataRetentionResultResponse(ResponseStatus responseStatus, String message, DataRetention dataRetention) {
+    public GetDataRetentionResultResponse(ResponseStatus responseStatus, String message, DataRetentionResult dataRetention) {
         super(responseStatus, message);
         this.dataRetention = dataRetention;
     }

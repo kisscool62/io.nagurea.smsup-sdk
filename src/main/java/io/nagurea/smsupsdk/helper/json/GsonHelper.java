@@ -9,6 +9,8 @@ import io.nagurea.smsupsdk.accountmanaging.account.create.body.Childness;
 import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.AccountInfo;
 import io.nagurea.smsupsdk.accountmanaging.account.retrieve.response.RetrieveAccountResultResponse;
 import io.nagurea.smsupsdk.accountmanaging.common.AbstractAccountInfo;
+import io.nagurea.smsupsdk.accountmanaging.dataretention.update.body.retentiontime.ListRetention;
+import io.nagurea.smsupsdk.accountmanaging.dataretention.update.body.retentiontime.common.RetentionTime;
 import io.nagurea.smsupsdk.accountmanaging.subaccount.lock.LockState;
 import io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.response.RetrieveSubaccountResultResponse;
 import io.nagurea.smsupsdk.accountmanaging.subaccount.retrieve.response.SubaccountInfo;
@@ -23,7 +25,9 @@ import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.AccountTypeSeriali
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.ActivationStatusSerializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.ChildnessSerializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.CountryCodeSerializer;
+import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.ListRetentionSerializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.PushTypeSerializer;
+import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.RetentionTimeSerializer;
 import io.nagurea.smsupsdk.helper.json.typeadapter.serializer.SenderSerializer;
 import io.nagurea.smsupsdk.lists.create.CreateListResultResponse;
 import io.nagurea.smsupsdk.lists.get.list.GetListResultResponse;
@@ -77,6 +81,8 @@ public class GsonHelper {
         gsonBuilder.registerTypeAdapter(AccountType.class, new AccountTypeSerializer());
         gsonBuilder.registerTypeAdapter(Childness.class, new ChildnessSerializer());
         gsonBuilder.registerTypeAdapter(CountryCode.class, new CountryCodeSerializer());
+        gsonBuilder.registerTypeAdapter(ListRetention.class, new ListRetentionSerializer());
+        gsonBuilder.registerTypeHierarchyAdapter(RetentionTime.class, new RetentionTimeSerializer());
         return gsonBuilder;
     }
 

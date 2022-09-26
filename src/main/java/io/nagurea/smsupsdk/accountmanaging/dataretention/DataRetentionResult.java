@@ -1,4 +1,4 @@
-package io.nagurea.smsupsdk.accountmanaging.dataretention.get.response;
+package io.nagurea.smsupsdk.accountmanaging.dataretention;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @ToString(callSuper = true)
 @EqualsAndHashCode
-public class DataRetention {
+public class DataRetentionResult {
 
     private final String message;
     private final String list;
@@ -16,7 +16,7 @@ public class DataRetention {
     private final String campaign;
 
     @Builder
-    public DataRetention(String message, String list, String survey, String campaign) {
+    public DataRetentionResult(String message, String list, String survey, String campaign) {
         super();
         this.message = message;
         this.list = list;

@@ -1,6 +1,6 @@
 package io.nagurea.smsupsdk.accountmanaging.dataretention.get;
 
-import io.nagurea.smsupsdk.accountmanaging.dataretention.get.response.DataRetention;
+import io.nagurea.smsupsdk.accountmanaging.dataretention.DataRetentionResult;
 import io.nagurea.smsupsdk.accountmanaging.dataretention.get.response.GetDataRetentionResultResponse;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import org.junit.jupiter.api.AfterAll;
@@ -73,7 +73,7 @@ class GetDataRetentionServiceIntTest {
                 .message("OK")
                 .responseStatus(ResponseStatus.OK)
                 .dataRetention(
-                        DataRetention.builder()
+                        DataRetentionResult.builder()
                                 .message("2m")
                                 .list("2d")
                                 .survey("5m")

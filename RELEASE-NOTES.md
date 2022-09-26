@@ -92,6 +92,7 @@ Initial version with:
 * Account Managing > Unlock a sub-account
 * Account Managing > Transfer credits
 * Account Managing > Data retention > Get
+* Account Managing > Data retention > Update
 
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
@@ -110,6 +111,7 @@ Initial version with:
 * Account Managing > Unlock a sub-account
 * Account Managing > Transfer credits
 * Account Managing > Data retention > Get
+* Account Managing > Data retention > Update
 
 ### Bug Fixes
 * Fixed recipients bugs on campaigns, create tokens, create webhook, HLR lookup, update webhook

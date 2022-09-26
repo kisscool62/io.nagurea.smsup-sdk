@@ -1,6 +1,6 @@
 package io.nagurea.smsupsdk.accountmanaging.dataretention.get;
 
-import io.nagurea.smsupsdk.accountmanaging.dataretention.get.response.DataRetention;
+import io.nagurea.smsupsdk.accountmanaging.dataretention.DataRetentionResult;
 import io.nagurea.smsupsdk.accountmanaging.dataretention.get.response.GetDataRetentionResponse;
 import io.nagurea.smsupsdk.accountmanaging.dataretention.get.response.GetDataRetentionResultResponse;
 import io.nagurea.smsupsdk.common.http.get.GETSMSUpService;
@@ -21,7 +21,7 @@ public class GetDataRetentionService extends GETSMSUpService {
      * This method allows you to get the values of your data retention.
      * After a number the "d" matches with day and the "m" matches with month
      * @param token
-     * @return @{@link GetDataRetentionResponse} with data retention info (@{@link DataRetention})
+     * @return @{@link GetDataRetentionResponse} with data retention info (@{@link DataRetentionResult})
      * @throws IOException when something got wrong during effective query to SMSUp
      */
     public GetDataRetentionResponse getDataRetention(String token) throws IOException {
