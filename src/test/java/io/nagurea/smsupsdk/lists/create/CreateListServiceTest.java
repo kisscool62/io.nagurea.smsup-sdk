@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.lists.create;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.lists.create.arguments.CreateListArguments;
 import io.nagurea.smsupsdk.lists.create.body.Contacts;
@@ -24,9 +25,8 @@ import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class CreateListServiceTest {
-    private static final String YOUR_TOKEN = "Your Token";
-    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
+class CreateListServiceTest extends TestIntBase {
+
 
     /**
      * Useless. Only here to show how services could be used with Spring
@@ -63,7 +63,7 @@ class CreateListServiceTest {
     @BeforeAll
     public static void startMockSMSUpServer() {
         ConfigurationProperties.logLevel("DEBUG");
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/list")

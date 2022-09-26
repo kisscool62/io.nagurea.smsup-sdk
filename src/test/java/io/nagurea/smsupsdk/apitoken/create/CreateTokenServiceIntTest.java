@@ -1,6 +1,7 @@
 package io.nagurea.smsupsdk.apitoken.create;
 
 import io.nagurea.smsupsdk.apitoken.create.body.TokenInfo;
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.contacts.blacklist.AddContactToBlacklistResponse;
 import io.nagurea.smsupsdk.contacts.blacklist.AddContactToBlacklistResultResponse;
@@ -28,7 +29,7 @@ import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class CreateTokenServiceIntTest {
+class CreateTokenServiceIntTest extends TestIntBase {
 
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -55,7 +56,7 @@ class CreateTokenServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
 
         mockServer.when(
                 request()

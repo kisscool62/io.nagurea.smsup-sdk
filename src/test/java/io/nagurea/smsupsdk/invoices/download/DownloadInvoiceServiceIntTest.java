@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.invoices.download;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.response.PDFDocument;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,10 +21,8 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class DownloadInvoiceServiceIntTest {
+class DownloadInvoiceServiceIntTest extends TestIntBase {
 
-    private static final String YOUR_TOKEN = "Your Token";
-    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
     private static final String INVOICE_ID = "778";
     private static final String PDF_FILENAME = "invoice-document.pdf";
 
@@ -37,7 +36,7 @@ class DownloadInvoiceServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer() throws IOException {
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/account/invoice/" + INVOICE_ID + "/download")

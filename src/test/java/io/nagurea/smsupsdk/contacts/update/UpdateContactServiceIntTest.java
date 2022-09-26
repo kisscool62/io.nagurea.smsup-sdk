@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.contacts.update;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.contacts.update.body.ContactBody;
 import org.junit.jupiter.api.AfterAll;
@@ -20,10 +21,8 @@ import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class UpdateContactServiceIntTest {
+class UpdateContactServiceIntTest extends TestIntBase {
 
-    private static final String YOUR_TOKEN = "Your Token";
-    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
     private static final String CONTACT_ID = "66";
 
     /**
@@ -45,7 +44,7 @@ class UpdateContactServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/list/contact/" + CONTACT_ID)

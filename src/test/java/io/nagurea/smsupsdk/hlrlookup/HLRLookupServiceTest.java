@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.hlrlookup;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.helper.json.GsonHelper;
 import io.nagurea.smsupsdk.hlrlookup.response.HLRLookup;
@@ -29,9 +30,8 @@ import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class HLRLookupServiceTest {
-    private static final String YOUR_TOKEN = "Your Token";
-    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
+class HLRLookupServiceTest extends TestIntBase {
+
 
     /**
      * Useless. Only here to show how services could be used with Spring
@@ -50,7 +50,7 @@ class HLRLookupServiceTest {
     @BeforeAll
     public static void startMockSMSUpServer() {
         ConfigurationProperties.logLevel("DEBUG");
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/lookup")

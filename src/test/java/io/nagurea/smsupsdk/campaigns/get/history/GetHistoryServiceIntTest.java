@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.campaigns.get.history;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import lombok.NonNull;
 import org.junit.jupiter.api.AfterAll;
@@ -21,10 +22,8 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class GetHistoryServiceIntTest {
+class GetHistoryServiceIntTest extends TestIntBase {
 
-    private static final String YOUR_TOKEN = "Your Token";
-    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
 
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -36,7 +35,7 @@ class GetHistoryServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/campaigns")

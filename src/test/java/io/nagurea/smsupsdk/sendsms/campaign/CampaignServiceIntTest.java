@@ -1,6 +1,7 @@
 package io.nagurea.smsupsdk.sendsms.campaign;
 
 import com.google.common.collect.Sets;
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.sendsms.arguments.AlertOptionalArguments;
 import io.nagurea.smsupsdk.sendsms.arguments.Delay;
@@ -26,7 +27,7 @@ import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class CampaignServiceIntTest {
+class CampaignServiceIntTest extends TestIntBase {
 
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -63,7 +64,7 @@ class CampaignServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/send")

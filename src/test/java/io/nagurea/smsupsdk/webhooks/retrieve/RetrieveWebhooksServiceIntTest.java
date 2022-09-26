@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.webhooks.retrieve;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.webhooks.create.common.WebhookType;
 import io.nagurea.smsupsdk.webhooks.retrieve.response.Webhook;
@@ -23,10 +24,8 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class RetrieveWebhooksServiceIntTest {
+class RetrieveWebhooksServiceIntTest extends TestIntBase {
 
-    private static final String YOUR_TOKEN = "Your Token";
-    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
 
     private static final String WEBHOOK_ID = "66";
 
@@ -40,7 +39,7 @@ class RetrieveWebhooksServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/webhook")

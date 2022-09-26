@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.contacts.insert;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.contacts.insert.body.ContactList;
 import io.nagurea.smsupsdk.contacts.insert.body.ContactListBody;
@@ -24,7 +25,7 @@ import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class CampaignWithListsServiceIntTest {
+class CampaignWithListsServiceIntTest extends TestIntBase {
 
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -65,7 +66,7 @@ class CampaignWithListsServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
 
         mockServer.when(
                 request()

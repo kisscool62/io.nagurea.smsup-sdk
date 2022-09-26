@@ -94,25 +94,15 @@ Initial version with:
 * Account Managing > Data retention > Get
 * Account Managing > Data retention > Update
 
+## [1.0.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.14.0...v1.0.0) (2022-09-26)
+First release with every SMSUp API
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
 ### Breaking Changes
-* Added Recipients on Short URL campaigns (Send SMS > Short URL)
-* Fixed content type for every POST service (set to application/json instead of form url encoded)
 
 ### New Features
-* Account Managing > Credits
-* Account Managing > Create an account
-* Account Managing > Retrieve an account
-* Account Managing > Retrieve a sub-account
-* Account Managing > Retrieve sub-accounts
-* Account Managing > Lock a sub-account
-* Account Managing > Unlock a sub-account
-* Account Managing > Transfer credits
-* Account Managing > Data retention > Get
-* Account Managing > Data retention > Update
 
 ### Bug Fixes
-* Fixed recipients bugs on campaigns, create tokens, create webhook, HLR lookup, update webhook
  

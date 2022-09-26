@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.webhooks.update;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.webhooks.create.common.WebhookType;
 import io.nagurea.smsupsdk.webhooks.update.body.WebhookBody;
@@ -24,10 +25,8 @@ import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class UpdateWebhookServiceIntTest {
+class UpdateWebhookServiceIntTest extends TestIntBase {
 
-    private static final String YOUR_TOKEN = "Your Token";
-    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
     private static final String WEBHOOK_ID = "66";
 
     /**
@@ -48,7 +47,7 @@ class UpdateWebhookServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/webhook/" + WEBHOOK_ID)

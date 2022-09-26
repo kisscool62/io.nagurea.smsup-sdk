@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.invoices.get.invoices;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.invoices.get.Invoice;
 import io.nagurea.smsupsdk.invoices.get.Product;
@@ -22,10 +23,8 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class GetInvoicesServiceIntTest {
+class GetInvoicesServiceIntTest extends TestIntBase {
 
-    private static final String YOUR_TOKEN = "Your Token";
-    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
 
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -37,7 +36,7 @@ class GetInvoicesServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/account/invoice")

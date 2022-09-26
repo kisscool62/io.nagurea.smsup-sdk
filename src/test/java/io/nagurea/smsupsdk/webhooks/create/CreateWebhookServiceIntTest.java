@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.webhooks.create;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.webhooks.create.body.WebhookInfo;
 import io.nagurea.smsupsdk.webhooks.create.common.WebhookType;
@@ -22,7 +23,7 @@ import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class CreateWebhookServiceIntTest {
+class CreateWebhookServiceIntTest extends TestIntBase {
 
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -43,7 +44,7 @@ class CreateWebhookServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
 
         mockServer.when(
                 request()

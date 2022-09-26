@@ -1,6 +1,7 @@
 package io.nagurea.smsupsdk.notifications.balance.update;
 
 import com.google.gson.annotations.SerializedName;
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.notifications.balance.update.body.request.Notification;
 import org.junit.jupiter.api.AfterAll;
@@ -22,7 +23,7 @@ import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class UpdateBalanceServiceIntTest {
+class UpdateBalanceServiceIntTest extends TestIntBase {
 
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -43,7 +44,7 @@ class UpdateBalanceServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
 
         mockServer.when(
                 request()

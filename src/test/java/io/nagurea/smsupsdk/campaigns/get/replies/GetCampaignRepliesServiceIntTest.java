@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.campaigns.get.replies;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,10 +21,8 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class GetCampaignRepliesServiceIntTest {
+class GetCampaignRepliesServiceIntTest extends TestIntBase {
 
-    private static final String YOUR_TOKEN = "Your Token";
-    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
     private static final String CAMPAIGN_ID = "18969398";
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -35,7 +34,7 @@ class GetCampaignRepliesServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/campaign/" + CAMPAIGN_ID + "/mo")

@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.contacts.blacklist;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import io.nagurea.smsupsdk.contacts.blacklist.body.Blacklist;
 import io.nagurea.smsupsdk.contacts.blacklist.body.ContactListBody;
@@ -24,7 +25,8 @@ import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class AddContactToBlacklistServiceIntTest {
+class AddContactToBlacklistServiceIntTest extends TestIntBase {
+
 
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -64,7 +66,7 @@ class AddContactToBlacklistServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer() ;
 
         mockServer.when(
                 request()

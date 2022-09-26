@@ -4,6 +4,7 @@ import com.neovisionaries.i18n.CountryCode;
 import io.nagurea.smsupsdk.accountmanaging.account.create.body.AccountInfo;
 import io.nagurea.smsupsdk.accountmanaging.account.create.body.Childness;
 import io.nagurea.smsupsdk.accountmanaging.account.create.body.CreateAccountBody;
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import lombok.NonNull;
 import org.junit.jupiter.api.AfterAll;
@@ -25,15 +26,15 @@ import static org.mockserver.model.JsonBody.json;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class CreateAccountServiceIntTest {
+class CreateAccountServiceIntTest extends TestIntBase {
+
+    private static ClientAndServer mockServer;
 
     /**
      * Useless. Only here to see how services could be used with Spring
      */
     @Autowired
     private CreateAccountService createAccountService;
-
-    private static ClientAndServer mockServer;
 
     private static final Object EXPECTED_JSON_OBJECT = new Object() {
         public final Object account = new Object() {
@@ -53,7 +54,7 @@ class CreateAccountServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
 
         mockServer.when(
                 request()

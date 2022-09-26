@@ -2,6 +2,7 @@ package io.nagurea.smsupsdk.accountmanaging.dataretention.get;
 
 import io.nagurea.smsupsdk.accountmanaging.dataretention.DataRetentionResult;
 import io.nagurea.smsupsdk.accountmanaging.dataretention.get.response.GetDataRetentionResultResponse;
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,10 +21,7 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class GetDataRetentionServiceIntTest {
-
-    private static final String YOUR_TOKEN = "Your Token";
-    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
+class GetDataRetentionServiceIntTest extends TestIntBase {
 
     /**
      * Useless. Only here to see how services could be used with Spring
@@ -35,7 +33,7 @@ class GetDataRetentionServiceIntTest {
 
     @BeforeAll
     public static void startMockSMSUpServer(){
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/retention")

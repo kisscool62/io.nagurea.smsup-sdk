@@ -1,5 +1,6 @@
 package io.nagurea.smsupsdk.lists.clear;
 
+import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.status.ResponseStatus;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,9 +21,8 @@ import static org.mockserver.model.HttpRequest.request;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringConfiguration.class)
-class ClearListServiceTest {
-    private static final String YOUR_TOKEN = "Your Token";
-    private static final String EXPECTED_TOKEN = "Bearer " + YOUR_TOKEN;
+class ClearListServiceTest extends TestIntBase {
+
     private static final String LIST_ID = "2";
 
     /**
@@ -36,7 +36,7 @@ class ClearListServiceTest {
     @BeforeAll
     public static void startMockSMSUpServer() {
         ConfigurationProperties.logLevel("DEBUG");
-        mockServer = ClientAndServer.startClientAndServer("localhost", 4242, 4242);
+        mockServer = startMockServer();
         mockServer.when(
                 request()
                         .withPath("/list/" + LIST_ID + "/npai/clear")
