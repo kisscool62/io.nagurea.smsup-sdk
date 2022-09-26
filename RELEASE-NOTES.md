@@ -97,6 +97,9 @@ Initial version with:
 ## [1.0.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v0.14.0...v1.0.0) (2022-09-26)
 First release with every SMSUp API
 
+## [1.0.0](https://github.com/kisscool62/io.nagurea.smsupsdk/compare/v1.0.0...v1.0.1) (2022-09-26)
+Fixed [sonatype-2020-0926] CWE-379: Creation of Temporary File in Directory with Incorrect Permissions
+
 ### Upgrade Steps
 * [NO ACTION REQUIRED]
 
@@ -105,4 +108,5 @@ First release with every SMSUp API
 ### New Features
 
 ### Bug Fixes
+Fixed [sonatype-2020-0926] CWE-379: Creation of Temporary File in Directory with Incorrect Permissions
  

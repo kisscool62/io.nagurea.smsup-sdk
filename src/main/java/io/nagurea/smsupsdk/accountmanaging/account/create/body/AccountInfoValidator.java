@@ -1,6 +1,5 @@
 package io.nagurea.smsupsdk.accountmanaging.account.create.body;
 
-import com.google.common.collect.Sets;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
@@ -8,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -21,8 +21,7 @@ public class AccountInfoValidator {
             .buildValidatorFactory().getValidator();
 
     public static Set<ConstraintViolation<AccountInfo>> validates(@NonNull AccountInfo accountInfo){
-        Set<ConstraintViolation<AccountInfo>> constraintViolations = Sets.newHashSet();
-        constraintViolations.addAll(validator.validate(accountInfo));
+        Set<ConstraintViolation<AccountInfo>> constraintViolations = new HashSet<>(validator.validate(accountInfo));
         if(accountInfo.isMainAccount()){
             constraintViolations.addAll(validator.validate(accountInfo, MainAccount.class));
         }

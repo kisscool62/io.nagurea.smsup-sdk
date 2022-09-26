@@ -1,6 +1,5 @@
 package io.nagurea.smsupsdk.accountmanaging.dataretention.update.body.validator;
 
-import com.google.common.collect.Sets;
 import io.nagurea.smsupsdk.accountmanaging.dataretention.update.body.retentiontime.common.ValidRetention;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -8,6 +7,7 @@ import jakarta.validation.Validator;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -21,7 +21,7 @@ public class RetentionValidator {
             .buildValidatorFactory().getValidator();
 
     public static Set<ConstraintViolation<ValidRetention>> validates(ValidRetention retention){
-        Set<ConstraintViolation<ValidRetention>> constraintViolations = Sets.newHashSet();
+        Set<ConstraintViolation<ValidRetention>> constraintViolations = new HashSet<>();
         if(retention != null){
             constraintViolations.addAll(validator.validate(retention));
         }
