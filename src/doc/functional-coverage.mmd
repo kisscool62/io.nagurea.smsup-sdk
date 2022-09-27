@@ -18,6 +18,15 @@ flowchart BT
         campaigns(Campaigns):::done --- campaigns4(Get the STOPs of a campaign):::done
         campaigns(Campaigns):::done --- campaigns5(Get the NPAIs of a campaign):::done
         campaigns(Campaigns):::done --- campaigns6(Get the replies of a campaign):::done
+        smstemplates(SMS templates):::todo --- smstemplates1(Create template):::todo
+        smstemplates(SMS templates):::todo --- smstemplates2(Get templates):::todo
+        smstemplates(SMS templates):::todo --- smstemplates3(Get template):::todo
+        smstemplates(SMS templates):::todo --- smstemplates4(Update template):::todo
+        smstemplates(SMS templates):::todo --- smstemplates5(Delete template):::todo
+        mailtosms(Mail to SMS):::todo --- mailtosms1(Get mail to SMS events):::todo
+        mailtosms(Mail to SMS):::todo --- mailtosms2(Get configuration):::todo
+        mailtosms(Mail to SMS):::todo --- mailtosms3(Update configuration):::todo
+        mailtosms(Mail to SMS):::todo --- mailtosms4(Update token):::todo
         lists(Lists):::done --- lists1(Create list):::done
         lists(Lists):::done --- lists2(Clear list):::done
         lists(Lists):::done --- lists3(Get lists):::done
@@ -51,12 +60,18 @@ flowchart BT
         apitoken(API Token):::done --- apitoken1(Create a token):::done
         apitoken(API Token):::done --- apitoken2(Retrieve tokens):::done
         apitoken(API Token):::done --- apitoken3(Delete a token):::done
+        apierrors(API errors):::todo --- apierrors1(Get API errors history):::todo
+        apierrors(API errors):::todo --- apierrors2(Get API error):::todo
         hlrlookup(HLR Lookup):::done
         webhooks(Webhooks):::done --- webhooks2(Create a webhook):::done
         webhooks(Webhooks):::done --- webhooks3(Retrieve webhooks):::done
         webhooks(Webhooks):::done --- webhooks4(Retrieve a single webhook):::done
         webhooks(Webhooks):::done --- webhooks5(Update a webhook):::done
         webhooks(Webhooks):::done --- webhooks6(Delete a webhook):::done
+        uploadfile(Upload file):::todo
+        senders(Senders):::todo --- senders1(Create a sender):::todo
+        senders(Senders):::todo --- senders2(Retrieve a sender):::todo
+        senders(Senders):::todo --- senders3(Retrieve senders):::todo
     end
     classDef done fill:#80CBC4,stroke-opacity:0;
     classDef todo fill:#E3F2FD,stroke-opacity:0;
