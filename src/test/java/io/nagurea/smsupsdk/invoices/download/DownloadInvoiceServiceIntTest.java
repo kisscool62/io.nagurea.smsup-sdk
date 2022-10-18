@@ -2,6 +2,7 @@ package io.nagurea.smsupsdk.invoices.download;
 
 import io.nagurea.smsupsdk.common.TestIntBase;
 import io.nagurea.smsupsdk.common.response.PDFDocument;
+import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -51,7 +52,7 @@ class DownloadInvoiceServiceIntTest extends TestIntBase {
     }
 
     private static byte[] getPdfFileAsBytes() throws IOException {
-        return DownloadInvoiceServiceIntTest.class.getClassLoader().getResourceAsStream("io/nagurea/smsupsdk/invoices/download/test_download.pdf").readAllBytes();
+        return IOUtils.toByteArray(DownloadInvoiceServiceIntTest.class.getClassLoader().getResourceAsStream("io/nagurea/smsupsdk/invoices/download/test_download.pdf"));
     }
 
     @AfterAll
