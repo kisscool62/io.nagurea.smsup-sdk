@@ -15,8 +15,11 @@ public class ShortLinkHelper {
 
     public static void checkLinkListAndTextConsistent(List<String> links, String text){
         final Matcher matcher = shortLinkPattern.matcher(text);
-        final long countMatch = matcher.results().count();
-        if(countMatch != links.size()){
+        int count = 0;
+        while (matcher.find()){
+            count++;
+        }
+        if(count != links.size()){
             throw TextWithoutShortPatternException.newTextWithoutShortPatternException(text,SHORT_PATTERN );
         }
     }

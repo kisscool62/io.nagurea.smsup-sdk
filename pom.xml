@@ -33,6 +33,7 @@
         <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
         <nv-i18n.version>1.29</nv-i18n.version>
+        <commons-io.version>2.11.0</commons-io.version>
     </properties>
 
     <parent>
@@ -186,6 +187,11 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

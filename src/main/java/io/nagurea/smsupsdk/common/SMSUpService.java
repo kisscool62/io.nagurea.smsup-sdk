@@ -3,6 +3,7 @@ package io.nagurea.smsupsdk.common;
 import io.nagurea.smsupsdk.common.http.HTTPMethod;
 import io.nagurea.smsupsdk.common.response.PDFDocument;
 import lombok.AllArgsConstructor;
+import org.apache.commons.io.IOUtils;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -49,7 +50,7 @@ public abstract class SMSUpService {
     protected PDFDocument readPDF(InputStream is, int contentLength, String fileName) throws IOException {
 
         try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            final byte[] bytes = is.readAllBytes();
+            final byte[] bytes = IOUtils.toByteArray(is);
             if(contentLength != bytes.length){
                 throw newContentLengthException(contentLength, bytes.length);
             }
