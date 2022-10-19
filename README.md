@@ -21,7 +21,7 @@ For instance, for version 0.13.0
 <dependency>
 <groupId>io.nagurea</groupId>
 <artifactId>smsup-sdk</artifactId>
-<version>0.13.0</version>
+<version>1.0.1</version>
 </dependency>
 ```
 
@@ -30,7 +30,7 @@ For instance, to send an Alert SMS to some recipient
 ```java
 import io.nagurea.smsupsdk.sendsms.singlemessage.SingleMessageService;
 
-public class SingleMessageMain {
+public class SingleMessageMain throws IOException {
     public static void main(String[] args) {
         //initiate the service with root url
         final SingleMessageService singleMessageService = new SingleMessageService("https://api.smsup.ch/");
